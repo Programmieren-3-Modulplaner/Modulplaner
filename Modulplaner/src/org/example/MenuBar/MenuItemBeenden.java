@@ -5,17 +5,17 @@
 
 package org.example.MenuBar;
 
-import org.example.Listener.MenuItemClosActionListener;
+import org.example.Listener.MenuItemBeendenActionListener;
 import javax.swing.JMenuItem;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 
-public class MenuItemClose extends JMenuItem {
+public class MenuItemBeenden extends JMenuItem {
 
-    public MenuItemClose() {
+    public MenuItemBeenden() {
         super("Beenden");
-        this.addActionListener(new MenuItemClosActionListener());
+        this.addActionListener(new MenuItemBeendenActionListener());
     }
 }

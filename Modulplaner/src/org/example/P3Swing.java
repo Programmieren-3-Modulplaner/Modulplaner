@@ -108,10 +108,10 @@ public class P3Swing extends JFrame {
         JPanel filterPanel = new JPanel(new FlowLayout());
         filterPanel.add(filternButton);
 
-        getContentPane().setLayout(new BorderLayout());
-        getContentPane().add(new JScrollPane(musikJList), BorderLayout.CENTER);
-        getContentPane().add(eingabePanel, BorderLayout.NORTH);
-        getContentPane().add(filterPanel, BorderLayout.SOUTH);
+        this.getContentPane().setLayout(new BorderLayout());
+        this.getContentPane().add(new JScrollPane(musikJList), BorderLayout.CENTER);
+        this.getContentPane().add(eingabePanel, BorderLayout.NORTH);
+        this.getContentPane().add(filterPanel, BorderLayout.SOUTH);
 
         setTitle("Musik Katalog");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

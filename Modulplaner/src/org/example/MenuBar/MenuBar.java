@@ -17,15 +17,12 @@ public class MenuBar extends JMenuBar{
         super();
         if (name.equals("main")){
             this.add(new Menu("Datei"));
-            this.add(new Menu("Dokumentation"));
-            this.add(new Menu("Irgendwas"));
+            this.add(new Menu("Hilfe"));
         }
         if (name.equals("test")){
-            this.add(new Menu("Dokumentation"));
             this.add(new Menu("Datei"));
+            this.add(new Menu("Hilfe"));
+            this.add(new Menu("Irgendwas"));
         }
-        //this.add(new FileMenu());
-        //this.add(new DokuMenu());
     }
-
 }

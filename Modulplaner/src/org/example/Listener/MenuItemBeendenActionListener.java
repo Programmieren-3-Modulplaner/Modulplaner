@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 
-public class MenuItemClosActionListener implements ActionListener {
+public class MenuItemBeendenActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {

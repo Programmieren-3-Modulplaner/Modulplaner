@@ -13,13 +13,26 @@ import org.example.MenuBar.MenuBar;
  */
 public class P3_Uebung03_Swing extends JFrame {
     
-    public P3_Uebung03_Swing(){
-        
-    }
-
     /**
      * @param args the command line arguments
      */
+    
+    public static P3_Uebung03_Swing app;
+    
+    public P3_Uebung03_Swing(){
+        setTitle("Das ist ein Fenster!");
+        addWindowListener(new WindowEventListener());
+        setSize(500, 300);
+        setLocationRelativeTo(null);
+        
+        setJMenuBar(new MenuBar("main"));
+        
+        
+
+        setVisible(true);
+    }
+
+    
     public static void main(String[] args) {
         
         if (System.getProperty("os.name") != null && System.getProperty("os.name").toLowerCase().indexOf("mac") != -1) {
@@ -27,14 +40,6 @@ public class P3_Uebung03_Swing extends JFrame {
             System.setProperty("apple.laf.useScreenMenuBar", "true");
         }
         
-        P3_Uebung03_Swing mainWindow = new P3_Uebung03_Swing();
-        mainWindow.setTitle("Das ist ein Fenster!");
-        mainWindow.addWindowListener(new WindowEventListener());
-        mainWindow.setSize(500, 300);
-        mainWindow.setLocationRelativeTo(null);
-        
-        mainWindow.setJMenuBar(new MenuBar("main"));
-
-        mainWindow.setVisible(true);
+        app = new P3_Uebung03_Swing();
     }
 }

@@ -5,15 +5,15 @@
 
 package org.example.MenuBar;
 
-import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 
-public class DokuMenu extends JMenu{
+public class MenuItemHilfedialog extends JMenuItem{
 
-    public DokuMenu() {
-        super("Dokumentation");
+    public MenuItemHilfedialog() {
+        super("Hilfe");
     }
 }

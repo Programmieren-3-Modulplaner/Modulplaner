@@ -5,15 +5,17 @@
 
 package org.example.MenuBar;
 
+import java.awt.PopupMenu;
 import javax.swing.JMenuItem;
+import org.example.Listener.MenuItemBeendenActionListener;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 
-public class MenuItemDokumetnation extends JMenuItem{
+public class MenuItemNeu extends JMenuItem {
 
-    public MenuItemDokumetnation() {
-        super("Dokumentationen");
+    public MenuItemNeu() {
+        super("Neu");
     }
 }
