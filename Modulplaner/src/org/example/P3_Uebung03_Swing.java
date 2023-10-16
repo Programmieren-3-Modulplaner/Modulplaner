@@ -20,7 +20,6 @@ import org.example.MenuBar.MenuBar;
  * 
  * 
  * 
- * 
  *
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
