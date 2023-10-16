@@ -9,18 +9,6 @@ import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
 
 /**
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- *
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 public class P3_Uebung03_Swing extends JFrame {
