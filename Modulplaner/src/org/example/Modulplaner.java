@@ -4,6 +4,8 @@
  */
 package org.example;
 
+import java.awt.BorderLayout;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
@@ -11,23 +13,25 @@ import org.example.MenuBar.MenuBar;
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
-public class P3_Uebung03_Swing extends JFrame {
+public class Modulplaner extends JFrame {
     
     /**
      * @param args the command line arguments
      */
     
-    public static P3_Uebung03_Swing app;
+    public static Modulplaner app;
     
-    public P3_Uebung03_Swing(){
-        setTitle("Das ist ein Fenster!");
+    private ArrayList<Modul> module = new ArrayList();
+    
+    public Modulplaner(){
+        setTitle("Planer");
         addWindowListener(new WindowEventListener());
         setSize(500, 300);
         setLocationRelativeTo(null);
         
         setJMenuBar(new MenuBar("main"));
         
-        
+        setLayout(new BorderLayout());
 
         setVisible(true);
     }
@@ -40,6 +44,8 @@ public class P3_Uebung03_Swing extends JFrame {
             System.setProperty("apple.laf.useScreenMenuBar", "true");
         }
         
-        app = new P3_Uebung03_Swing();
+        app = new Modulplaner();
+        //app.module.add(new Modul("P3","Montag",8,9));
+        //System.out.println(app.module.get(0).getName());
     }
 }
