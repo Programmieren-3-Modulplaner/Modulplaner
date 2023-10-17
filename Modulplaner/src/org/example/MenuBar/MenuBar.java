@@ -15,14 +15,18 @@ public class MenuBar extends JMenuBar{
 
     public MenuBar(String name) {
         super();
-        if (name.equals("main")){
+        if (name.equals("modulplaner")){
             this.add(new Menu("Datei"));
             this.add(new Menu("Hilfe"));
         }
-        if (name.equals("test")){
+        else if (name.equals("about")){
+            this.add(new Menu("Hilfe"));
+        }
+        else if (name.equals("test")){
             this.add(new Menu("Datei"));
             this.add(new Menu("Hilfe"));
             this.add(new Menu("Irgendwas"));
         }
+        else System.out.println("Keine MenuBar Names \"" + name + "\" vorhanden");
     }
 }

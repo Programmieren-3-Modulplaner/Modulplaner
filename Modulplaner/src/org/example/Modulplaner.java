@@ -19,7 +19,7 @@ public class Modulplaner extends JFrame {
      * @param args the command line arguments
      */
     
-    public static Modulplaner app;
+    //public static Modulplaner app;
     
     private ArrayList<Modul> module = new ArrayList();
     
@@ -29,7 +29,10 @@ public class Modulplaner extends JFrame {
         setSize(500, 300);
         setLocationRelativeTo(null);
         
-        setJMenuBar(new MenuBar("main"));
+        setJMenuBar(new MenuBar("modulplaner"));
+        
+        module.add(new Modul("P3","Montag", 8,9));
+        System.out.println(module.get(0).getName());
         
         setLayout(new BorderLayout());
 
@@ -39,13 +42,16 @@ public class Modulplaner extends JFrame {
     
     public static void main(String[] args) {
         
+        /*
         if (System.getProperty("os.name") != null && System.getProperty("os.name").toLowerCase().indexOf("mac") != -1) {
             //System.getProperties().put("apple.laf.useScreenMenuBar", "true");
             System.setProperty("apple.laf.useScreenMenuBar", "true");
-        }
+        }*/
         
-        app = new Modulplaner();
-        //app.module.add(new Modul("P3","Montag",8,9));
-        //System.out.println(app.module.get(0).getName());
+        //app = new Modulplaner();
+        new Modulplaner();
+        
+        //new About();
+        
     }
 }
