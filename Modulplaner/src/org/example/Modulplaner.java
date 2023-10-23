@@ -36,13 +36,11 @@ public class Modulplaner extends JFrame {
     private JPanel anzeigePanelDayMittwoch;
     private JPanel anzeigePanelDayDonnerstag;
     private JPanel anzeigePanelDayFreitag;
-    
-    
+
     private JTextField nameField;
     private JComboBox<String> tagComboBox;
     private JTextField anfangField;
     private JTextField endeField;
-
 
     public Modulplaner() {
         setTitle("Modulplaner");
@@ -61,41 +59,13 @@ public class Modulplaner extends JFrame {
         module.add(new Modul("P7", "Donnerstag", 8, 9));
         module.add(new Modul("P8", "Freitag", 8, 9));
 
-        
         setLayout(new BorderLayout());
-        
-        
+
         // Erstellen des Panels und Hinzufügen zum Frame
         anzeigePanel = new JPanel(new GridLayout(2, 5));
-        anzeigePanel.add(new JLabel("Montag"));
-        anzeigePanel.add(new JLabel("Dienstag"));
-        anzeigePanel.add(new JLabel("Mittwoch"));
-        anzeigePanel.add(new JLabel("Donnerstag"));
-        anzeigePanel.add(new JLabel("Freitag"));
-        
-        anzeigePanelDayMontag = createSrollTage("Montag");
-        JScrollPane scrollPanelMontag = new JScrollPane(anzeigePanelDayMontag);
-        anzeigePanel.add(scrollPanelMontag);
-        
-        anzeigePanelDayDienstag = createSrollTage("Dienstag");
-        JScrollPane scrollPanelDienstag = new JScrollPane(anzeigePanelDayDienstag);
-        anzeigePanel.add(scrollPanelDienstag);
-        
-        anzeigePanelDayMittwoch = createSrollTage("Mittwoch");
-        JScrollPane scrollPanelMittwoch = new JScrollPane(anzeigePanelDayMittwoch);
-        anzeigePanel.add(scrollPanelMittwoch);
-        
-        anzeigePanelDayDonnerstag = createSrollTage("Donnerstag");
-        JScrollPane scrollPanelDonnerstag = new JScrollPane(anzeigePanelDayDonnerstag);
-        anzeigePanel.add(scrollPanelDonnerstag);
-        
-        anzeigePanelDayFreitag = createSrollTage("Freitag");
-        JScrollPane scrollPanelFreitag = new JScrollPane(anzeigePanelDayFreitag);
-        anzeigePanel.add(scrollPanelFreitag);
-        
+        anzeigeAktualisieren();
         add(anzeigePanel, BorderLayout.CENTER);
-        
-        
+
         JPanel controlPanel = new JPanel(new GridLayout(5, 2));
         controlPanel.add(new JLabel("Name:"));
         nameField = new JTextField();
@@ -121,11 +91,10 @@ public class Modulplaner extends JFrame {
         controlPanel.add(addButton);
 
         add(controlPanel, BorderLayout.NORTH);
-        
 
         setVisible(true);
     }
-    
+
     private void addModule() {
         String name = nameField.getText();
         String tag = (String) tagComboBox.getSelectedItem();
@@ -135,48 +104,81 @@ public class Modulplaner extends JFrame {
         Modul newModule = new Modul(name, tag, anfang, ende);
         module.add(newModule);
         // Aktualisieren Sie die Ansicht
-        //refreshView();
+        System.out.println("add");
+        anzeigeAktualisieren();
+        System.out.println("Added");
     }
-    
-    /*private void refreshView() {
-        anzeigePanel.removeAll();
-        for (int i = 0; i < 5; i++) {
-            JPanel dayPanel = new JPanel(new GridLayout(0, 2));
-            for (Modul modul : module) {
-                if (i == getDayint(modul.getTag())) {
-                    dayPanel.add(new JLabel(modul.getName()));
-                    dayPanel.add(new JLabel(modul.getAnfangtoString()));
-                }
-            }
-            JScrollPane scrollPane = new JScrollPane(dayPanel);
-            anzeigePanel.add(scrollPane);
-        }
-    }*/
-    
+
     private int getDayint(String day) {
-    int result;
-    switch (day) {
-        case "Montag":
-            result = 0;
-            break;
-        case "Dienstag":
-            result = 1;
-            break;
-        case "Mittwoch":
-            result = 2;
-            break;
-        case "Donnerstag":
-            result = 3;
-            break;
-        case "Freitag":
-            result = 4;
-            break;
-        default:
-            result = 10;
-            break;
+        int result;
+        switch (day) {
+            case "Montag":
+                result = 0;
+                break;
+            case "Dienstag":
+                result = 1;
+                break;
+            case "Mittwoch":
+                result = 2;
+                break;
+            case "Donnerstag":
+                result = 3;
+                break;
+            case "Freitag":
+                result = 4;
+                break;
+            default:
+                result = 10;
+                break;
+        }
+        return result;
     }
-    return result;
-}
+    
+    private JPanel createSrollTage(String tag) {
+        JPanel panel = new JPanel(new GridLayout(0, 2));
+        for (Modul modul : module) {
+            if (tag.equals(modul.getTag())) {
+                panel.add(new JLabel(modul.getName()));
+                panel.add(new JLabel(modul.getAnfangtoString()));
+            }
+        }
+        return panel;
+    }
+    private void anzeigeAktualisieren(){
+        
+        anzeigePanel.removeAll();
+        anzeigePanel.repaint();        
+
+        
+        anzeigePanel.add(new JLabel("Montag"));
+        anzeigePanel.add(new JLabel("Dienstag"));
+        anzeigePanel.add(new JLabel("Mittwoch"));
+        anzeigePanel.add(new JLabel("Donnerstag"));
+        anzeigePanel.add(new JLabel("Freitag"));
+
+        anzeigePanelDayMontag = createSrollTage("Montag");
+        JScrollPane scrollPanelMontag = new JScrollPane(anzeigePanelDayMontag);
+        anzeigePanel.add(scrollPanelMontag);
+
+        anzeigePanelDayDienstag = createSrollTage("Dienstag");
+        JScrollPane scrollPanelDienstag = new JScrollPane(anzeigePanelDayDienstag);
+        anzeigePanel.add(scrollPanelDienstag);
+
+        anzeigePanelDayMittwoch = createSrollTage("Mittwoch");
+        JScrollPane scrollPanelMittwoch = new JScrollPane(anzeigePanelDayMittwoch);
+        anzeigePanel.add(scrollPanelMittwoch);
+
+        anzeigePanelDayDonnerstag = createSrollTage("Donnerstag");
+        JScrollPane scrollPanelDonnerstag = new JScrollPane(anzeigePanelDayDonnerstag);
+        anzeigePanel.add(scrollPanelDonnerstag);
+
+        anzeigePanelDayFreitag = createSrollTage("Freitag");
+        JScrollPane scrollPanelFreitag = new JScrollPane(anzeigePanelDayFreitag);
+        anzeigePanel.add(scrollPanelFreitag);
+        
+        //anzeigePanel.setVisible(true);
+        
+    }
 
     public static void main(String[] args) {
 
@@ -187,18 +189,9 @@ public class Modulplaner extends JFrame {
         }*/
         //app = new Modulplaner();
         new Modulplaner();
-        
+
         //new About();
     }
 
-    private JPanel createSrollTage(String tag) {
-        JPanel panel = new JPanel(new GridLayout(0, 2));
-        for (Modul modul : module) {
-                if (tag.equals(modul.getTag())){
-                    panel.add(new JLabel(modul.getName()));
-                    panel.add(new JLabel(modul.getAnfangtoString()));
-                }
-            }
-        return panel;
-    }
+    
 }
