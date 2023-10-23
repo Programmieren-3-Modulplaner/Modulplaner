@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import static javax.swing.text.StyleConstants.Alignment;
 import org.example.MenuBar.MenuBar;
 
 /**
@@ -27,17 +28,23 @@ public class About extends JFrame {
         aboutPanel.setLayout(new GridLayout(8, 1));
         aboutPanel.setBorder(new LineBorder(Color.BLACK));
 
-        aboutPanel.add(new JLabel("", FlowLayout.LEFT));
-        aboutPanel.add(new JLabel("Modulplaner", FlowLayout.LEFT));
-        aboutPanel.add(new JLabel("Version 1.0", FlowLayout.LEFT));
-        aboutPanel.add(new JLabel("Copyright:", FlowLayout.LEFT));
-        aboutPanel.add(new JLabel("Niels Fricke", FlowLayout.LEFT));
-        aboutPanel.add(new JLabel("Daniel Grimm", FlowLayout.LEFT));
-        aboutPanel.add(new JLabel("Tjark Maasberg", FlowLayout.LEFT));
-        aboutPanel.add(new JLabel("", FlowLayout.LEFT));
+        aboutPanel.add(createJLable(""));
+        aboutPanel.add(createJLable("Modulplaner"));
+        aboutPanel.add(createJLable("Version 1.0"));
+        aboutPanel.add(createJLable("Copyright:"));
+        aboutPanel.add(createJLable("Niels Fricke"));
+        aboutPanel.add(createJLable("Daniel Grimm"));
+        aboutPanel.add(createJLable("Tjark Maasberg"));
+        aboutPanel.add(createJLable(""));
 
         add(aboutPanel);
 
         setVisible(true);
+    }
+
+    private JLabel createJLable(String name) {
+        JLabel label = new JLabel(name);
+        label.setHorizontalAlignment(JLabel.CENTER);
+        return label;
     }
 }

@@ -22,7 +22,7 @@ public class Modulplaner extends JFrame {
     private ArrayList<Modul> module = new ArrayList();
 
     public Modulplaner() {
-        setTitle("Planer");
+        setTitle("Modulplaner");
         addWindowListener(new WindowEventListener());
         setSize(500, 300);
         setLocationRelativeTo(null);
@@ -46,7 +46,7 @@ public class Modulplaner extends JFrame {
         }*/
         //app = new Modulplaner();
         new Modulplaner();
-
+        
         //new About();
     }
 }
