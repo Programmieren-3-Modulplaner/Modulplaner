@@ -13,8 +13,8 @@ class Modul {
     
     private String name;
     private String tag;
-    private int anfang;
-    private int ende;
+    private Integer anfang;
+    private Integer ende;
 
     public Modul(String name, String tag, int anfang, int ende) {
         this.name = name;
@@ -32,12 +32,20 @@ class Modul {
         return tag;
     }
 
-    public int getAnfang() {
+    public Integer getAnfang() {
         return anfang;
     }
+    
+    public String getAnfangtoString() {
+        return anfang.toString();
+    }
 
-    public int getEnde() {
+    public Integer getEnde() {
         return ende;
+    }
+    
+    public String getEndetoString() {
+        return ende.toString();
     }
     
     
