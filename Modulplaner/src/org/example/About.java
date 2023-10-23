@@ -19,7 +19,7 @@ import org.example.MenuBar.MenuBar;
 public class About extends JFrame {
 
     public About() {
-        setSize(200, 250);
+        setSize(200, 200);
         setLocationRelativeTo(null);
         setJMenuBar(new MenuBar("about"));
 
@@ -35,7 +35,7 @@ public class About extends JFrame {
         aboutPanel.add(new JLabel("Daniel Grimm", FlowLayout.LEFT));
         aboutPanel.add(new JLabel("Tjark Maasberg", FlowLayout.LEFT));
         aboutPanel.add(new JLabel("", FlowLayout.LEFT));
-
+       
         add(aboutPanel);
 
         setVisible(true);

@@ -33,7 +33,7 @@ public class Modulplaner extends JFrame {
         System.out.println(module.get(0).getName());
 
         setLayout(new BorderLayout());
-
+        
         setVisible(true);
     }
 
