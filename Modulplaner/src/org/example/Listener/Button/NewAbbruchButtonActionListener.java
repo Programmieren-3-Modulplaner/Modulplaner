@@ -1,15 +1,15 @@
 
-package org.example.Listener;
+package org.example.Listener.Button;
 
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
-public class AbbruchButtonActionListener implements ActionListener {
+public class NewAbbruchButtonActionListener implements ActionListener {
     private JFrame frame;
 
-    public AbbruchButtonActionListener(JFrame frame) {
+    public NewAbbruchButtonActionListener(JFrame frame) {
         this.frame = frame;
     }
 
