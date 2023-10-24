@@ -1,8 +1,6 @@
-
 package org.example;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JButton;
@@ -24,10 +22,12 @@ public class New extends JFrame {
     JButton abbrechenButton = new JButton("Abbrechen");
     JButton deleteButton = new JButton("Löschen");
     JTextField modulnameField = new JTextField();
-    JTextField timeField = new JTextField();
+    JTextField tagField = new JTextField();
+    JTextField anfangField = new JTextField();
+    JTextField endeField = new JTextField();
     
     //Datenliste als arry wird intizialisiert
-    private ArrayList<String> datenListe = new ArrayList<>();
+    private ArrayList<Modul> datenListe = new ArrayList<>();
 
     public New() {
         setSize(200, 250);
@@ -40,11 +40,15 @@ public class New extends JFrame {
         newPanel.setLayout(new GridLayout(8, 1));
         newPanel.setBorder(new LineBorder(Color.BLACK));
         
-        //Elemente werden demFenster hinzugefügt
-        newPanel.add(new JLabel("Modulname", FlowLayout.LEFT));
+        // Elemente dem Fenster hinzufügen
+        newPanel.add(new JLabel("Modulname: "));
         newPanel.add(modulnameField);
-        newPanel.add(new JLabel("Uhrzeit", FlowLayout.LEFT));
-        newPanel.add(timeField);
+        newPanel.add(new JLabel("Wochentag: "));
+        newPanel.add(tagField);
+        newPanel.add(new JLabel("Anfang (Uhrzeit, int): "));
+        newPanel.add(anfangField);
+        newPanel.add(new JLabel("Ende (Uhrzeit, int): "));
+        newPanel.add(endeField);
         
         newPanel.add(speichernButton);
         newPanel.add(deleteButton);
@@ -56,13 +60,16 @@ public class New extends JFrame {
         setVisible(true);
         
      //Button wird ein ActionListner hinzugefügt (Button bekommt funktion)
-        speichernButton.addActionListener(new NewSpeicherButtonActionListener(modulnameField, timeField, datenListe));
+        speichernButton.addActionListener(new NewSpeicherButtonActionListener(modulnameField, tagField, anfangField, endeField, datenListe));
         deleteButton.addActionListener(new NewDeleteButtonActionListner(datenListe));
         abbrechenButton.addActionListener(new NewAbbruchButtonActionListener(this));
     }
     
+    public void addModul(Modul modul) {
+        datenListe.add(modul);
+    }
     
-    public ArrayList<String> getDatenListe() {
+    public ArrayList<Modul> getDatenListe() {
         return datenListe;
     }
 }
