@@ -5,7 +5,7 @@
 
 package org.example.MenuBar;
 
-import java.awt.PopupMenu;
+import org.example.Listener.MenuItemNewActionListner;
 import javax.swing.JMenuItem;
 
 /**
@@ -16,5 +16,6 @@ public class MenuItemNeu extends JMenuItem {
 
     public MenuItemNeu() {
         super("Neu");
+        this.addActionListener(new MenuItemNewActionListner());
     }
 }
