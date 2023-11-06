@@ -14,14 +14,16 @@ public class Menu extends JMenu {
     Menu(String name) {
         super(name);
         if (name.equals("Datei")) {
-            this.add(new MenuItemNeu());
-            this.add(new MenuItemImport());
-            this.add(new MenuItemExport());
-            this.add(new MenuItemBeenden());
-        }
-        if (name.equals("Hilfe")) {
-            this.add(new MenuItemHilfedialog());
-            this.add(new MenuItemAbout());
+            this.add(new MenuItem("Neu"));
+            this.add(new MenuItem("Import"));
+            this.add(new MenuItem("Export"));
+            this.add(new MenuItem("Beenden"));
+            //this.add(new Menu("Hilfe"));
+        } else if (name.equals("Hilfe")) {
+            this.add(new MenuItem("Hilfe"));
+            this.add(new MenuItem("About"));
+        } else {
+            System.out.println("Keine Menu Names \"" + name + "\" vorhanden");
         }
     }
 }

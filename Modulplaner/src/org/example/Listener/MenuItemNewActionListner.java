@@ -13,7 +13,7 @@ public class MenuItemNewActionListner implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println(" Neu öffnen");
+        System.out.println("Neu öffnen");
         new New();
     }
 }

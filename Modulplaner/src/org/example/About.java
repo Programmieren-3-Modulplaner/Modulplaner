@@ -21,7 +21,7 @@ public class About extends JFrame {
     public About() {
         setSize(200, 200);
         setLocationRelativeTo(null);
-        setJMenuBar(new MenuBar("about"));
+        setJMenuBar(new MenuBar("About"));
 
         JPanel aboutPanel = new JPanel();
         aboutPanel.setLayout(new GridLayout(8, 1));

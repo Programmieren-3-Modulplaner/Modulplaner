@@ -27,7 +27,7 @@ public class Modulplaner extends JFrame {
         setSize(500, 300);
         setLocationRelativeTo(null);
 
-        setJMenuBar(new MenuBar("modulplaner"));
+        setJMenuBar(new MenuBar("Modulplaner"));
 
         module.add(new Modul("P3", "Montag", 8, 9));
         System.out.println(module.get(0).getName());
