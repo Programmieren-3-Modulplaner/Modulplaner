@@ -1,23 +1,19 @@
 package org.example;
 
-import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.LineBorder;
 import org.example.Listener.Button.NewAbbruchButtonActionListener;
-import org.example.Listener.Button.NewSpeicherButtonActionListener;
 import org.example.Listener.Button.NewDeleteButtonActionListner;
-import org.example.MenuBar.MenuBar;
+import org.example.Listener.Button.NewSpeicherButtonActionListener;
 
 
-public class New extends JFrame {
-    
-    //Initzialisierung der Button bzw. Eingabefelder
+public class New extends JDialog {
+
+    // Initialisierung der Button bzw. Eingabefelder
     JButton speichernButton = new JButton("Speichern");
     JButton abbrechenButton = new JButton("Abbrechen");
     JButton deleteButton = new JButton("Löschen");
@@ -25,50 +21,61 @@ public class New extends JFrame {
     JTextField tagField = new JTextField();
     JTextField anfangField = new JTextField();
     JTextField endeField = new JTextField();
-    
-    //Datenliste als arry wird intizialisiert
+
+    // Datenliste als Array wird initialisiert
     private ArrayList<Modul> datenListe = new ArrayList<>();
-
+    
+    
+    //Konstruktor wird initalisiert
     public New() {
-        setSize(200, 250);
+        
+        //true = sperrt Hauptfenster,
+        super((JDialog) null, "Neues Modul", true);
+        NewUI();
+        setupActions();
+        pack();
         setLocationRelativeTo(null);
-        setJMenuBar(new MenuBar("neu"));
-
-        JPanel newPanel = new JPanel();
-        
-        //Layout des Fensters wird festgelegt
-        newPanel.setLayout(new GridLayout(8, 1));
-        newPanel.setBorder(new LineBorder(Color.BLACK));
-        
-        // Elemente dem Fenster hinzufügen
-        newPanel.add(new JLabel("Modulname: "));
-        newPanel.add(modulnameField);
-        newPanel.add(new JLabel("Wochentag: "));
-        newPanel.add(tagField);
-        newPanel.add(new JLabel("Anfang (Uhrzeit, int): "));
-        newPanel.add(anfangField);
-        newPanel.add(new JLabel("Ende (Uhrzeit, int): "));
-        newPanel.add(endeField);
-        
-        newPanel.add(speichernButton);
-        newPanel.add(deleteButton);
-        newPanel.add(abbrechenButton);
-        
-        add(newPanel);
-        
-        //Fenster wird sichtbar gemacht
         setVisible(true);
-        
-     //Button wird ein ActionListner hinzugefügt (Button bekommt funktion)
+    }
+    
+    //Hilfsmethode zur Aufsetzung des Fensters
+    private void NewUI() {
+        // Layout des Dialogfensters wird festgelegt
+        setLayout(new GridLayout(8, 1));
+
+        // Elemente dem Fenster hinzufügen
+        add(new JLabel("Modulname: "));
+        add(modulnameField);
+        add(new JLabel("Wochentag: "));
+        add(tagField);
+        add(new JLabel("Anfang (Uhrzeit, int): "));
+        add(anfangField);
+        add(new JLabel("Ende (Uhrzeit, int): "));
+        add(endeField);
+
+        add(speichernButton);
+        add(deleteButton);
+        add(abbrechenButton);
+    }
+    
+    //Hilfsmethode für die Buttons
+    private void setupActions() {
+        // Button wird ein ActionListener hinzugefügt (Button bekommt Funktion)
         speichernButton.addActionListener(new NewSpeicherButtonActionListener(modulnameField, tagField, anfangField, endeField, datenListe));
         deleteButton.addActionListener(new NewDeleteButtonActionListner(datenListe));
-        abbrechenButton.addActionListener(new NewAbbruchButtonActionListener(this));
+        abbrechenButton.addActionListener(new NewAbbruchButtonActionListener (this));
     }
+
+    // Main methode zur Aufrfung des Konstruktors und dmait mit dem Aufbau des Dialogfensters
+    public static void main(String[] args) {
+        new New();
+    }
+
     
     public void addModul(Modul modul) {
         datenListe.add(modul);
     }
-    
+
     public ArrayList<Modul> getDatenListe() {
         return datenListe;
     }

@@ -4,12 +4,12 @@ package org.example.Listener.Button;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 
 public class NewAbbruchButtonActionListener implements ActionListener {
-    private JFrame frame;
+    private JDialog frame;
 
-    public NewAbbruchButtonActionListener(JFrame frame) {
+    public NewAbbruchButtonActionListener(JDialog frame) {
         this.frame = frame;
     }
 

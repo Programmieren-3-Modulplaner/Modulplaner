@@ -5,10 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import org.example.New;
 
-/**
- *
- * @author Tjark Maasberg
- */
+
 public class MenuItemNewActionListner implements ActionListener {
 
     @Override
