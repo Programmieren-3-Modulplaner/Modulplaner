@@ -19,15 +19,17 @@ public class Modul {
     private String tag;
     private int anfang;
     private int ende;
-
-    public Modul(String name, String tag, int anfang, int ende) {
+    public ArrayList<Modul> datenListe = new ArrayList<>();
+    
+    //String name, String tag, int anfang, int ende
+    public Modul() {
         this.name = name;
         this.tag = tag;
         this.anfang = anfang;
         this.ende = ende;
     }
     
-
+    // get-Methoden
     public String getName() {
         return name;
     }
@@ -45,7 +47,7 @@ public class Modul {
     }
     
     
-    
+    //set-Methoden
     public void setName(String name) {
         this.name = name;
     }
@@ -62,22 +64,8 @@ public class Modul {
         this.ende = ende;
     }
     
-    public static void updateModulList(ArrayList<Modul> module, JPanel leftPanel, JPanel centerPanel) {
-        leftPanel.removeAll();
-        centerPanel.removeAll();
-        
-        JLabel kursoverview = new JLabel("Kursübersicht: ");
-        leftPanel.add(kursoverview);
-
-        for (Modul modul : module) {
-            JLabel modulname = new JLabel(modul.getName());
-            JLabel modultag = new JLabel(modul.getTag() + "; Beginn: " + modul.getAnfang() + " Uhr; " + "Ende: " + modul.getEnde() + " Uhr");
-            leftPanel.add(modulname);
-            centerPanel.add(modultag);
-        }
-
-        leftPanel.revalidate();
-        centerPanel.revalidate();
+    public void addModul(Modul m) {
+        datenListe.add(m);
     }
     
 }

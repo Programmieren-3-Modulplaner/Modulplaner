@@ -2,10 +2,12 @@ package org.example;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
 import org.example.Listener.Button.NewAbbruchButtonActionListener;
 import org.example.Listener.Button.NewDeleteButtonActionListner;
 import org.example.Listener.Button.NewSpeicherButtonActionListener;
@@ -17,6 +19,7 @@ public class New extends JDialog {
     JButton speichernButton = new JButton("Speichern");
     JButton abbrechenButton = new JButton("Abbrechen");
     JButton deleteButton = new JButton("Löschen");
+    
     JTextField modulnameField = new JTextField();
     JTextField tagField = new JTextField();
     JTextField anfangField = new JTextField();
@@ -31,8 +34,11 @@ public class New extends JDialog {
         
         //true = sperrt Hauptfenster,
         super((JDialog) null, "Neues Modul", true);
+        
+        //Hilfmethoden
         NewUI();
         setupActions();
+        
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -72,9 +78,6 @@ public class New extends JDialog {
     }
 
     
-    public void addModul(Modul modul) {
-        datenListe.add(modul);
-    }
 
     public ArrayList<Modul> getDatenListe() {
         return datenListe;

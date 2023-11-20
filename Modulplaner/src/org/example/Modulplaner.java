@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
+import org.example.Modul;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
@@ -21,7 +22,7 @@ import org.example.MenuBar.MenuBar;
 
 public class Modulplaner extends JFrame{
 
-    private ArrayList<Modul> module = new ArrayList();
+    //private ArrayList<Modul> module = new ArrayList();
 
     public Modulplaner() {
         setTitle("Planer");
@@ -31,12 +32,12 @@ public class Modulplaner extends JFrame{
 
         setJMenuBar(new MenuBar("modulplaner"));
 
-        module.add(new Modul("Programmieren 3", "Montag", 8, 9));
-        System.out.println(module.get(0).getName());
+        //datenListe.add(new Modul("Programmieren 3", "Montag", 8, 9));
+        //System.out.println(module.get(0).getName());
         
         //Initializierung Variabeln
-        JLabel modulname = new JLabel(module.get(0).getName() + "      ");
-        JLabel modultag = new JLabel(module.get(0).getTag() + "; Beginn: " + module.get(0).getAnfang()+ " Uhr; " + "Ende: " + module.get(0).getEnde() + " Uhr");
+        //JLabel modulname = new JLabel(module.get(0).getName() + "      ");
+        //JLabel modultag = new JLabel(module.get(0).getTag() + "; Beginn: " + module.get(0).getAnfang()+ " Uhr; " + "Ende: " + module.get(0).getEnde() + " Uhr");
         
         
         setLayout(new BorderLayout());
@@ -69,9 +70,7 @@ public class Modulplaner extends JFrame{
         rightPanel.add(space2);
         rightPanel.add(button3);
         
-        //Füge Modulliste den Panel hinzu
-        leftPanel.add(modulname);
-        centerPanel.add(modultag);
+       
         
         // Füge die Panels (links und rechts) zum Haupt-Panel hinzu
         add(leftPanel, BorderLayout.WEST);
