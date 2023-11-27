@@ -10,7 +10,7 @@ import org.example.Modul;
 
 public class ModulDAO {
 
-    private DataInputStream in;
+    DataInputStream in;
     private DataOutputStream out;
 
     
@@ -68,10 +68,10 @@ public class ModulDAO {
     }
 
     /**
-     * Daten des übergebenen Student-Objekts lesen. Das Data Access Objekt muss
+     * Daten des übergebenen Modul-Objekts lesen. Das Data Access Objekt muss
      * dazu zum Lesen bereit sein.
      *
-     * @param s Referenz auf Student-Objekt
+     * @param m Referenz auf Modul-Objekt
      * @throws IOException
      */
     public void read(Modul m) throws IOException {

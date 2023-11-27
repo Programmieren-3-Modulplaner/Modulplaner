@@ -5,50 +5,92 @@ import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.example.Modul;
+import org.example.DAO.ModulDAO;
 
-public class ModuleDAO extends DAO {
+public class ModuleDAO{
+    public DataInputStream in;
+    public DataOutputStream out;
     
-    public ModuleDAO(String datenListe, boolean openForWrite) {
-        super(datenListe, openForWrite);
+    String ModulList = "data/ModulList.dat";
+
+
+    public ModuleDAO (String dateiName, boolean openForWrite) {
+        try {
+            if (openForWrite) {
+                out = new DataOutputStream(new FileOutputStream(dateiName));
+            } else {
+                in = new DataInputStream(new FileInputStream(dateiName));
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void write(Object obj) throws IOException {
+    public void close() {
+        try {
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
+        } catch (IOException e) {
+        }
+    }
+
+    //Modul = class "Modul"!
+    public void write(Modul modul) throws IOException {
         if (out != null) {
-            Modul modul = (Modul) obj;
-            
-            out.writeUTF(modul.getName());
-            out.writeUTF(modul.getTag());
-            out.writeInt(modul.getAnfang());
-            out.writeInt(modul.getEnde());
-            
+
             // Anzahl Module speichern:
-            
+            out.writeInt(modul.datenListe.size());
 
-            // Nun die einzelnen Studenten speichern:
-           ModulDAO modDAO = new ModulDAO(null, out);
+            // Nun die einzelne Module speichern:
+            ModulDAO modDAO = new ModulDAO(null, out);
 
-            for (Modul m: modul.datenListe) {
+            for (Modul m : modul.datenListe) {
                 modDAO.write(m);
             }
         }
     }
 
-    public void read(Object obj) throws IOException {
+    public void read(Modul modul) throws IOException {
         if (in != null) {
-            Modul modul = (Modul) obj;
 
-            // Anzahl Studenten lesen:
-            int nmodul = in.readInt();
+            // Anzahl Module lesen:
+            int nModule = in.readInt();
 
-            // Nun die einzelnen Studenten lesen:
+            // Nun die einzelnen Module lesen:
             ModulDAO modDAO = new ModulDAO(in, null);
-            for (int i = 0; i < nmodul; ++i) {
+            for (int i = 0; i < nModule; ++i) {
                 Modul m = new Modul();
                 modDAO.read(m);
-                m.addModul(m);
+                modul.addModul(m);
             }
+           
+        }
+    }}
+        
+  /*public void deleteLast(Modul modul) throws IOException {
+    if (out != null) {
+        // Schließen Sie den Datenstrom, um die Datei zu verkleinern
+        out.close();
+
+        // Lesen Sie alle vorhandenen Module
+        Modul existingModules = new Modul();
+        ModulDAO readDAO = new ModulDAO(ModulList, false);
+        if (readDAO.in.available() > 0) {
+            readDAO.read(existingModules);
+        }
+        readDAO.close();
+
+        // Entfernen Sie das letzte Modul
+        existingModules.removeLast(); 
         }
     }
-}
+  }*/
+
+

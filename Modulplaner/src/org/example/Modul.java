@@ -5,9 +5,9 @@
 
 package org.example;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import java.util.ArrayList;
+
+
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
@@ -21,8 +21,15 @@ public class Modul {
     private int ende;
     public ArrayList<Modul> datenListe = new ArrayList<>();
     
-    //String name, String tag, int anfang, int ende
+    /**
+     * Standardkonstruktor, macht gar nichts. brauchen wir aber für das
+     * (ein)lesen von Objekten.
+     */
     public Modul() {
+    }
+    
+    //String name, String tag, int anfang, int ende
+    public Modul(String name, String tag, int anfang, int ende) {
         this.name = name;
         this.tag = tag;
         this.anfang = anfang;
@@ -66,6 +73,13 @@ public class Modul {
     
     public void addModul(Modul m) {
         datenListe.add(m);
+    }
+    
+    public void removeLast() {
+        if (!datenListe.isEmpty()) {
+            datenListe.remove(datenListe.size() - 1);
+        }
+        
     }
     
 }

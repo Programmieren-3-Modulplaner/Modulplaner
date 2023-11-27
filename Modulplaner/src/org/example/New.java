@@ -67,7 +67,7 @@ public class New extends JDialog {
     //Hilfsmethode für die Buttons
     private void setupActions() {
         // Button wird ein ActionListener hinzugefügt (Button bekommt Funktion)
-        speichernButton.addActionListener(new NewSpeicherButtonActionListener(modulnameField, tagField, anfangField, endeField, datenListe));
+        speichernButton.addActionListener(new NewSpeicherButtonActionListener(modulnameField, tagField, anfangField, endeField));
         deleteButton.addActionListener(new NewDeleteButtonActionListner(datenListe));
         abbrechenButton.addActionListener(new NewAbbruchButtonActionListener (this));
     }
