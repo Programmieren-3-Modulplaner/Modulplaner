@@ -22,6 +22,8 @@ public class Menu extends JMenu {
         } else if (name.equals("Hilfe")) {
             this.add(new MenuItem("Hilfe"));
             this.add(new MenuItem("About"));
+        } else if (name.equals("Ansicht")) {
+            this.add(new MenuItem("Kursplan"));
         } else {
             System.out.println("Keine Menu Names \"" + name + "\" vorhanden");
         }

@@ -9,6 +9,7 @@ import javax.swing.JMenuItem;
 import org.example.Listener.MenuItemAboutActionListener;
 import org.example.Listener.MenuItemBeendenActionListener;
 import org.example.Listener.MenuItemImportActionListener;
+import org.example.Listener.MenuItemKursActionListener;
 import org.example.Listener.MenuItemNewActionListner;
 
 /**
@@ -33,6 +34,9 @@ public class MenuItem extends JMenuItem{
         }
         else if (name.equals("Neu")){
             this.addActionListener(new MenuItemNewActionListner());
+        }
+        else if (name.equals("Kursplan")){
+            this.addActionListener(new MenuItemKursActionListener());
         }
         else System.out.println("Keine MenuItem Names \"" + name + "\" vorhanden");
     }
