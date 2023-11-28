@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import org.example.DAO.ModulDAO;
 
 import org.example.DAO.ModuleDAO;
 import org.example.Modul;
@@ -21,19 +22,20 @@ public class NewDeleteButtonActionListner implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Erstellen Sie eine Instanz von ModulDAO und rufen Sie deleteLast auf
-        //ModuleDAO delDAO = new ModuleDAO(ModulList, false); // Verwenden Sie den richtigen Dateinamen
         try {
-            ModuleDAO delDAO = new ModuleDAO(ModulList, false); // Verwenden Sie den richtigen Dateinamen
-            Modul modul = new Modul();
-            delDAO.read(modul);
-            delDAO.close();
+            ModuleDAO delDAO = new ModuleDAO(ModulList, true);
+            // Lesen Sie das aktualisierte Modul
+            //delDAO.read(datenListe);
+            //delDAO.close();
             
-            //delDAO.deleteLast(modul);
+            // Löschen Sie das letzte Modul
+            delDAO.deleteLast(datenListe);
             
+            
+            
+            System.out.println("Letzte Eintragung gelöscht");
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-            System.out.println("Letzte Eintragung gelöscht");
-    }    
+    }
 }

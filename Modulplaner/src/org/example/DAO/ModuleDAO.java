@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import org.example.Modul;
 import org.example.DAO.ModulDAO;
 
+
 public class ModuleDAO{
     public DataInputStream in;
     public DataOutputStream out;
@@ -47,21 +48,25 @@ public class ModuleDAO{
 
             // Anzahl Module speichern:
             out.writeInt(modul.datenListe.size());
+            
+            System.out.println(modul.datenListe.size());
 
             // Nun die einzelne Module speichern:
             ModulDAO modDAO = new ModulDAO(null, out);
 
             for (Modul m : modul.datenListe) {
                 modDAO.write(m);
+                
             }
         }
     }
 
     public void read(Modul modul) throws IOException {
         if (in != null) {
-
+            
             // Anzahl Module lesen:
             int nModule = in.readInt();
+            
 
             // Nun die einzelnen Module lesen:
             ModulDAO modDAO = new ModulDAO(in, null);
@@ -72,25 +77,40 @@ public class ModuleDAO{
             }
            
         }
-    }}
-        
-  /*public void deleteLast(Modul modul) throws IOException {
-    if (out != null) {
-        // Schließen Sie den Datenstrom, um die Datei zu verkleinern
-        out.close();
-
-        // Lesen Sie alle vorhandenen Module
-        Modul existingModules = new Modul();
-        ModulDAO readDAO = new ModulDAO(ModulList, false);
-        if (readDAO.in.available() > 0) {
-            readDAO.read(existingModules);
-        }
-        readDAO.close();
-
-        // Entfernen Sie das letzte Modul
-        existingModules.removeLast(); 
-        }
     }
-  }*/
+    
+        
+    public void deleteLast(ArrayList<Modul> modul) throws IOException {
+      if (out != null) {
+          // Schließen Sie den Datenstrom, um die Datei zu verkleinern
+          //out.close();
+
+         try{ 
+              // Lesen Sie alle vorhandenen Module
+              Modul existingModules = new Modul();
+              ModulDAO readDAO = new ModulDAO(ModulList, false);
+              if (readDAO.in.available() > 0) {     
+                  //Lesen der Module
+                  readDAO.read(existingModules);
+                  existingModules.removeLast();
+              }
+              readDAO.close();
+
+              // Entfernen Sie das letzte Modul
+              //existingModules.removeLast(); 
+
+              // Öffnen Sie den Datenstrom erneut, um die Datei zu schreiben
+              out = new DataOutputStream(new FileOutputStream(ModulList));
+
+              //Schreibe Modul wieder in die Datei
+              write(existingModules);
+          } catch(IOException ex) {
+              System.out.println(ex.getMessage());
+          } finally {
+              close();
+          }
+      }
+  }
+}
 
 

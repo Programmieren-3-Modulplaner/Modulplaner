@@ -16,9 +16,8 @@ import java.util.ArrayList;
 public class Modul {
     
     private String name;
-    private String tag;
-    private int anfang;
-    private int ende;
+    private int tag;
+    private int block;
     public ArrayList<Modul> datenListe = new ArrayList<>();
     
     /**
@@ -29,11 +28,10 @@ public class Modul {
     }
     
     //String name, String tag, int anfang, int ende
-    public Modul(String name, String tag, int anfang, int ende) {
+    public Modul(String name, int tag,int block) {
         this.name = name;
         this.tag = tag;
-        this.anfang = anfang;
-        this.ende = ende;
+        this.block = block;
     }
     
     // get-Methoden
@@ -41,17 +39,14 @@ public class Modul {
         return name;
     }
 
-    public String getTag() {
+    public int getTag() {
         return tag;
     }
 
-    public int getAnfang() {
-        return anfang;
+    public int getBlock() {
+        return block;
     }
 
-    public int getEnde() {
-        return ende;
-    }
     
     
     //set-Methoden
@@ -59,17 +54,15 @@ public class Modul {
         this.name = name;
     }
 
-    public void setTag(String tag) {
+    public void setTag(int tag) {
         this.tag = tag;
     }
 
-    public void setAnfang(int anfang) {
-        this.anfang = anfang;
+    public void setBlock(int block) {
+        this.block = block;
     }
 
-    public void setEnde(int ende) {
-        this.ende = ende;
-    }
+    
     
     public void addModul(Modul m) {
         datenListe.add(m);

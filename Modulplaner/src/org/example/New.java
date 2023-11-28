@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -18,12 +19,17 @@ public class New extends JDialog {
     // Initialisierung der Button bzw. Eingabefelder
     JButton speichernButton = new JButton("Speichern");
     JButton abbrechenButton = new JButton("Abbrechen");
-    JButton deleteButton = new JButton("Löschen");
+    JButton deleteButton = new JButton("Liste Löschen");
     
     JTextField modulnameField = new JTextField();
-    JTextField tagField = new JTextField();
-    JTextField anfangField = new JTextField();
-    JTextField endeField = new JTextField();
+    
+    //Dropdown-Menü für Tage erstellen -> IntWert für weitere Möglichkeiten
+    String tag[]={"none","Montag","Dienstag","Mittwoch","Donnertsag","Freitag"};
+    JComboBox tagBox = new JComboBox(tag);
+    
+    //Dropodown-Menü für den Block
+    String block[]={"none","08:15Uhr - 09:45Uhr","10:15 Uhr - 11:45 Uhr","12:15 Uhr - 13:45 Uhr","14:15 Uhr - 15:45 Uhr","16:00 Uhr - 17:30 Uhr"};
+    JComboBox blockBox = new JComboBox(block);
 
     // Datenliste als Array wird initialisiert
     private ArrayList<Modul> datenListe = new ArrayList<>();
@@ -53,11 +59,10 @@ public class New extends JDialog {
         add(new JLabel("Modulname: "));
         add(modulnameField);
         add(new JLabel("Wochentag: "));
-        add(tagField);
-        add(new JLabel("Anfang (Uhrzeit, int): "));
-        add(anfangField);
-        add(new JLabel("Ende (Uhrzeit, int): "));
-        add(endeField);
+        add(tagBox);
+        add(new JLabel("Welcher Block? "));
+        add(blockBox);
+        
 
         add(speichernButton);
         add(deleteButton);
@@ -67,7 +72,7 @@ public class New extends JDialog {
     //Hilfsmethode für die Buttons
     private void setupActions() {
         // Button wird ein ActionListener hinzugefügt (Button bekommt Funktion)
-        speichernButton.addActionListener(new NewSpeicherButtonActionListener(modulnameField, tagField, anfangField, endeField));
+        speichernButton.addActionListener(new NewSpeicherButtonActionListener(modulnameField, tagBox, blockBox));
         deleteButton.addActionListener(new NewDeleteButtonActionListner(datenListe));
         abbrechenButton.addActionListener(new NewAbbruchButtonActionListener (this));
     }

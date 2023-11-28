@@ -5,13 +5,16 @@ import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import org.example.Modul;
 
 
 public class ModulDAO {
 
-    DataInputStream in;
-    private DataOutputStream out;
+    public DataInputStream in;
+    public DataOutputStream out;
+    
 
     
     public ModulDAO(String dateiName, boolean openForWrite) {
@@ -61,10 +64,11 @@ public class ModulDAO {
     public void write(Modul m) throws IOException {
         if (out != null) {
             out.writeUTF(m.getName());
-            out.writeUTF(m.getTag());
-            out.writeInt(m.getAnfang());
-            out.writeInt(m.getEnde());
+            out.writeInt(m.getTag());
+            out.writeInt(m.getBlock());
+           
         }
+        
     }
 
     /**
@@ -75,11 +79,13 @@ public class ModulDAO {
      * @throws IOException
      */
     public void read(Modul m) throws IOException {
-        if (in != null) {
+        if (in != null && in.available() > 0) {
+            Modul temp = new Modul();
             m.setName(in.readUTF());
-            m.setTag(in.readUTF());
-            m.setAnfang(in.readInt());
-            m.setEnde(in.readInt());
+            m.setTag(in.readInt());
+            m.setBlock(in.readInt());
+            
         }
     }
+    
 }
