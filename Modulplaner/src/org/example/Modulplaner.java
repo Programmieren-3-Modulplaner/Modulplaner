@@ -6,6 +6,8 @@ package org.example;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -82,7 +84,24 @@ public class Modulplaner extends JFrame{
     }
 
     public static void main(String[] args) {
-
+        
+        //Automatische erzeugen der benötigten Datei
+        // Prüfe, ob das Verzeichnis existiert, wenn nicht, erstelle es
+        File dataDir = new File("data");
+        if (!dataDir.exists()) {
+            dataDir.mkdir();
+        }
+        
+        // Prüfe, ob die Datei existiert, wenn nicht, erstelle sie
+        File modulListFile = new File("data/ModulList.dat");
+        if (!modulListFile.exists()) {
+            try {
+                modulListFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+                // Handle die IOException entsprechend
+            }
+        }
             new Modulplaner();
         
     }
