@@ -24,11 +24,24 @@ public class New extends JDialog {
     JTextField modulnameField = new JTextField();
     
     //Dropdown-Menü für Tage erstellen -> IntWert für weitere Möglichkeiten
-    String tag[]={"none","Montag","Dienstag","Mittwoch","Donnertsag","Freitag"};
+    //IntWert beginnt bei 0 = "Bitte Wählen"
+    String tag[]={"Bitte auswählen",
+        "Montag",
+        "Dienstag",
+        "Mittwoch",
+        "Donnertsag",
+        "Freitag"};
     JComboBox tagBox = new JComboBox(tag);
     
     //Dropodown-Menü für den Block
-    String block[]={"none","08:15Uhr - 09:45Uhr","10:15 Uhr - 11:45 Uhr","12:15 Uhr - 13:45 Uhr","14:15 Uhr - 15:45 Uhr","16:00 Uhr - 17:30 Uhr"};
+    //IntWert 0 beginnt bei = "Bitte wählen"
+    String block[]={"Bitte auswählen",
+        "1. Block: 08:15Uhr - 09:45Uhr",
+        "2. Block: 10:15 Uhr - 11:45 Uhr",
+        "3. Block: 12:15 Uhr - 13:45 Uhr",
+        "4. Block: 14:15 Uhr - 15:45 Uhr",
+        "5. Block: 16:00 Uhr - 17:30 Uhr"};
+    
     JComboBox blockBox = new JComboBox(block);
 
     // Datenliste als Array wird initialisiert
@@ -84,7 +97,7 @@ public class New extends JDialog {
 
     
 
-    public ArrayList<Modul> getDatenListe() {
+    /*public ArrayList<Modul> getDatenListe() {
         return datenListe;
-    }
+    }*/
 }

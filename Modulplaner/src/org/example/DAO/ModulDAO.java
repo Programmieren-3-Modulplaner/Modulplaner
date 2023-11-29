@@ -2,6 +2,7 @@ package org.example.DAO;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -63,9 +64,11 @@ public class ModulDAO {
      */
     public void write(Modul m) throws IOException {
         if (out != null) {
+            
             out.writeUTF(m.getName());
             out.writeInt(m.getTag());
             out.writeInt(m.getBlock());
+            
            
         }
         
@@ -79,13 +82,18 @@ public class ModulDAO {
      * @throws IOException
      */
     public void read(Modul m) throws IOException {
+    try {
         if (in != null && in.available() > 0) {
-            Modul temp = new Modul();
             m.setName(in.readUTF());
             m.setTag(in.readInt());
             m.setBlock(in.readInt());
-            
         }
+    } catch (EOFException eofException) {
+        // EOFException kann auftreten, wenn das Ende der Datei erreicht wurde.
+        // Es ist nicht zwingend ein Fehler, sondern ein Signal dafür, dass keine weiteren Daten vorhanden sind.
+        // Hier kannst du entsprechend handhaben, z.B., indem du eine Meldung ausgibst oder einfach nichts tust.
+        System.out.println("Ende der Datei erreicht: " + eofException.getMessage());
     }
+}
     
 }

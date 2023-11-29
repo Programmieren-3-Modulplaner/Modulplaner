@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.example.Modul;
-import org.example.DAO.ModulDAO;
+//import org.example.DAO.ModulDAO;
 
 
 public class ModuleDAO{
@@ -44,11 +44,11 @@ public class ModuleDAO{
 
     //Modul = class "Modul"!
     public void write(Modul modul) throws IOException {
-        if (out != null) {
+        try{
+            if (out != null) {
 
             // Anzahl Module speichern:
             out.writeInt(modul.datenListe.size());
-            
             System.out.println(modul.datenListe.size());
 
             // Nun die einzelne Module speichern:
@@ -59,14 +59,17 @@ public class ModuleDAO{
                 
             }
         }
+        } catch(IOException ex) {
+              System.out.println(ex.getMessage());
+    }
     }
 
     public void read(Modul modul) throws IOException {
+        try{
         if (in != null) {
             
             // Anzahl Module lesen:
             int nModule = in.readInt();
-            
 
             // Nun die einzelnen Module lesen:
             ModulDAO modDAO = new ModulDAO(in, null);
@@ -75,17 +78,19 @@ public class ModuleDAO{
                 modDAO.read(m);
                 modul.addModul(m);
             }
-           
         }
+        }catch(IOException ex) {
+              System.out.println(ex.getMessage());
     }
-    
+    }
         
     public void deleteLast(ArrayList<Modul> modul) throws IOException {
-      if (out != null) {
+      try{ 
+          if (out != null) {
           // Schließen Sie den Datenstrom, um die Datei zu verkleinern
           //out.close();
 
-         try{ 
+          
               // Lesen Sie alle vorhandenen Module
               Modul existingModules = new Modul();
               ModulDAO readDAO = new ModulDAO(ModulList, false);
@@ -104,13 +109,14 @@ public class ModuleDAO{
 
               //Schreibe Modul wieder in die Datei
               write(existingModules);
-          } catch(IOException ex) {
+              close();
+          } }catch(IOException ex) {
               System.out.println(ex.getMessage());
           } finally {
               close();
           }
       }
   }
-}
+
 
 

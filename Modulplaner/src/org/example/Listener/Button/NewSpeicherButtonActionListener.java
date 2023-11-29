@@ -1,13 +1,14 @@
 package org.example.Listener.Button;
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
-
 import javax.swing.JTextField;
-import org.example.DAO.ModulDAO;
+
 
 import org.example.DAO.ModuleDAO;
 import org.example.Modul;
@@ -34,10 +35,36 @@ public class NewSpeicherButtonActionListener implements ActionListener {
     try {
         // Holen der eingegebenen Daten aus den Feldern
         String modulname = modulnameField.getText();
-        // +1, weil die Indizes bei 0 beginnen
-        int tag = tagBox.getSelectedIndex() + 1;
-        int block = blockBox.getSelectedIndex() + 1;
-
+        
+        int tag = tagBox.getSelectedIndex();
+        int block = blockBox.getSelectedIndex();
+        
+        //Überprüfung ob die Felder ausgefüllt sind -> Makierung in Rot falls nicht
+        if (modulname.isEmpty() || tag == 0 || block == 0) {
+            
+            System.out.println("Bitte alle Felder ausfüllen.");
+            
+            if (modulname.isEmpty()) {
+                modulnameField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            }   else     {
+                modulnameField.setBorder(null);
+            }
+            
+            if (tag== 0) {
+                tagBox.setBorder(BorderFactory.createLineBorder(Color.RED));
+            } else {
+                tagBox.setBorder(null);
+            }
+            
+            if (block == 0) {
+                blockBox.setBorder(BorderFactory.createLineBorder(Color.RED));
+            } else{ 
+                blockBox.setBorder(null);
+            }
+                // Beende die Methode, da die Eingabe nicht gültig ist
+                return;
+        }
+        
         // Initalisierung des neuen Moduls
         Modul neuesModul = new Modul(modulname, tag, block);
 
@@ -70,7 +97,11 @@ public class NewSpeicherButtonActionListener implements ActionListener {
             System.out.println("-------");
         }
 
-        // Zurücksetzen der Textfelder
+        // Zurücksetzen der Textfelder: 1. Border Fare; 2. Inhalt der Felder
+        modulnameField.setBorder(null);
+        tagBox.setBorder(null);
+        blockBox.setBorder(null);
+        
         modulnameField.setText("");
         tagBox.setSelectedIndex(0);
         blockBox.setSelectedIndex(0);
