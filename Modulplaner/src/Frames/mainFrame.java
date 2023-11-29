@@ -50,9 +50,9 @@ public class mainFrame extends JFrame{
         ui.setLayout(new BorderLayout(0,10));
         
         //JPanel links = new JPanel();
-        String[] kurse = {"Mathe 1", "Mathe 2", "Programmieren 1", "Programmieren 2", "Programmieren 3", "Statistik", "KLR", "Externes Rechnungswesen", "Grundlagen der Informatik", "Mathe 1", "Mathe 2", "Statistik", "KLR", "Grundlagen der Informatik"};
-        String[] block = {"1.Block", "2. Block", "3. Block","4. Block","5.Block"};
-        String[] tage = {"Montage","Dienstag","Mittwoch","Donnerstag","Freitag"};
+        String[] kurse = {"Mathe 1", "Mathe 2", "Programmieren 1", "Programmieren 2", "Programmieren 3", "Statistik", "KLR"};
+        //String[] block = {"1.Block", "2. Block", "3. Block","4. Block","5.Block"};
+        //String[] tage = {"Montage","Dienstag","Mittwoch","Donnerstag","Freitag"};
         JList liste = new JList(kurse);
         
         JPanel links = new JPanel();

@@ -5,6 +5,9 @@
 package org.example;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,43 +17,38 @@ import javax.swing.JTextField;
 
 public class Info extends JPanel{
     public Info(){
-       this.setLayout(new BorderLayout(5,5));
+       setLayout(new BorderLayout());
+       
        JPanel Buttons = new JPanel();
        JButton hinzufuegen = new JButton("Hinzufügen");
        JButton Loeschen = new JButton("Löschen");
        JButton Bearbeiten = new JButton("Bearbeiten");
        
-       JPanel Inhalt = new JPanel();
-       Inhalt.setLayout(new BoxLayout(Inhalt,BoxLayout.Y_AXIS));
-       JPanel Zeile1 = new JPanel();
-       JPanel Zeile2 = new JPanel();
-       JPanel Zeile3 = new JPanel();
-       
-       JLabel Semester = new JLabel("Semester");
-       JLabel Kurs = new JLabel("Kurs");
-       JLabel Block = new JLabel("Block");
-       
-       Zeile1.add(Semester);
-       Zeile3.add(Block);
-       Zeile2.add(Kurs);
-       
-       Inhalt.add(Zeile1);
-       Inhalt.add(Zeile2);
-       Inhalt.add(Zeile3);
-       
-       
-       JTextField SemesterTextfield = new JTextField("Wintersemester 2023", 15);
-       JTextField KursTextfeld = new JTextField("Mathe 1",15);
-       JTextField BlockTextField = new JTextField("1. Block", 15);
        Buttons.add(hinzufuegen);
        Buttons.add(Loeschen);
        Buttons.add(Bearbeiten);
        
-       Zeile1.add(SemesterTextfield);
-       Zeile2.add(KursTextfeld);
-       Zeile3.add(BlockTextField);
+       JPanel oben = new JPanel();
+       oben.add(new JLabel("Kursdetails"));
        
-       this.add(Buttons, BorderLayout.PAGE_END);
-       this.add(Inhalt, BorderLayout.CENTER);
+       JPanel Inhalt = new JPanel();
+       
+       int i = 5;
+       int j = 2;
+       JPanel[][] holderInhalt = new JPanel[i][j];    
+       Inhalt.setLayout(new GridLayout(i,j));
+       for(int m = 0; m < i; m++) {
+            for(int n = 0; n < j; n++) {
+            holderInhalt[m][n] = new JPanel();
+            holderInhalt[m][n].setSize(20,20);
+            holderInhalt[m][n].setBorder(BorderFactory.createLineBorder(Color.black));
+            Inhalt.add(holderInhalt[m][n]);
+            }
+        }
+       
+      
+       add(oben,BorderLayout.NORTH);
+       add(Buttons, BorderLayout.PAGE_END);
+       add(Inhalt, BorderLayout.CENTER);
     }
 }

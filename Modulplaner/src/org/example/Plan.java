@@ -7,7 +7,10 @@ package org.example;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.Random;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -18,38 +21,34 @@ public class Plan extends JPanel{
     public Plan(){
         //setSize(500, 500);
         //setLocationRelativeTo(null);
-        JPanel main = new JPanel();
+        //JPanel main = new JPanel();
         //String[] kurse = {"Mathe 1", "Mathe 2", "Programmieren 1", "Programmieren 2", "Programmieren 3", "Statistik", "KLR", "Externes Rechnungswesen", "Grundlagen der Informatik", "Mathe 1", "Mathe 2", "Statistik", "KLR", "Grundlagen der Informatik"};
         String[] block = {"1.Block", "2. Block", "3. Block","4. Block","5.Block"};
         String[] tage = {"Montag","Dienstag","Mittwoch","Donnerstag","Freitag"};
         
         GridLayout kursGrid = new GridLayout(6,6);      
-        main.setLayout(kursGrid);
-        
-        JPanel leer = new JPanel();
-        leer.setBackground(Color.black);
-        main.add(leer);
-        
-        for(int x = 0; x < tage.length; x++){
-            main.add(new Panel(tage[x]));
+        setLayout(kursGrid);
+       
+        int i = 6;
+        int j = 6;
+        JPanel[][] panelHolder = new JPanel[i][j];    
+        setLayout(new GridLayout(i,j));
+
+        for(int m = 0; m < i; m++) {
+            for(int n = 0; n < j; n++) {
+            panelHolder[m][n] = new JPanel();
+            panelHolder[m][n].setBorder(BorderFactory.createLineBorder(Color.black));
+            add(panelHolder[m][n]);
+            }
         }
-        for(int i = 0; i < block.length; i++){
-           
-           main.add(new Panel(block[i]));
-           
-           for(int a = 0; a < 5; a++){
-               Random rn = new Random();
-               int randInt = rn.nextInt(4);
-               if(a == randInt){
-                   JPanel temp = new JPanel();
-                   temp.setBackground(Color.GRAY);
-                   main.add(temp);
-               }else{
-               main.add(new Panel(""+a));
-               }
-           }
+        
+        for(int x = 1; x <= tage.length; x++){
+            panelHolder[0][x].add(new JLabel(tage[x-1]));
         }
-        this.add(main);
+        
+        for(int y = 1; y <= block.length; y++){
+            panelHolder[y][0].add(new JLabel(block[y-1]));
+        }
         setVisible(true);
         }
     
