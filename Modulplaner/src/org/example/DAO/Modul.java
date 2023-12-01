@@ -107,5 +107,11 @@ public class Modul {
     public void setRaum(String raum, int index) {
         this.raum[index] = raum;
     }
+    
+    //------------------------------------------
+    
+    public int getArraySize(){
+        return this.tag.length;
+    }
 
 }

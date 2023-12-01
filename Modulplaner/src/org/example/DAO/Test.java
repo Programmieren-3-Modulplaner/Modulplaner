@@ -10,10 +10,10 @@ public class Test {
 
         // Drei Module erzeugen, zu Liste hinzufügen und Liste speichern:
 
-        Modul m1 = new Modul("P1", "Gudenkauf", 2.0, false, 1, 1, "123", 2, 2, "123", 0, 0, "", 0, 0, "", 0, 0, "");
-        Modul m2 = new Modul("P2", "Gudenkauf", 0, true, 1, 2, "123", 2, 3, "123", 3, 2, "123", 4, 2, "123", 5, 2, "123");
-        Modul m3 = new Modul("P3", "Gudenkauf", 2.3, false, 1, 3, "123", 2, 4, "123", 0, 0, "", 0, 0, "", 0, 0, "");
-        Modul m4 = new Modul("Mathe1", "Karabek", 1.7, true, 1, 4, "123", 2, 5, "123", 5, 1, "123", 0, 0, "", 0, 0, "");
+        Modul m1 = new Modul("P1", "Gudenkauf", 2.0, false, 1, 1, "123", 2, 2, "1234", 0, 0, "", 0, 0, "", 0, 0, "");
+        Modul m2 = new Modul("P2", "Gudenkauf", 0, true, 1, 2, "12345", 2, 3, "12t3", 3, 2, "123", 4, 2, "123", 5, 2, "123");
+        Modul m3 = new Modul("P3", "Gudenkauf", 2.3, false, 1, 2, "1", 2, 4, "12a3", 0, 0, "", 0, 0, "", 0, 0, "");
+        Modul m4 = new Modul("Mathe1", "Karabek", 1.7, true, 1, 8, "W11", 2, 5, "1n23", 5, 1, "TEST", 0, 0, "bla", 0, 0, "blaaaaa");
         
         Module moduleTest = new Module();
         moduleTest.add(m1);
@@ -21,7 +21,7 @@ public class Test {
         moduleTest.add(m3);
         moduleTest.add(m4);
         
-        moduleTest.remove(moduleTest.getIndexByName("Mathe1"));
+        //moduleTest.remove(moduleTest.getIndexByName("Mathe1"));
         
         //moduleTest.remove();
         

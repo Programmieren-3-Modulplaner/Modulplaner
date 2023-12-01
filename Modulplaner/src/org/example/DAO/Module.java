@@ -29,6 +29,19 @@ public class Module extends ArrayList<Modul>{
         return -1;
     }
     
+    public Module getByTagBlock(int tag, int block) {
+        Module result = new Module();
+
+        for (int i = 0; i < this.size(); i++) {
+            for (int n = 0; n < this.get(i).getArraySize(); n++) {
+                if (this.get(i).getTag(n) == tag && this.get(i).getBlock(n) == block) {
+                    result.add(this.get(i));
+                }
+            }
+        }
+        return result;
+    }
+
     public void printTest(){
         // Daten für alle Module ausgeben:
         for (org.example.DAO.Modul s : this) {

@@ -23,11 +23,15 @@ public class Modulplaner extends JFrame {
     //public static Modulplaner app;
     //private ArrayList<Modul> module = new ArrayList();
     //public org.example.DAO.Module module;
-
+    
+    org.example.DAO.Module module;
+    public enum tage {Montag, Dienstag, Mittwoch, Donnerstag, Freitag};
+    public int anzahlBloecke = 8;
+    
     public Modulplaner() {
-        
+                        
         String dateiName = "src/org/example/DAO/module.dat";
-        org.example.DAO.Module module = new org.example.DAO.Module();
+        module = new org.example.DAO.Module();
         
         // Module Initial einlesen aus Datei
         ModuleDAO daoInitialRead = new ModuleDAO(dateiName, false); // Lesen
@@ -38,15 +42,19 @@ public class Modulplaner extends JFrame {
         }
         daoInitialRead.close();
         
+        //module.printTest();
+        
         //Initial Window Config's
         setTitle("Planer");
         addWindowListener(new WindowEventListener(module, dateiName));
-        setSize(500, 300);
+        setSize(1000, 500);
         setLocationRelativeTo(null);
 
         setJMenuBar(new MenuBar("Modulplaner"));
 
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(0,10));
+        
+        add(new Kursplan(this), BorderLayout.SOUTH);
         
         setVisible(true);
     }
@@ -63,4 +71,5 @@ public class Modulplaner extends JFrame {
 
         //new About();
     }
+
 }
