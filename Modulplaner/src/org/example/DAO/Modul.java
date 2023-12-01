@@ -25,7 +25,6 @@ public class Modul {
         this.block = block;
         this.raum = raum;
     }*/
-    
     public Modul(String modulName, String profName, double note, boolean belegt, int tag0, int block0, String raum0, int tag1, int block1, String raum1,
             int tag2, int block2, String raum2, int tag3, int block3, String raum3, int tag4, int block4, String raum4) {
         this.modulName = modulName;
@@ -79,7 +78,6 @@ public class Modul {
     }
 
     //------------------------------------------
-    
     public void setModulName(String modulName) {
         this.modulName = modulName;
     }
@@ -107,10 +105,18 @@ public class Modul {
     public void setRaum(String raum, int index) {
         this.raum[index] = raum;
     }
-    
+
     //------------------------------------------
-    
-    public int getArraySize(){
+    public String getRaum(int stag, int sblock) {
+        for (int i = 0; i < this.tag.length; i++) {
+            if (this.tag[i] == stag && this.block[i] == sblock) {
+                return this.raum[i];
+            }
+        }
+        return "";
+    }
+
+    public int getArraySize() {
         return this.tag.length;
     }
 

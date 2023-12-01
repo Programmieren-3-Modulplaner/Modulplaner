@@ -45,14 +45,14 @@ public class MudulDAO extends DAO {
             out.writeUTF(s.getProfName());
             out.writeDouble(s.getNote());
             out.writeBoolean(s.isBelegt());
-            for(int i = 0; i<5; i++){
+            for (int i = 0; i < 5; i++) {
                 out.writeInt(s.getTag(i));
             }
-            for(int i = 0; i<5; i++){
+            for (int i = 0; i < 5; i++) {
                 out.writeInt(s.getBlock(i));
             }
-            for(int i = 0; i<5; i++){
-                if (s.getRaum(i) == null){
+            for (int i = 0; i < 5; i++) {
+                if (s.getRaum(i) == null) {
                     out.writeUTF("");
                 }
                 out.writeUTF(s.getRaum(i));
@@ -62,7 +62,7 @@ public class MudulDAO extends DAO {
             out.writeInt(s.getMatnr());
             out.writeBoolean(s.getBestanden());
             out.writeDouble(s.getNote());
-            */
+             */
         }
     }
 
@@ -80,13 +80,13 @@ public class MudulDAO extends DAO {
             s.setProfName(in.readUTF());
             s.setNote(in.readDouble());
             s.setBelegt(in.readBoolean());
-            for(int i=0; i<5;i++){
+            for (int i = 0; i < 5; i++) {
                 s.setTag(in.readInt(), i);
             }
-            for(int i=0; i<5;i++){
+            for (int i = 0; i < 5; i++) {
                 s.setBlock(in.readInt(), i);
             }
-            for(int i=0; i<5;i++){
+            for (int i = 0; i < 5; i++) {
                 s.setRaum(in.readUTF(), i);
             }
             /*
@@ -94,7 +94,7 @@ public class MudulDAO extends DAO {
             s.setMatnr(in.readInt());
             s.setBestanden(in.readBoolean());
             s.setNote(in.readDouble());
-            */
+             */
         }
     }
 }

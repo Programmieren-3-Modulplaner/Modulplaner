@@ -1,4 +1,3 @@
-
 package org.example.Listener;
 
 import java.awt.event.ActionEvent;
@@ -17,4 +16,3 @@ public class MenuItemNewActionListner implements ActionListener {
         new New();
     }
 }
-   

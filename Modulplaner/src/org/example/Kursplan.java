@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 /**
@@ -40,24 +41,21 @@ public class Kursplan extends JPanel {
         for (int i = 1; i <= anzahlBloecke; i++) {
             for (int n = 1; n <= anzahlTage; n++) {
                 org.example.DAO.Module result = modulplaner.module.getByTagBlock(n, i);
-                
-                
-                
-                panelHolder[i][n].setLayout(new GridLayout(2,result.size()));
+
+                panelHolder[i][n].setLayout(new GridLayout(2, result.size()));
                 for (int m = 0; m < result.size(); m++) {
                     JLabel eintrag = new JLabel(result.get(m).getModulName());
-                    eintrag.setBorder(new LineBorder(Color.BLACK));
+                    eintrag.setHorizontalAlignment(SwingConstants.CENTER);
+                    //eintrag.setBorder(new LineBorder(Color.BLACK));
                     panelHolder[i][n].add(eintrag);
                 }
                 for (int m = 0; m < result.size(); m++) {
-                    JLabel eintrag = new JLabel(result.get(m).getRaum(0));
-                    System.out.println(result.get(m).getRaum(n-1));
-                    eintrag.setBorder(new LineBorder(Color.BLACK));
+                    JLabel eintrag = new JLabel(result.get(m).getRaum(n, i));
+                    eintrag.setHorizontalAlignment(SwingConstants.CENTER);
+                    //eintrag.setBorder(new LineBorder(Color.BLACK));
                     panelHolder[i][n].add(eintrag);
                 }
-                
-                
-                
+
                 /*for (int m = 0; m < 2; m++) {
                     for (int y = 0; y < result.size(); y++) {
                         eintragHolder[m][y] = new JPanel();
@@ -77,7 +75,6 @@ public class Kursplan extends JPanel {
                     blockTag.add(eintrag);
                 }
                 panelHolder[i][n].add(blockTag);*/
-                                
             }
         }
     }

@@ -21,7 +21,7 @@ public class ModuleDAO extends DAO {
     public void write(Object obj) throws IOException {
         if (out != null) {
             Module mods = (Module) obj;
-            
+
             // Anzahl Module speichern:
             out.writeInt(mods.size());
 
