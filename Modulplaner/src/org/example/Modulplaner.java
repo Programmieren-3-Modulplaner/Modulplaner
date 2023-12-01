@@ -5,8 +5,10 @@
 package org.example;
 
 import java.awt.BorderLayout;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import org.example.DAO.ModuleDAO;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
 
@@ -19,18 +21,30 @@ public class Modulplaner extends JFrame {
      * @param args the command line arguments
      */
     //public static Modulplaner app;
-    private ArrayList<Modul> module = new ArrayList();
+    //private ArrayList<Modul> module = new ArrayList();
+    //public org.example.DAO.Module module;
 
     public Modulplaner() {
+        
+        String dateiName = "src/org/example/DAO/module.dat";
+        org.example.DAO.Module module = new org.example.DAO.Module();
+        
+        // Module Initial einlesen aus Datei
+        ModuleDAO daoInitialRead = new ModuleDAO(dateiName, false); // Lesen
+        try {
+            daoInitialRead.read(module);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        daoInitialRead.close();
+        
+        //Initial Window Config's
         setTitle("Planer");
-        addWindowListener(new WindowEventListener());
+        addWindowListener(new WindowEventListener(module, dateiName));
         setSize(500, 300);
         setLocationRelativeTo(null);
 
         setJMenuBar(new MenuBar("Modulplaner"));
-
-        module.add(new Modul("P3", "Montag", 8, 9));
-        System.out.println(module.get(0).getName());
 
         setLayout(new BorderLayout());
         
@@ -44,7 +58,7 @@ public class Modulplaner extends JFrame {
             //System.getProperties().put("apple.laf.useScreenMenuBar", "true");
             System.setProperty("apple.laf.useScreenMenuBar", "true");
         }*/
-        //app = new Modulplaner();
+        //Modulplaner app = new Modulplaner();
         new Modulplaner();
 
         //new About();

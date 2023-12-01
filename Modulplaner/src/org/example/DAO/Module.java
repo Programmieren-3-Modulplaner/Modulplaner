@@ -28,5 +28,21 @@ public class Module extends ArrayList<Modul>{
         }
         return -1;
     }
+    
+    public void printTest(){
+        // Daten für alle Module ausgeben:
+        for (org.example.DAO.Modul s : this) {
+            System.out.println(s.getModulName());
+            System.out.println(s.getProfName());
+            System.out.println(s.getNote());
+            System.out.println(s.isBelegt());
+            for(int i = 0; i<5; i++){
+                System.out.println("Tag" + i + ":   " + s.getTag(i));
+                System.out.println("Block" + i + ": " + s.getBlock(i));
+                System.out.println("Raum" + i + ":  " + s.getRaum(i));
+            }
+            System.out.println("-------");
+        }
+    }
 
 }
