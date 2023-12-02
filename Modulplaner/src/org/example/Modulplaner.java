@@ -55,9 +55,14 @@ public class Modulplaner extends JFrame {
 
         setLayout(new BorderLayout(0, 10));
 
-        add(new Kursplan(this), BorderLayout.SOUTH);
+        Kursplan kursplan = new Kursplan(this);
+        add(kursplan, BorderLayout.SOUTH);
 
         setVisible(true);
+        
+        kursplan.removeAll();
+        
+        
     }
 
     public static void main(String[] args) {
