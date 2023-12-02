@@ -14,11 +14,11 @@ import org.example.DAO.ModuleDAO;
  *
  * @author Danie
  */
-public class Import extends JFrame {
+public class Export extends JFrame {
     
     private Modulplaner parent;
 
-    public Import(Modulplaner p) {
+    public Export(Modulplaner p) {
         this.parent = p;
         
         //JFileChooser chooser = new JFileChooser();
@@ -28,24 +28,19 @@ public class Import extends JFrame {
 
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        int result = chooser.showOpenDialog(this);
+        int result = chooser.showSaveDialog(this);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = chooser.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
 
-            // Module einlesen aus Datei
-            org.example.DAO.Module lesen = new org.example.DAO.Module();
-            ModuleDAO daoInitialRead = new ModuleDAO(selectedFile.getAbsolutePath(), false); // Lesen
+            // Module schreiben in Datei
+            ModuleDAO dao = new ModuleDAO(selectedFile.getAbsolutePath(), true); 
             try {
-                daoInitialRead.read(lesen);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
+                dao.write(parent.module);
+            } catch (IOException r) {
+                System.out.println(r.getMessage());
             }
-            daoInitialRead.close();
-            parent.module = lesen;
-            parent.KurslisteAktualisieren();
-            parent.KursplanAktualisieren();
-
+            dao.close();
         }
 
     }

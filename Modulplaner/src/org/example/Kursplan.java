@@ -8,17 +8,19 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 public class Kursplan extends JPanel {
+    
+    private Modulplaner parent;
 
-    public Kursplan(Modulplaner modulplaner) {
+    public Kursplan(Modulplaner p) {
+        this.parent = p;
 
-        int anzahlBloecke = modulplaner.anzahlBloecke;
+        int anzahlBloecke = parent.anzahlBloecke;
         int anzahlTage = Modulplaner.tage.values().length;
         setLayout(new GridLayout(anzahlBloecke + 1, anzahlTage + 1));
 
@@ -30,7 +32,7 @@ public class Kursplan extends JPanel {
                 add(panelHolder[i][n]);
             }
         }
-
+        
         for (int i = 1; i <= anzahlTage; i++) {
             panelHolder[0][i].add(new JLabel(Modulplaner.tage.values()[i - 1].toString()));
         }
@@ -40,19 +42,16 @@ public class Kursplan extends JPanel {
 
         for (int i = 1; i <= anzahlBloecke; i++) {
             for (int n = 1; n <= anzahlTage; n++) {
-                org.example.DAO.Module result = modulplaner.module.getByTagBlock(n, i);
+                org.example.DAO.Module result = parent.module.getByTagBlock(n, i);
 
                 panelHolder[i][n].setLayout(new GridLayout(2, result.size()));
                 for (int m = 0; m < result.size(); m++) {
-                    JLabel eintrag = new JLabel(result.get(m).getModulName());
-                    eintrag.setHorizontalAlignment(SwingConstants.CENTER);
-                    //eintrag.setBorder(new LineBorder(Color.BLACK));
+                    JLabel eintrag = new JLabel(result.get(m).getModulName(),0);
                     panelHolder[i][n].add(eintrag);
+                    panelHolder[i][n].setBackground(Color.lightGray);
                 }
                 for (int m = 0; m < result.size(); m++) {
-                    JLabel eintrag = new JLabel(result.get(m).getRaum(n, i));
-                    eintrag.setHorizontalAlignment(SwingConstants.CENTER);
-                    //eintrag.setBorder(new LineBorder(Color.BLACK));
+                    JLabel eintrag = new JLabel(result.get(m).getRaum(n, i),0);
                     panelHolder[i][n].add(eintrag);
                 }
 
@@ -63,9 +62,7 @@ public class Kursplan extends JPanel {
                         
                         panelHolder[i][n].add(eintragHolder[m][y]);
                     }
-                }
-                
-                
+                }*/
                 
                 /*JPanel blockTag = new JPanel();
                 blockTag.setLayout(new GridLayout(1,result.size()));

@@ -6,6 +6,7 @@
 package org.example.MenuBar;
 
 import javax.swing.JMenuBar;
+import org.example.Modulplaner;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
@@ -13,19 +14,23 @@ import javax.swing.JMenuBar;
 
 public class MenuBar extends JMenuBar{
 
-    public MenuBar(String name) {
+    private Modulplaner parent;
+    
+    public MenuBar(String name, Modulplaner p) {
         super();
+        this.parent = p;
+        
         if (name.equals("Modulplaner")){
-            this.add(new Menu("Datei"));
-            this.add(new Menu("Hilfe"));
+            this.add(new Menu("Datei", parent));
+            this.add(new Menu("Hilfe", parent));
         }
         else if (name.equals("About")){
-            this.add(new Menu("Hilfe"));
+            this.add(new Menu("Hilfe", parent));
         }
         else if (name.equals("test")){
-            this.add(new Menu("Datei"));
-            this.add(new Menu("Hilfe"));
-            this.add(new Menu("Irgendwas"));
+            this.add(new Menu("Datei", parent));
+            this.add(new Menu("Hilfe", parent));
+            this.add(new Menu("Irgendwas", parent));
         }
         else System.out.println("Keine MenuBar Names \"" + name + "\" vorhanden");
     }

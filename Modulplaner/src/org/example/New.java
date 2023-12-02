@@ -19,6 +19,8 @@ import org.example.MenuBar.MenuBar;
 
 public class New extends JFrame {
     
+    Modulplaner parent;
+    
     //Initzialisierung der Button bzw. Eingabefelder
     JButton speichernButton = new JButton("Speichern");
     JButton abbrechenButton = new JButton("Abbrechen");
@@ -29,10 +31,12 @@ public class New extends JFrame {
     //Datenliste als arry wird intizialisiert
     private ArrayList<String> datenListe = new ArrayList<>();
 
-    public New() {
+    public New(Modulplaner p) {
+        this.parent = p;
+        
         setSize(200, 250);
         setLocationRelativeTo(null);
-        setJMenuBar(new MenuBar("neu"));
+        setJMenuBar(new MenuBar("neu",p));
 
         JPanel newPanel = new JPanel();
         

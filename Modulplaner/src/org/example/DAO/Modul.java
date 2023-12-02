@@ -119,5 +119,11 @@ public class Modul {
     public int getArraySize() {
         return this.tag.length;
     }
+    
+    @Override
+    public String toString(){
+        return this.modulName + " | " + this.profName;
+        //return this.name + " (" + this.id + ")";
+    }
 
 }
