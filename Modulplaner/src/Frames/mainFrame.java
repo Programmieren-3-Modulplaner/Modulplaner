@@ -26,6 +26,7 @@ public class mainFrame extends JFrame{
     public mainFrame(){
         this.setTitle("Kursplaner der Jade Hochschule");
         this.setSize(700,600);
+        //this.setBackground(Color.BLACK);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         String[] items = {"Import","Export","Beenden"};
         
@@ -47,8 +48,8 @@ public class mainFrame extends JFrame{
         
         //BEGINN JPanel 
         JPanel ui = new JPanel();
-        ui.setLayout(new BorderLayout(0,10));
-        
+        ui.setLayout(new BorderLayout(10,10));
+        //ui.setBackground(Color.BLACK);
         //JPanel links = new JPanel();
         String[] kurse = {"Mathe 1", "Mathe 2", "Programmieren 1", "Programmieren 2", "Programmieren 3", "Statistik", "KLR"};
         //String[] block = {"1.Block", "2. Block", "3. Block","4. Block","5.Block"};
@@ -56,9 +57,12 @@ public class mainFrame extends JFrame{
         JList liste = new JList(kurse);
         
         JPanel links = new JPanel();
+        JLabel u = new JLabel("Kurse",2);
+        //u.setBorder(BorderFactory.createLineBorder(Color.black));
         links.setLayout(new BoxLayout(links,BoxLayout.Y_AXIS));
-        links.setBorder(BorderFactory.createLineBorder(Color.black));
-        links.add(new JLabel("Kurse"));
+        //links.setBorder(BorderFactory.createLineBorder(Color.black));
+        links.add(u);
+        
         links.add(liste);
                     
         //
@@ -66,7 +70,7 @@ public class mainFrame extends JFrame{
         ui.add(links, BorderLayout.WEST);
         ui.add(new Info(), BorderLayout.CENTER);
         ui.add(new Plan(), BorderLayout.PAGE_END);
-        ui.add(new JLabel("Kursplaner der Jade Hochschule"), BorderLayout.NORTH);
+        ui.add(new JLabel("Kursplaner der Jade Hochschule",0), BorderLayout.NORTH);
         this.add(ui);
         setVisible(true);
     }

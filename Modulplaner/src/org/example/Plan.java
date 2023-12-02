@@ -37,7 +37,8 @@ public class Plan extends JPanel{
         for(int m = 0; m < i; m++) {
             for(int n = 0; n < j; n++) {
             panelHolder[m][n] = new JPanel();
-            panelHolder[m][n].setBorder(BorderFactory.createLineBorder(Color.black));
+            panelHolder[m][n].setBorder(BorderFactory.createLineBorder(Color.black, 1, false));
+           
             add(panelHolder[m][n]);
             }
         }
@@ -49,6 +50,8 @@ public class Plan extends JPanel{
         for(int y = 1; y <= block.length; y++){
             panelHolder[y][0].add(new JLabel(block[y-1]));
         }
+        panelHolder[1][1].add(new JLabel("Mathe 1"));
+        panelHolder[4][4].add(new JLabel("Mathe 1"));
         setVisible(true);
         }
     

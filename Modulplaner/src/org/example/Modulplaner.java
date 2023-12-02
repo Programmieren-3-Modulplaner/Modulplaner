@@ -6,6 +6,7 @@ package org.example;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -13,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
 
@@ -28,7 +30,7 @@ public class Modulplaner extends JFrame {
     private ArrayList<Modul> module = new ArrayList();
 
     public Modulplaner() {
-        setTitle("Planer");
+        setTitle("Kurplaner der Jade Hochschule");
         addWindowListener(new WindowEventListener());
         setSize(600, 600);
         setLocationRelativeTo(null);
@@ -41,24 +43,50 @@ public class Modulplaner extends JFrame {
         setLayout(new BorderLayout());
         */
         JPanel ui = new JPanel();
-        ui.setLayout(new BorderLayout(0,10));
+        ui.setLayout(new BorderLayout(15,15));
         String[] kurse = {"Mathe 1", "Mathe 2", "Programmieren 1", "Programmieren 2", "Programmieren 3", "Statistik"};
-        String[] block = {"1.Block", "2. Block", "3. Block","4. Block","5.Block"};
-        String[] tage = {"Montage","Dienstag","Mittwoch","Donnerstag","Freitag"};
+        String[] bestandeneKurse ={"Statistik", "KLR"};
+        String[] note ={"2.2", "4.0"};
+        
         JList liste = new JList(kurse);
+        JList liste2 = new JList(bestandeneKurse);
+        JList liste3 = new JList(note);
         
         JPanel links = new JPanel();
-        links.setLayout(new BoxLayout(links,BoxLayout.Y_AXIS));
-        links.setBorder(BorderFactory.createLineBorder(Color.black));
-        links.add(new JLabel("Kurse"));
-        links.add(liste);
+        links.setLayout(new BorderLayout(10,5));
+        //links.setBorder(BorderFactory.createLineBorder(Color.black));
+        JLabel u1 = new JLabel("Kurse",2);
+        //u1.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 2, Color.black));
+        u1.setSize(5, 10);
+        //u1.setBorder(BorderFactory.createLineBorder(Color.black));
+        links.add(u1,BorderLayout.NORTH);
+        links.add(liste,BorderLayout.CENTER);
                     
         //
-                    
+        JPanel bestanden = new JPanel();
+        bestanden.setLayout(new BorderLayout());
+        //links.setBorder(BorderFactory.createLineBorder(Color.black));
+        JLabel u2 = new JLabel("Bestanden",2);
+        u2.setSize(5, 10);
+        //u1.setBorder(BorderFactory.createLineBorder(Color.black));
+        
+        JPanel schnitt = new JPanel();
+        schnitt.add(new JLabel("Notenschnitt"));
+        schnitt.add(new JTextField("3.1"));
+        
+        bestanden.add(u2,BorderLayout.NORTH);
+        bestanden.add(liste2,BorderLayout.CENTER);
+        bestanden.add(liste3,BorderLayout.EAST);
+        bestanden.add(schnitt,BorderLayout.PAGE_END);
+        
+        
         ui.add(links, BorderLayout.WEST);
         ui.add(new Info(), BorderLayout.CENTER);
         ui.add(new Plan(), BorderLayout.PAGE_END);
-        ui.add(new JLabel("Kursplaner der Jade Hochschule"), BorderLayout.NORTH);
+        ui.add(bestanden, BorderLayout.EAST);
+        
+        
+        
         this.add(ui);
 
         setVisible(true);
