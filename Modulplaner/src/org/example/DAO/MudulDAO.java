@@ -57,12 +57,6 @@ public class MudulDAO extends DAO {
                 }
                 out.writeUTF(s.getRaum(i));
             }
-            /*
-            out.writeUTF(s.getName());
-            out.writeInt(s.getMatnr());
-            out.writeBoolean(s.getBestanden());
-            out.writeDouble(s.getNote());
-             */
         }
     }
 
@@ -89,12 +83,6 @@ public class MudulDAO extends DAO {
             for (int i = 0; i < 5; i++) {
                 s.setRaum(in.readUTF(), i);
             }
-            /*
-            s.setName(in.readUTF());
-            s.setMatnr(in.readInt());
-            s.setBestanden(in.readBoolean());
-            s.setNote(in.readDouble());
-             */
         }
     }
 }
