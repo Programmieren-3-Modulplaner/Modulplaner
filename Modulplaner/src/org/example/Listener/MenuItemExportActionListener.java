@@ -24,7 +24,7 @@ public class MenuItemExportActionListener implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Open öffnen");
+        System.out.println("Save öffnen");
         new Export(parent);
     }
 }

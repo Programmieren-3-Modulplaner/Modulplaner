@@ -5,21 +5,21 @@
 
 package org.example.actions;
 
-import org.example.Neu;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
+import org.example.Export;
 import org.example.Modulplaner;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 
-public class MenuItemNewAction extends AbstractAction{
+public class MenuItemExportAction extends AbstractAction{
 
     private Modulplaner parent;
     
-    public MenuItemNewAction(Modulplaner p, String text, ImageIcon icon, String desc, Integer mnemonic){
+    public MenuItemExportAction(Modulplaner p, String text, ImageIcon icon, String desc, Integer mnemonic){
         super(text, icon);
         this.parent = p;
         putValue(SHORT_DESCRIPTION, desc);
@@ -28,8 +28,8 @@ public class MenuItemNewAction extends AbstractAction{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-       new Neu(parent);
-       System.out.println("Neues Modul");
+       System.out.println("Save öffnen");
+       new Export(parent);
     }
     
 }

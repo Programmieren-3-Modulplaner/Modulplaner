@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import org.example.DAO.ModuleDAO;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
+import org.example.actions.MenuItemExportAction;
+import org.example.actions.MenuItemImportAction;
 import org.example.actions.MenuItemNewAction;
 
 /**
@@ -33,7 +35,7 @@ public class Modulplaner extends JFrame {
     };
     public int anzahlBloecke = 8;
     
-    public Action menuItemNewAction;
+    public Action menuItemNewAction, menuItemImportAction, menuItemExportAction;
     
     public org.example.DAO.Module module;
     public String dateiName;
@@ -63,6 +65,8 @@ public class Modulplaner extends JFrame {
         
         //Actions erstellen:
         menuItemNewAction = new MenuItemNewAction(this, "Neu ", createIcon("/icons/13.gif"), "Erstellt ein neues Modul.", KeyEvent.VK_N);
+        menuItemImportAction = new MenuItemImportAction(this, "Import ", createIcon("/icons/13.gif"), "Importieren von Modulen.", KeyEvent.VK_I);
+        menuItemExportAction = new MenuItemExportAction(this, "Export ", createIcon("/icons/13.gif"), "Exportieren von Modulen.", KeyEvent.VK_E);
         
         //---------------------------------------------
         
@@ -123,7 +127,6 @@ public class Modulplaner extends JFrame {
             System.err.println("Resource not found: " + imgURL);
             return null;
         } else {
-            //return new ImageIcon(new ImageIcon(imgURL).getImage().getScaledInstance(24, 24, Image.SCALE_DEFAULT));
             return new ImageIcon(imgURL);
         }
     }
