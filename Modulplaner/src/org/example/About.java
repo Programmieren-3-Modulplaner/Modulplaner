@@ -5,7 +5,6 @@
 package org.example;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,10 +17,15 @@ import org.example.MenuBar.MenuBar;
  */
 public class About extends JFrame {
 
-    public About() {
+    
+    private Modulplaner parent;
+
+    public About(Modulplaner p) {
+        this.parent = p;
+        
         setSize(200, 200);
         setLocationRelativeTo(null);
-        setJMenuBar(new MenuBar("About"));
+        setJMenuBar(new MenuBar("About", p));
 
         JPanel aboutPanel = new JPanel();
         aboutPanel.setLayout(new GridLayout(8, 1));

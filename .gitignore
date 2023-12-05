@@ -24,3 +24,5 @@ hs_err_pid*
 replay_pid*
 /Modulplaner/nbproject/private/
 /Modulplaner/build/
+Modulplaner/.DS_Store
+.DS_Store
