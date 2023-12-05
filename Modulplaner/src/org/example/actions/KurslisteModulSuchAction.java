@@ -6,7 +6,6 @@
 package org.example.actions;
 
 import java.awt.event.ActionEvent;
-import java.util.List;
 import javax.swing.AbstractAction;
 import javax.swing.DefaultListModel;
 import javax.swing.text.BadLocationException;
@@ -17,13 +16,13 @@ import org.example.DAO.Modul;
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 
-public class ModulSuchAction extends AbstractAction{
+public class KurslisteModulSuchAction extends AbstractAction{
 
     private Document suchEingabe;
     private DefaultListModel suchErgebnis;
     private org.example.DAO.Module module;
     
-    public ModulSuchAction(Document suchEingabe, DefaultListModel suchErgebnis, org.example.DAO.Module module){
+    public KurslisteModulSuchAction(Document suchEingabe, DefaultListModel suchErgebnis, org.example.DAO.Module module){
         super("Suche");
         this.suchEingabe = suchEingabe;
         this.suchErgebnis = suchErgebnis;

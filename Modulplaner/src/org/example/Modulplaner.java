@@ -6,11 +6,15 @@ package org.example;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
+import javax.swing.Action;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import org.example.DAO.ModuleDAO;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
+import org.example.actions.MenuItemNewAction;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
@@ -25,18 +29,20 @@ public class Modulplaner extends JFrame {
     //public org.example.DAO.Module module;
 
     public enum tage {
-        Montag, Dienstag, Mittwoch, Donnerstag, Freitag
+        Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag
     };
     public int anzahlBloecke = 8;
+    
+    public Action menuItemNewAction;
     
     public org.example.DAO.Module module;
     public String dateiName;
     
-    public boolean kursplanIsVisible = true;
-    
     public Kursplan kursplan;
     public Kursliste kursliste;
 
+    public boolean kursplanIsVisible = true;
+    
     public Modulplaner() {
 
         dateiName = "src/org/example/DAO/module.dat";
@@ -53,6 +59,13 @@ public class Modulplaner extends JFrame {
 
         //module.printTest();
         
+        //---------------------------------------------
+        
+        //Actions erstellen:
+        menuItemNewAction = new MenuItemNewAction(this, "Neu ", createIcon("/icons/13.gif"), "Erstellt ein neues Modul.", KeyEvent.VK_N);
+        
+        //---------------------------------------------
+        
         //Initial Window Config's
         setTitle("Planer");
         addWindowListener(new WindowEventListener(this));
@@ -61,7 +74,7 @@ public class Modulplaner extends JFrame {
 
         setJMenuBar(new MenuBar("Modulplaner",this));
 
-        setLayout(new BorderLayout(0, 10));
+        setLayout(new BorderLayout(10, 10));
 
         kursplan = new Kursplan(this);
         add(kursplan, BorderLayout.SOUTH);
@@ -69,7 +82,7 @@ public class Modulplaner extends JFrame {
         kursliste = new Kursliste(this);
         kursliste.setPreferredSize(new Dimension(200, 0)); //breite, höhe (nicht verstellbar bei WEST)
         add(kursliste, BorderLayout.WEST);
-
+        
         setVisible(true);
 
     }
@@ -101,6 +114,18 @@ public class Modulplaner extends JFrame {
         kursliste.setPreferredSize(new Dimension(200, 0)); //breite, höhe (nicht verstellbar bei WEST)
         add(kursliste, BorderLayout.WEST);
         setVisible(true);
+    }
+    
+    public ImageIcon createIcon(String filePath) {
+        java.net.URL imgURL = getClass().getResource(filePath);
+
+        if (imgURL == null) {
+            System.err.println("Resource not found: " + imgURL);
+            return null;
+        } else {
+            //return new ImageIcon(new ImageIcon(imgURL).getImage().getScaledInstance(24, 24, Image.SCALE_DEFAULT));
+            return new ImageIcon(imgURL);
+        }
     }
 
 }

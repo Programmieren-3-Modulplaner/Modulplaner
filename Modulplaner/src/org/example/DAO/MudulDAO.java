@@ -45,13 +45,13 @@ public class MudulDAO extends DAO {
             out.writeUTF(s.getProfName());
             out.writeDouble(s.getNote());
             out.writeBoolean(s.isBelegt());
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 out.writeInt(s.getTag(i));
             }
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 out.writeInt(s.getBlock(i));
             }
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 if (s.getRaum(i) == null) {
                     out.writeUTF("");
                 }
@@ -74,13 +74,13 @@ public class MudulDAO extends DAO {
             s.setProfName(in.readUTF());
             s.setNote(in.readDouble());
             s.setBelegt(in.readBoolean());
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 s.setTag(in.readInt(), i);
             }
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 s.setBlock(in.readInt(), i);
             }
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 s.setRaum(in.readUTF(), i);
             }
         }

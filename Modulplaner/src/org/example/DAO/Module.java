@@ -33,7 +33,7 @@ public class Module extends ArrayList<Modul> {
         Module result = new Module();
 
         for (int i = 0; i < this.size(); i++) {
-            for (int n = 0; n < this.get(i).getArraySize(); n++) {
+            for (int n = 0; n < this.get(i).getAnzahlVeranstaltungen(); n++) {
                 if (this.get(i).getTag(n) == tag && this.get(i).getBlock(n) == block && this.get(i).isBelegt() == true) {
                     result.add(this.get(i));
                 }
@@ -71,5 +71,12 @@ public class Module extends ArrayList<Modul> {
         }
         return ergebnis;
     }
-
+    
+    public boolean nameIstVorhanden(String name){
+        for ( Modul s: this){
+            if (s.getModulName().equals(name))
+                return true;
+        }
+        return false;
+    }
 }

@@ -20,6 +20,7 @@ public class Menu extends JMenu {
         
         if (name.equals("Datei")) {
             this.add(new MenuItem("Neu", parent));
+            //this.add(new MenuItem("Neu2", parent));
             this.add(new MenuItem("Import", parent));
             this.add(new MenuItem("Export", parent));
             this.add(new MenuItem("Beenden", parent));

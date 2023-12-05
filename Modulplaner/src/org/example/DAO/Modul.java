@@ -2,13 +2,14 @@ package org.example.DAO;
 
 public class Modul {
 
+    private int anzahlVeranstaltungen = 5;
     private String modulName;
     private String profName;
     private double note;
     private boolean belegt;
-    private int[] tag = new int[5];
-    private int[] block = new int[5];
-    private String[] raum = new String[5];
+    private int[] tag = new int[anzahlVeranstaltungen];
+    private int[] block = new int[anzahlVeranstaltungen];
+    private String[] raum = new String[anzahlVeranstaltungen];
 
     /**
      * Standardkonstruktor, macht gar nichts.
@@ -116,14 +117,13 @@ public class Modul {
         return "";
     }
 
-    public int getArraySize() {
-        return this.tag.length;
+    public static int getAnzahlVeranstaltungen() {
+        return new Modul().anzahlVeranstaltungen;
     }
     
     @Override
     public String toString(){
         return this.modulName + " | " + this.profName;
-        //return this.name + " (" + this.id + ")";
     }
 
 }
