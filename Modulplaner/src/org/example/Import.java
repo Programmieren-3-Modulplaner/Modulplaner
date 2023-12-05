@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Copyright 2022 Niels Fricke
+ * <Niels.Fricke@t-online.de>
  */
 package org.example;
 
@@ -11,8 +11,7 @@ import javax.swing.JFrame;
 import org.example.DAO.ModuleDAO;
 
 /**
- *
- * @author Danie
+ * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 public class Import extends JFrame {
     
@@ -20,11 +19,6 @@ public class Import extends JFrame {
 
     public Import(Modulplaner p) {
         this.parent = p;
-        
-        //JFileChooser chooser = new JFileChooser();
-        // Dialog zum Oeffnen von Dateien anzeigen
-        //chooser.showOpenDialog(null);
-
 
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));

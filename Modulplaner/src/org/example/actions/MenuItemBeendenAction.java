@@ -2,26 +2,31 @@
  * Copyright 2022 Niels Fricke
  * <Niels.Fricke@t-online.de>
  */
-package org.example.Listener;
+package org.example.actions;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
 import org.example.Modulplaner;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
-public class MenuItemBeendenActionListener implements ActionListener {
+public class MenuItemBeendenAction extends AbstractAction {
 
     private Modulplaner parent;
 
-    public MenuItemBeendenActionListener(Modulplaner p) {
+    public MenuItemBeendenAction(Modulplaner p, String text, ImageIcon icon, String desc, Integer mnemonic) {
+        super(text, icon);
         this.parent = p;
+        putValue(SHORT_DESCRIPTION, desc);
+        putValue(MNEMONIC_KEY, mnemonic);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Beenden...");
         System.exit(0);
     }
+
 }

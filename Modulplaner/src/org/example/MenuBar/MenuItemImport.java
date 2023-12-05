@@ -15,6 +15,6 @@ import org.example.Modulplaner;
 public class MenuItemImport extends JMenuItem{
     public MenuItemImport (Modulplaner p){
         super(p.menuItemImportAction);
-        setIcon(null);
+        //setIcon(null);
     }
 }

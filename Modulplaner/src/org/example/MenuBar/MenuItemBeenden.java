@@ -6,7 +6,6 @@
 package org.example.MenuBar;
 
 import javax.swing.JMenuItem;
-import org.example.Listener.MenuItemBeendenActionListener;
 import org.example.Modulplaner;
 
 /**
@@ -15,9 +14,7 @@ import org.example.Modulplaner;
 
 public class MenuItemBeenden extends JMenuItem{
     public MenuItemBeenden (Modulplaner p){
-        super();
-        this.setText("Beenden");
-        this.addActionListener(new MenuItemBeendenActionListener(p));
-        setIcon(null);
+        super(p.menuItemBeendenAction);
+        //setIcon(null);
     }
 }
