@@ -63,8 +63,10 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
         } else if (Double.parseDouble(noteTextfeld.getText().toString()) < 0 || 
                 (Double.parseDouble(noteTextfeld.getText().toString()) > 0 && 
                 Double.parseDouble(noteTextfeld.getText().toString()) < 1)|| 
+                (Double.parseDouble(noteTextfeld.getText().toString()) > 4 && 
+                Double.parseDouble(noteTextfeld.getText().toString()) < 5)|| 
                 Double.parseDouble(noteTextfeld.getText().toString()) > 5) {
-            JOptionPane.showMessageDialog(null, "Zugelassenen Noten: 0.0 (nicht bestanden) / 1.0 - 5.0", "", JOptionPane.INFORMATION_MESSAGE, icon);
+            JOptionPane.showMessageDialog(null, "Zugelassenen Noten: 0.0 (nicht bestanden) / 1.0 - 4.0 / 5.0", "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else {
             boolean isbelegen = false;
             if (belegen.isSelected()){
