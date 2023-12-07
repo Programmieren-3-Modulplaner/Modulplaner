@@ -115,7 +115,7 @@ public class Neu extends JFrame{
         radioGroupBelegen.add(belegen);
         radioGroupBelegen.add(nichtBelegen);
         speichernButton = new JButton("Speichern");
-        speichernButton.addActionListener(new NeuSpeichernButtonActionListener(parent, this, modulNameTextfeld, profNameTextfeld, noteTextfeld, tag, block, raum, belegen, nichtBelegen));
+        speichernButton.addActionListener(new NeuSpeichernButtonActionListener(parent, this, modulNameTextfeld, profNameTextfeld, noteTextfeld, tag, block, raum, belegen));
         abbrechenButton = new JButton("Abbrechen");
         abbrechenButton.addActionListener(new NeuAbrechenButtonActionListener(parent, this));
         buttonsPanel.add(belegen);

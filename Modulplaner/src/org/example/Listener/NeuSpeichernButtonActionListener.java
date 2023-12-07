@@ -4,7 +4,6 @@
  */
 package org.example.Listener;
 
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -13,8 +12,6 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import org.example.About;
 import org.example.DAO.Modul;
 import org.example.Modulplaner;
 import org.example.Neu;
@@ -34,9 +31,8 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
     private JComboBox[] block = new JComboBox[Modul.getAnzahlVeranstaltungen()];
     private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
     private JRadioButton belegen;
-    //private JRadioButton nichtBelegen;
 
-    public NeuSpeichernButtonActionListener(Modulplaner p, Neu n, JTextField modulNameTextfeld, JTextField profNameTextfeld, JFormattedTextField noteTextfeld, JComboBox[] tag, JComboBox[] block, JTextField[] raum, JRadioButton belegen, JRadioButton nichtBelegen) {
+    public NeuSpeichernButtonActionListener(Modulplaner p, Neu n, JTextField modulNameTextfeld, JTextField profNameTextfeld, JFormattedTextField noteTextfeld, JComboBox[] tag, JComboBox[] block, JTextField[] raum, JRadioButton belegen) {
         this.parent = p;
         this.neu = n;
         this.modulNameTextfeld = modulNameTextfeld;
@@ -46,7 +42,6 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
         this.block = block;
         this.raum = raum;
         this.belegen = belegen;
-        //this.nichtBelegen = nichtBelegen;
     }
 
     @Override
@@ -82,7 +77,6 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
                     tag[2].getSelectedIndex(), block[2].getSelectedIndex(), raum[2].getText(),
                     tag[3].getSelectedIndex(), block[3].getSelectedIndex(), raum[3].getText(),
                     tag[4].getSelectedIndex(), block[4].getSelectedIndex(), raum[4].getText());
-            System.out.println(tag[0].getSelectedIndex());
             parent.module.add(n);
             neu.setVisible(false);
             parent.KurslisteAktualisieren();

@@ -54,24 +54,6 @@ public class Kursplan extends JPanel {
                     JLabel eintrag = new JLabel(result.get(m).getRaum(n, i),0);
                     panelHolder[i][n].add(eintrag);
                 }
-
-                /*for (int m = 0; m < 2; m++) {
-                    for (int y = 0; y < result.size(); y++) {
-                        eintragHolder[m][y] = new JPanel();
-                        eintragHolder[m][y].setBorder(new LineBorder(Color.BLACK));
-                        
-                        panelHolder[i][n].add(eintragHolder[m][y]);
-                    }
-                }*/
-                
-                /*JPanel blockTag = new JPanel();
-                blockTag.setLayout(new GridLayout(1,result.size()));
-                for (int m = 0; m < result.size(); m++) {
-                    JLabel eintrag = new JLabel(result.get(m).getModulName());
-                    //eintrag.setBorder(new LineBorder(Color.BLACK));
-                    blockTag.add(eintrag);
-                }
-                panelHolder[i][n].add(blockTag);*/
             }
         }
     }

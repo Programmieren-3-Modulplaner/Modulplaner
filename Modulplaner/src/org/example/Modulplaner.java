@@ -27,9 +27,6 @@ public class Modulplaner extends JFrame {
     /**
      * @param args the command line arguments
      */
-    //public static Modulplaner app;
-    //private ArrayList<Modul> module = new ArrayList();
-    //public org.example.DAO.Module module;
 
     public enum tage {
         Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag
