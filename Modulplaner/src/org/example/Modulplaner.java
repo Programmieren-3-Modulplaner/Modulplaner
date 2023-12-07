@@ -5,7 +5,6 @@
 package org.example;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import javax.swing.Action;

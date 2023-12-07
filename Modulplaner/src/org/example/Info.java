@@ -70,6 +70,9 @@ public class Info extends JPanel{
         }
         noteTextfeld = new JFormattedTextField(formatter);
         noteTextfeld.setValue(0.0);
+        modulNameTextfeld.setEnabled(false);
+        profNameTextfeld.setEnabled(false);
+        noteTextfeld.setEnabled(false);
         
         belegen = new JRadioButton("Belegen");
         belegen.setSelected(false);
@@ -122,6 +125,9 @@ public class Info extends JPanel{
             tag[i] = new JComboBox(tagComboxArray);
             block[i] = new JComboBox(blockCombockArray);
             raum[i] = new JTextField();
+            tag[i].setEnabled(false);
+            block[i].setEnabled(false);
+            raum[i].setEnabled(false);
             belegungenPanel.add(tag[i]);
             belegungenPanel.add(block[i]);
             belegungenPanel.add(raum[i]);
@@ -129,7 +135,7 @@ public class Info extends JPanel{
         
         //-------------------------------------------------------
         
-        allgemeinPanel.setPreferredSize(new Dimension(200, 0));
+        allgemeinPanel.setPreferredSize(new Dimension(260, 0));
         add(allgemeinPanel, BorderLayout.WEST);
         add(belegungenPanel, BorderLayout.CENTER);
         
@@ -149,10 +155,18 @@ public class Info extends JPanel{
             } else {
                 nichtBelegen.setSelected(true);
             }
+            modulNameTextfeld.setEnabled(true);
+            profNameTextfeld.setEnabled(true);
+            noteTextfeld.setEnabled(true);
             speichernButton.setEnabled(true);
             loeschenButton.setEnabled(true);
             belegen.setEnabled(true);
             nichtBelegen.setEnabled(true);
+            for(int i = 0; i<Modul.getAnzahlVeranstaltungen(); i++){
+                tag[i].setEnabled(true);
+                block[i].setEnabled(true);
+                raum[i].setEnabled(true);
+            }
         }
     }
 }
