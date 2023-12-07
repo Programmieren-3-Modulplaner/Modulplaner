@@ -16,11 +16,11 @@ public class MenuItemHilfeAction extends AbstractAction {
 
     private Modulplaner parent;
 
-    public MenuItemHilfeAction(Modulplaner p, String text, ImageIcon icon, String desc, Integer mnemonic) {
+    public MenuItemHilfeAction(Modulplaner p, String text, ImageIcon icon, String beschreibung, Integer key) {
         super(text, icon);
         this.parent = p;
-        putValue(SHORT_DESCRIPTION, desc);
-        putValue(MNEMONIC_KEY, mnemonic);
+        putValue(SHORT_DESCRIPTION, beschreibung);
+        putValue(MNEMONIC_KEY, key);
     }
 
     @Override

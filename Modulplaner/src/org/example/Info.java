@@ -6,6 +6,7 @@
 package org.example;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -46,10 +47,13 @@ public class Info extends JPanel{
     private JRadioButton nichtBelegen;
     private ButtonGroup radioGroupBelegen;
     
-    public Info(Modulplaner p, boolean isEnable, Modul modul) {
+    public Info(Modulplaner p, boolean iE, Modul m) {
         this.parent = p;
-        this.isEnable = isEnable;
-        this.modul = modul;
+        this.isEnable = iE;
+        this.modul = m;
+        
+        setBorder(BorderFactory.createTitledBorder("Info: "));
+        setLayout(new BorderLayout());
         
         //-------------------------------------------------------
         
@@ -102,9 +106,9 @@ public class Info extends JPanel{
         for (int i = 1; i<tagComboxArray.length; i++){
             tagComboxArray[i] = Modulplaner.tage.values()[i-1].toString();
         }
-        String[] blockCombockArray = new String[parent.anzahlBloecke+1];
+        String[] blockCombockArray = new String[parent.getAnzahlBloecke()+1];
         blockCombockArray[0] = "";
-        for (int i = 1; i<parent.anzahlBloecke+1; i++){
+        for (int i = 1; i<parent.getAnzahlBloecke()+1; i++){
             blockCombockArray[i] = i + ". Block";
         }
         
@@ -125,10 +129,11 @@ public class Info extends JPanel{
         
         //-------------------------------------------------------
         
+        allgemeinPanel.setPreferredSize(new Dimension(200, 0));
         add(allgemeinPanel, BorderLayout.WEST);
         add(belegungenPanel, BorderLayout.CENTER);
         
-        
+        //-------------------------------------------------------
         
         if(this.isEnable && modul != null){
             modulNameTextfeld.setText(this.modul.getModulName());
@@ -149,8 +154,5 @@ public class Info extends JPanel{
             belegen.setEnabled(true);
             nichtBelegen.setEnabled(true);
         }
-
-        setVisible(true);
-
     }
 }

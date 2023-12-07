@@ -6,6 +6,7 @@ package org.example;
 
 import java.awt.BorderLayout;
 import javax.swing.Action;
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
@@ -34,6 +35,7 @@ public class Kursliste extends JPanel {
     public Kursliste(Modulplaner p) {
         this.parent = p;
 
+        setBorder(BorderFactory.createTitledBorder("Kursliste: "));
         setLayout(new BorderLayout());
 
         kurslisteModulSuchAction = new KurslisteModulSuchAction(suchEingabe, suchErgebnisListModel, parent.module);

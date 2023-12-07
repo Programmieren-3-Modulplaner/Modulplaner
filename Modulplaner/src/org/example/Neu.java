@@ -82,9 +82,9 @@ public class Neu extends JFrame{
         for (int i = 1; i<tagComboxArray.length; i++){
             tagComboxArray[i] = Modulplaner.tage.values()[i-1].toString();
         }
-        String[] blockCombockArray = new String[parent.anzahlBloecke+1];
+        String[] blockCombockArray = new String[parent.getAnzahlBloecke()+1];
         blockCombockArray[0] = "";
-        for (int i = 1; i<parent.anzahlBloecke+1; i++){
+        for (int i = 1; i<parent.getAnzahlBloecke()+1; i++){
             blockCombockArray[i] = i + ". Block";
         }
         

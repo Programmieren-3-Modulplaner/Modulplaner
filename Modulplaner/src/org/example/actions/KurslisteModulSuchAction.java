@@ -22,11 +22,11 @@ public class KurslisteModulSuchAction extends AbstractAction{
     private DefaultListModel suchErgebnis;
     private org.example.DAO.Module module;
     
-    public KurslisteModulSuchAction(Document suchEingabe, DefaultListModel suchErgebnis, org.example.DAO.Module module){
+    public KurslisteModulSuchAction(Document sEi, DefaultListModel sEr, org.example.DAO.Module m){
         super("Suche");
-        this.suchEingabe = suchEingabe;
-        this.suchErgebnis = suchErgebnis;
-        this.module = module;
+        this.suchEingabe = sEi;
+        this.suchErgebnis = sEr;
+        this.module = m;
     }
     
     @Override

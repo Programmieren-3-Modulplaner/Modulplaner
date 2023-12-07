@@ -33,16 +33,16 @@ public class InfoSpeichernButtonActionListener implements ActionListener {
     private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
     private JRadioButton belegen;
 
-    public InfoSpeichernButtonActionListener(Modulplaner p, Modul oldModul, JTextField modulNameTextfeld, JTextField profNameTextfeld, JFormattedTextField noteTextfeld, JComboBox[] tag, JComboBox[] block, JTextField[] raum, JRadioButton belegen) {
+    public InfoSpeichernButtonActionListener(Modulplaner p, Modul oM, JTextField mNT, JTextField pNT, JFormattedTextField nT, JComboBox[] t, JComboBox[] bl, JTextField[] r, JRadioButton be) {
         this.parent = p;
-        this.oldModul = oldModul;
-        this.modulNameTextfeld = modulNameTextfeld;
-        this.profNameTextfeld = profNameTextfeld;
-        this.noteTextfeld = noteTextfeld;
-        this.tag = tag;
-        this.block = block;
-        this.raum = raum;
-        this.belegen = belegen;
+        this.oldModul = oM;
+        this.modulNameTextfeld = mNT;
+        this.profNameTextfeld = pNT;
+        this.noteTextfeld = nT;
+        this.tag = t;
+        this.block = bl;
+        this.raum = r;
+        this.belegen = be;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class InfoSpeichernButtonActionListener implements ActionListener {
             }
             Modul n = new Modul(modulNameTextfeld.getText(), profNameTextfeld.getText(), note, isbelegen, nTag, nBlock, nRaum);
             
-            int index = parent.module.getIndexByName(this.oldModul.getModulName());
+            int index = parent.module.getIndexByName(oldModul.getModulName());
             parent.module.set(index, n);
 
             parent.KurslisteAktualisieren();

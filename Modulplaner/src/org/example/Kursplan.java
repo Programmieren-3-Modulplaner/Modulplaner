@@ -6,6 +6,7 @@ package org.example;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -20,7 +21,9 @@ public class Kursplan extends JPanel {
     public Kursplan(Modulplaner p) {
         this.parent = p;
 
-        int anzahlBloecke = parent.anzahlBloecke;
+        setBorder(BorderFactory.createTitledBorder("Kursplan: "));
+        
+        int anzahlBloecke = parent.getAnzahlBloecke();
         int anzahlTage = Modulplaner.tage.values().length;
         setLayout(new GridLayout(anzahlBloecke + 1, anzahlTage + 1));
 

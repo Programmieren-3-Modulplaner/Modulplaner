@@ -11,9 +11,6 @@ public class Modul {
     private int[] block = new int[anzahlVeranstaltungen];
     private String[] raum = new String[anzahlVeranstaltungen];
 
-    /**
-     * Standardkonstruktor, macht gar nichts.
-     */
     public Modul() {
     }
 

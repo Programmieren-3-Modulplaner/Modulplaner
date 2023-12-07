@@ -17,9 +17,9 @@ public class InfoLoeschenButtonActionListener implements ActionListener {
     private Modulplaner parent;
     private Modul oldModul;
     
-    public InfoLoeschenButtonActionListener(Modulplaner p, Modul oldModul) {
+    public InfoLoeschenButtonActionListener(Modulplaner p, Modul oM) {
         this.parent = p;
-        this.oldModul = oldModul;
+        this.oldModul = oM;
        
     }
 
@@ -27,7 +27,7 @@ public class InfoLoeschenButtonActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         System.out.println("Löschen Info");
             
-            int index = parent.module.getIndexByName(this.oldModul.getModulName());
+            int index = parent.module.getIndexByName(oldModul.getModulName());
             parent.module.remove(index);
 
             parent.KurslisteAktualisieren();

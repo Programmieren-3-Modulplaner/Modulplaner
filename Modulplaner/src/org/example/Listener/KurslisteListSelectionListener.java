@@ -20,10 +20,10 @@ public class KurslisteListSelectionListener implements ListSelectionListener {
     private DefaultListModel liste;
     private DefaultListSelectionModel auswahl;
 
-    public KurslisteListSelectionListener(Modulplaner p, DefaultListModel liste, DefaultListSelectionModel auswahl) {
+    public KurslisteListSelectionListener(Modulplaner p, DefaultListModel l, DefaultListSelectionModel a) {
         this.parent = p;
-        this.liste = liste;
-        this.auswahl = auswahl;
+        this.liste = l;
+        this.auswahl = a;
     }
 
     @Override

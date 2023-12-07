@@ -34,18 +34,18 @@ public class Modulplaner extends JFrame {
     public enum tage {
         Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag
     };
-    public int anzahlBloecke = 8;
+    private final int anzahlBloecke = 8;
 
     public Action menuItemNewAction, menuItemImportAction, menuItemExportAction, menuItemBeendenAction, menuItemAboutAction, menuItemHilfeAction;
 
     public org.example.DAO.Module module;
-    public String dateiName;
+    private String dateiName;
 
-    public Kursplan kursplan;
-    public Kursliste kursliste;
-    public Info info;
+    private Kursplan kursplan;
+    private Kursliste kursliste;
+    private Info info;
 
-    public boolean kursplanIsVisible = true;
+    private boolean kursplanIsVisible = true;
 
     public Modulplaner() {
 
@@ -141,4 +141,20 @@ public class Modulplaner extends JFrame {
         }
     }
 
+    public String getDateiName() {
+        return dateiName;
+    }
+
+    public int getAnzahlBloecke() {
+        return anzahlBloecke;
+    }
+
+    public boolean isKursplanIsVisible() {
+        return kursplanIsVisible;
+    }
+
+    public void setKursplanIsVisible(boolean kursplanIsVisible) {
+        this.kursplanIsVisible = kursplanIsVisible;
+    }
+    
 }
