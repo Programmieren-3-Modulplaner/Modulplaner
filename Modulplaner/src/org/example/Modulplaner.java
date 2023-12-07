@@ -85,7 +85,6 @@ public class Modulplaner extends JFrame {
         add(kursplan, BorderLayout.SOUTH);
 
         kursliste = new Kursliste(this);
-        kursliste.setPreferredSize(new Dimension(200, 0)); //breite, höhe (nicht verstellbar bei WEST)
         add(kursliste, BorderLayout.WEST);
 
         info = new Info(this, false, null);
@@ -120,7 +119,6 @@ public class Modulplaner extends JFrame {
     public void KurslisteAktualisieren() {
         this.remove(kursliste);
         kursliste = new Kursliste(this);
-        kursliste.setPreferredSize(new Dimension(200, 0)); //breite, höhe (nicht verstellbar bei WEST)
         add(kursliste, BorderLayout.WEST);
         SwingUtilities.updateComponentTreeUI(this);
     }

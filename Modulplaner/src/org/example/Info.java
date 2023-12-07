@@ -53,7 +53,7 @@ public class Info extends JPanel{
         this.modul = m;
         
         setBorder(BorderFactory.createTitledBorder("Info: "));
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(10, 10));
         
         //-------------------------------------------------------
         

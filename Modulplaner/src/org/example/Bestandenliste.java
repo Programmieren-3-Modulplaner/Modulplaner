@@ -25,7 +25,7 @@ public class Bestandenliste extends JPanel {
         this.parent = p;
         
         setBorder(BorderFactory.createTitledBorder("Bestandene Module: "));
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(10, 10));
         setPreferredSize(new Dimension(200, 0));
 
         add(new JScrollPane(new JList(parent.module.bestadeneModule())), BorderLayout.CENTER);
