@@ -13,8 +13,10 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
+import org.example.Listener.KurslisteListSelectionListener;
 import org.example.actions.KurslisteModulSuchAction;
 
 /**
@@ -24,10 +26,10 @@ public class Kursliste extends JPanel {
     
     private Modulplaner parent;
     
-    Action kurslisteModulSuchAction;
-    DefaultListModel suchErgebnisListModel = new DefaultListModel();
-    DefaultListSelectionModel suchErgebnisAuswahlModel = new DefaultListSelectionModel();
-    Document suchEingabe = new PlainDocument();
+    private Action kurslisteModulSuchAction;
+    private DefaultListModel suchErgebnisListModel = new DefaultListModel();
+    private DefaultListSelectionModel suchErgebnisAuswahlModel = new DefaultListSelectionModel();
+    private Document suchEingabe = new PlainDocument();
     
     public Kursliste(Modulplaner p) {
         this.parent = p;
@@ -52,6 +54,8 @@ public class Kursliste extends JPanel {
         // Such ergebnis Liste erstellen
         JList suchAusgabeListe = new JList();
         suchAusgabeListe.setModel(suchErgebnisListModel);
+        suchErgebnisAuswahlModel.setSelectionMode(SINGLE_SELECTION);
+        suchErgebnisAuswahlModel.addListSelectionListener(new KurslisteListSelectionListener(parent, suchErgebnisListModel, suchErgebnisAuswahlModel));
         suchAusgabeListe.setSelectionModel(suchErgebnisAuswahlModel);
         
         // Such ergebnis Anzeige erstellen

@@ -19,10 +19,11 @@ import org.example.Neu;
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
-public class NeuSpeichernButtonActionListener implements ActionListener {
+public class InfoSpeichernButtonActionListener implements ActionListener {
 
     private Modulplaner parent;
-    private Neu neu;
+    
+    private Modul oldModul;
 
     private JTextField modulNameTextfeld;
     private JTextField profNameTextfeld;
@@ -32,9 +33,9 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
     private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
     private JRadioButton belegen;
 
-    public NeuSpeichernButtonActionListener(Modulplaner p, Neu n, JTextField modulNameTextfeld, JTextField profNameTextfeld, JFormattedTextField noteTextfeld, JComboBox[] tag, JComboBox[] block, JTextField[] raum, JRadioButton belegen) {
+    public InfoSpeichernButtonActionListener(Modulplaner p, Modul oldModul, JTextField modulNameTextfeld, JTextField profNameTextfeld, JFormattedTextField noteTextfeld, JComboBox[] tag, JComboBox[] block, JTextField[] raum, JRadioButton belegen) {
         this.parent = p;
-        this.neu = n;
+        this.oldModul = oldModul;
         this.modulNameTextfeld = modulNameTextfeld;
         this.profNameTextfeld = profNameTextfeld;
         this.noteTextfeld = noteTextfeld;
@@ -46,26 +47,25 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Speichern");
+        System.out.println("Speichern Info");
         
-        //double note = (double)noteTextfeld.getText().toString();
         double note = Double.parseDouble(noteTextfeld.getText().toString());
 
         ImageIcon icon = new ImageIcon(getClass().getResource("/icons/33.gif"));
         if (modulNameTextfeld.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Bitte zuerst Name eingeben!", "", JOptionPane.INFORMATION_MESSAGE, icon);
-        } else if (profNameTextfeld.getText().length() == 0){
+        } else if (profNameTextfeld.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Bitte zuerst Profesor eingeben!", "", JOptionPane.INFORMATION_MESSAGE, icon);
-        } else if (parent.module.nameIstVorhanden(modulNameTextfeld.getText())) {
+        } else if (parent.module.nameIstVorhanden(modulNameTextfeld.getText()) && !modulNameTextfeld.getText().equals(oldModul.getModulName().toString())) {
             JOptionPane.showMessageDialog(null, "Modul bereits vorhanden", "", JOptionPane.INFORMATION_MESSAGE, icon);
-        } else if (note < 0 || (note > 0 && note < 1)|| (note > 4 && note < 5)|| note > 5) {
+        } else if (note < 0 || (note > 0 && note < 1) || (note > 4 && note < 5) || note > 5) {
             JOptionPane.showMessageDialog(null, "Zugelassenen Noten: 0.0 (nicht bestanden) / 1.0 - 4.0 / 5.0", "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else {
             boolean isbelegen = false;
             if (belegen.isSelected()){
                 isbelegen = true;
             }
-    
+            
             int[] nTag = new int[Modul.getAnzahlVeranstaltungen()];
             int[] nBlock = new int[Modul.getAnzahlVeranstaltungen()];
             String[] nRaum = new String[Modul.getAnzahlVeranstaltungen()];
@@ -76,10 +76,12 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
             }
             Modul n = new Modul(modulNameTextfeld.getText(), profNameTextfeld.getText(), note, isbelegen, nTag, nBlock, nRaum);
             
-            parent.module.add(n);
-            neu.setVisible(false);
+            int index = parent.module.getIndexByName(this.oldModul.getModulName());
+            parent.module.set(index, n);
+
             parent.KurslisteAktualisieren();
             parent.KursplanAktualisieren();
+            parent.InfoAktualisieren(true, n);
         }
     }
 }
