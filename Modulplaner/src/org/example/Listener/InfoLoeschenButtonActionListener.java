@@ -33,5 +33,6 @@ public class InfoLoeschenButtonActionListener implements ActionListener {
             parent.KurslisteAktualisieren();
             parent.KursplanAktualisieren();
             parent.InfoAktualisieren(false, null);
+            parent.BestandenlisteAktualisieren();
     }
 }

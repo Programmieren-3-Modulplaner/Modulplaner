@@ -40,6 +40,7 @@ public class Import extends JFrame {
             parent.KurslisteAktualisieren();
             parent.KursplanAktualisieren();
             parent.InfoAktualisieren(false, null);
+            parent.BestandenlisteAktualisieren();
 
         }
 

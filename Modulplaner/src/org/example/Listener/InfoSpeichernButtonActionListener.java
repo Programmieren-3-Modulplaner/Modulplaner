@@ -82,6 +82,7 @@ public class InfoSpeichernButtonActionListener implements ActionListener {
             parent.KurslisteAktualisieren();
             parent.KursplanAktualisieren();
             parent.InfoAktualisieren(true, n);
+            parent.BestandenlisteAktualisieren();
         }
     }
 }

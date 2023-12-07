@@ -54,4 +54,40 @@ public class Module extends ArrayList<Modul> {
         }
         return false;
     }
+    
+    public String[] bestadeneModule(){
+        int size = 0;
+        for ( Modul s: this){
+            if (s.getNote() != 0.0 && s.getNote() != 5.0){
+                size = size + 1;
+            }
+        }
+        String[] ergebnis = new String[size];
+        int i = 0;
+        for ( Modul s: this){
+            if (s.getNote() != 0.0 && s.getNote() != 5.0){
+                ergebnis[i] = s.getModulName() + " | " + s.getNoteString();
+                i = i + 1;
+            }
+        }
+        return ergebnis;
+    }
+    
+    public double duchschnit(){
+        Module ergebnis = new Module();
+        for ( Modul s: this){
+            if (s.getNote() != 0.0 && s.getNote() != 5.0){
+                ergebnis.add(s);
+            }
+        }
+        double durchschnit = 0;
+        for ( Modul s: ergebnis){
+            durchschnit = durchschnit + s.getNote();
+        }
+        durchschnit = durchschnit / ergebnis.size();
+        
+        //return durchschnit;
+        
+        return Math.round(durchschnit * 100.0) / 100.0;
+    }
 }

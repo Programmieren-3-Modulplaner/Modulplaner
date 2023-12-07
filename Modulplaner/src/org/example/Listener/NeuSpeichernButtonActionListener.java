@@ -80,6 +80,7 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
             neu.setVisible(false);
             parent.KurslisteAktualisieren();
             parent.KursplanAktualisieren();
+            parent.BestandenlisteAktualisieren();
         }
     }
 }

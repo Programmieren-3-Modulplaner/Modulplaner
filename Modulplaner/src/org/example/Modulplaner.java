@@ -11,6 +11,7 @@ import java.io.IOException;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import org.example.DAO.Modul;
 import org.example.DAO.ModuleDAO;
@@ -41,9 +42,7 @@ public class Modulplaner extends JFrame {
     public org.example.DAO.Module module;
     private String dateiName;
 
-    private Kursplan kursplan;
-    private Kursliste kursliste;
-    private Info info;
+    private JPanel kursplan, kursliste, info, bestandenliste;
 
     private boolean kursplanIsVisible = true;
 
@@ -91,6 +90,9 @@ public class Modulplaner extends JFrame {
 
         info = new Info(this, false, null);
         add(info, BorderLayout.CENTER);
+        
+        bestandenliste = new Bestandenliste(this);
+        add(bestandenliste, BorderLayout.EAST);
 
         setVisible(true);
 
@@ -127,6 +129,13 @@ public class Modulplaner extends JFrame {
         this.remove(info);
         info = new Info(this, isEnable, modul);
         add(info, BorderLayout.CENTER);
+        SwingUtilities.updateComponentTreeUI(this);
+    }
+    
+    public void BestandenlisteAktualisieren() {
+        this.remove(bestandenliste);
+        bestandenliste = new Bestandenliste(this);
+        add(bestandenliste, BorderLayout.EAST);
         SwingUtilities.updateComponentTreeUI(this);
     }
 
