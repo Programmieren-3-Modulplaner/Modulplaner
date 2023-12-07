@@ -2,7 +2,7 @@ package org.example.DAO;
 
 public class Modul {
 
-    private int anzahlVeranstaltungen = 5;
+    private int anzahlVeranstaltungen = 3;
     private String modulName;
     private String profName;
     private double note;
@@ -17,7 +17,7 @@ public class Modul {
     public Modul() {
     }
 
-    /*public Modul(String modulName, String profName, double note, boolean belegt, int[] tag, int[] block, String[] raum) {
+    public Modul(String modulName, String profName, double note, boolean belegt, int[] tag, int[] block, String[] raum) {
         this.modulName = modulName;
         this.profName = profName;
         this.note = note;
@@ -25,9 +25,11 @@ public class Modul {
         this.tag = tag;
         this.block = block;
         this.raum = raum;
-    }*/
+    }
+    
+    /*
     public Modul(String modulName, String profName, double note, boolean belegt, int tag0, int block0, String raum0, int tag1, int block1, String raum1,
-            int tag2, int block2, String raum2, int tag3, int block3, String raum3, int tag4, int block4, String raum4) {
+            int tag2, int block2, String raum2) {//, int tag3, int block3, String raum3, int tag4, int block4, String raum4) {
         this.modulName = modulName;
         this.profName = profName;
         this.note = note;
@@ -35,19 +37,20 @@ public class Modul {
         this.tag[0] = tag0;
         this.tag[1] = tag1;
         this.tag[2] = tag2;
-        this.tag[3] = tag3;
-        this.tag[4] = tag4;
+        //this.tag[3] = tag3;
+        //this.tag[4] = tag4;
         this.block[0] = block0;
         this.block[1] = block1;
         this.block[2] = block2;
-        this.block[3] = block3;
-        this.block[4] = block4;
+        //this.block[3] = block3;
+       // this.block[4] = block4;
         this.raum[0] = raum0;
         this.raum[1] = raum1;
         this.raum[2] = raum2;
-        this.raum[3] = raum3;
-        this.raum[4] = raum4;
+        //this.raum[3] = raum3;
+        //this.raum[4] = raum4;
     }
+    */
 
     //------------------------------------------
     public String getModulName() {
@@ -60,6 +63,10 @@ public class Modul {
 
     public double getNote() {
         return note;
+    }
+    
+    public String getNoteString() {
+        return String.valueOf(note);
     }
 
     public boolean isBelegt() {
@@ -108,6 +115,7 @@ public class Modul {
     }
 
     //------------------------------------------
+    
     public String getRaum(int stag, int sblock) {
         for (int i = 0; i < this.tag.length; i++) {
             if (this.tag[i] == stag && this.block[i] == sblock) {
@@ -120,10 +128,23 @@ public class Modul {
     public static int getAnzahlVeranstaltungen() {
         return new Modul().anzahlVeranstaltungen;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.modulName + " | " + this.profName;
+    }
+
+    public void printTest() {
+        System.out.println(this.getModulName());
+        System.out.println(this.getProfName());
+        System.out.println(this.getNote());
+        System.out.println(this.isBelegt());
+        for (int i = 0; i < anzahlVeranstaltungen; i++) {
+            System.out.println("Tag" + i + ":   " + this.getTag(i));
+            System.out.println("Block" + i + ": " + this.getBlock(i));
+            System.out.println("Raum" + i + ":  " + this.getRaum(i));
+        }
+        System.out.println("-------");
     }
 
 }
