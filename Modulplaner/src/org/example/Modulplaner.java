@@ -65,7 +65,7 @@ public class Modulplaner extends JFrame {
         menuItemNewAction = new MenuItemNewAction(this, "Neu ", createIcon("/icons/60.gif"), "Erstellt ein neues Modul.", KeyEvent.VK_N);
         menuItemImportAction = new MenuItemImportAction(this, "Import ", createIcon("/icons/53.gif"), "Importieren von Modulen.", KeyEvent.VK_I);
         menuItemExportAction = new MenuItemExportAction(this, "Export ", createIcon("/icons/86.gif"), "Exportieren von Modulen.", KeyEvent.VK_E);
-        menuItemBeendenAction = new MenuItemBeendenAction(this, "Beenden ", createIcon("/icons/33.gif"), "Programm Beenden.", KeyEvent.VK_B);
+        menuItemBeendenAction = new MenuItemBeendenAction(this, "Beenden ", createIcon("/icons/33.gif"), "Programm beenden.", KeyEvent.VK_B);
         menuItemAboutAction = new MenuItemAboutAction(this, "About ", createIcon("/icons/72.gif"), "About Modulplaner", KeyEvent.VK_A);
         menuItemHilfeAction = new MenuItemHilfeAction(this, "Hilfe ", createIcon("/icons/73.gif"), "Hilfe, ich weiß nicht mehr weiter!", KeyEvent.VK_H);
 
