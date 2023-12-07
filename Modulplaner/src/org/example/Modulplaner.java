@@ -16,8 +16,10 @@ import org.example.DAO.Modul;
 import org.example.DAO.ModuleDAO;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
+import org.example.actions.MenuItemAboutAction;
 import org.example.actions.MenuItemBeendenAction;
 import org.example.actions.MenuItemExportAction;
+import org.example.actions.MenuItemHilfeAction;
 import org.example.actions.MenuItemImportAction;
 import org.example.actions.MenuItemNewAction;
 
@@ -34,7 +36,7 @@ public class Modulplaner extends JFrame {
     };
     public int anzahlBloecke = 8;
 
-    public Action menuItemNewAction, menuItemImportAction, menuItemExportAction, menuItemBeendenAction;
+    public Action menuItemNewAction, menuItemImportAction, menuItemExportAction, menuItemBeendenAction, menuItemAboutAction, menuItemHilfeAction;
 
     public org.example.DAO.Module module;
     public String dateiName;
@@ -66,6 +68,8 @@ public class Modulplaner extends JFrame {
         menuItemImportAction = new MenuItemImportAction(this, "Import ", createIcon("/icons/53.gif"), "Importieren von Modulen.", KeyEvent.VK_I);
         menuItemExportAction = new MenuItemExportAction(this, "Export ", createIcon("/icons/86.gif"), "Exportieren von Modulen.", KeyEvent.VK_E);
         menuItemBeendenAction = new MenuItemBeendenAction(this, "Beenden ", createIcon("/icons/33.gif"), "Programm Beenden.", KeyEvent.VK_B);
+        menuItemAboutAction = new MenuItemAboutAction(this, "About ", createIcon("/icons/72.gif"), "About Modulplaner", KeyEvent.VK_A);
+        menuItemHilfeAction = new MenuItemHilfeAction(this, "Hilfe ", createIcon("/icons/73.gif"), "Hilfe, ich weiß nicht mehr weiter!", KeyEvent.VK_H);
 
         //---------------------------------------------
         //Initial Window Config's

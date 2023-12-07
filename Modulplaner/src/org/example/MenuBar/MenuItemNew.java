@@ -14,7 +14,7 @@ import org.example.Modulplaner;
  */
 
 public class MenuItemNew extends JMenuItem{
-    public MenuItemNew (Modulplaner p){
+    MenuItemNew (Modulplaner p){
         super();
         this.setText("Neu anders");
         this.addActionListener(new MenuItemNewActionListner(p));

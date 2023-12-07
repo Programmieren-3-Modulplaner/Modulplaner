@@ -13,7 +13,7 @@ import org.example.Modulplaner;
  */
 
 public class MenuItemBeenden extends JMenuItem{
-    public MenuItemBeenden (Modulplaner p){
+    MenuItemBeenden (Modulplaner p){
         super(p.menuItemBeendenAction);
         //setIcon(null);
     }

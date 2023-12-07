@@ -6,7 +6,6 @@
 package org.example.MenuBar;
 
 import javax.swing.JMenuItem;
-import org.example.Listener.MenuItemAboutActionListener;
 import org.example.Modulplaner;
 
 /**
@@ -14,10 +13,8 @@ import org.example.Modulplaner;
  */
 
 public class MenuItemAbout extends JMenuItem{
-    public MenuItemAbout (Modulplaner p){
-        super();
-        this.setText("About");
-        this.addActionListener(new MenuItemAboutActionListener(p));
-        setIcon(null);
+    MenuItemAbout (Modulplaner p){
+        super(p.menuItemAboutAction);
+        //setIcon(null);
     }
 }

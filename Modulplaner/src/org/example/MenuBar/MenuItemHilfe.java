@@ -13,10 +13,8 @@ import org.example.Modulplaner;
  */
 
 public class MenuItemHilfe extends JMenuItem{
-    public MenuItemHilfe (Modulplaner p){
-        super();
-        this.setText("Hilfe");
-        //this.addActionListener(new MenuItemHilfeActionListener(p));
-        setIcon(null);
+    MenuItemHilfe (Modulplaner p){
+        super(p.menuItemHilfeAction);
+        //setIcon(null);
     }
 }
