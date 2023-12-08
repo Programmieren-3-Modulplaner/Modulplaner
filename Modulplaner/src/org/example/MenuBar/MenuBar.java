@@ -25,7 +25,7 @@ public class MenuBar extends JMenuBar{
             this.add(new Menu("Anzeige", parent));
             this.add(new Menu("Hilfe", parent));
         }
-        else if (name.equals("About")){
+        else if (name.equals("Neu")){
             this.add(new Menu("Hilfe", parent));
         }
         else if (name.equals("test")){

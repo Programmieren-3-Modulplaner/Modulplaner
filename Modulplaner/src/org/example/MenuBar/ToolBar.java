@@ -25,8 +25,10 @@ public class ToolBar extends JToolBar{
         add(parent.importAction);
         add(parent.exportAction);
         addSeparator();
-        add(parent.aboutAction);
-        addSeparator();
         add(parent.beendenAction);
+        addSeparator();
+        add(parent.hilfeAction);
+        addSeparator();
+        add(parent.aboutAction);
     }
 }

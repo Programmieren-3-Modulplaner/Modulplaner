@@ -53,13 +53,13 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
 
         ImageIcon icon = new ImageIcon(getClass().getResource("/icons/33.gif"));
         if (modulNameTextfeld.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Bitte zuerst Namen eingeben!", "", JOptionPane.INFORMATION_MESSAGE, icon);
+            JOptionPane.showMessageDialog(neu, "Bitte zuerst Namen eingeben!", "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else if (profNameTextfeld.getText().length() == 0){
-            JOptionPane.showMessageDialog(null, "Bitte zuerst Professor eingeben!", "", JOptionPane.INFORMATION_MESSAGE, icon);
+            JOptionPane.showMessageDialog(neu, "Bitte zuerst Professor eingeben!", "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else if (parent.module.nameIstVorhanden(modulNameTextfeld.getText())) {
-            JOptionPane.showMessageDialog(null, "Modul bereits vorhanden", "", JOptionPane.INFORMATION_MESSAGE, icon);
+            JOptionPane.showMessageDialog(neu, "Modul bereits vorhanden", "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else if (note < 0 || (note > 0 && note < 1)|| (note > 4 && note < 5)|| note > 5) {
-            JOptionPane.showMessageDialog(null, "Zugelassene Noten: 0.0 (nicht bestanden) / 1.0 - 4.0 / 5.0", "", JOptionPane.INFORMATION_MESSAGE, icon);
+            JOptionPane.showMessageDialog(neu, "Zugelassene Noten: 0.0 (nicht bestanden) / 1.0 - 4.0 / 5.0", "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else {
             boolean isbelegen = false;
             if (belegen.isSelected()){

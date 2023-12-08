@@ -10,8 +10,8 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -20,11 +20,12 @@ import javax.swing.text.MaskFormatter;
 import org.example.DAO.Modul;
 import org.example.Listener.NeuAbrechenButtonActionListener;
 import org.example.Listener.NeuSpeichernButtonActionListener;
+import org.example.MenuBar.MenuBar;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
-public class Neu extends JFrame{
+public class Neu extends JDialog{
 
     private Modulplaner parent;
     
@@ -46,11 +47,11 @@ public class Neu extends JFrame{
     private ButtonGroup radioGroupBelegen;
     
     public Neu(Modulplaner p) {
+        super(p,true);
         this.parent = p;
-        //setSize(600, 500);
-        //setLayout(new GridLayout(3,1,10,10));
-        //setLayout(new BorderLayout(20,20));
-        setLocationRelativeTo(null);
+        
+        setJMenuBar(new MenuBar("Neu", p));
+        
         setTitle("Neues Modul anlegen");
         
         //-------------------------------------------------------

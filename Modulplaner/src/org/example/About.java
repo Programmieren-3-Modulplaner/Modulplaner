@@ -6,26 +6,25 @@ package org.example;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import org.example.MenuBar.MenuBar;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
-public class About extends JFrame {
+public class About extends JDialog {
 
     
     private Modulplaner parent;
 
     public About(Modulplaner p) {
+        super(p,true);
         this.parent = p;
         
         setSize(200, 200);
         setLocationRelativeTo(null);
-        setJMenuBar(new MenuBar("About", p));
 
         JPanel aboutPanel = new JPanel();
         aboutPanel.setLayout(new GridLayout(8, 1));
