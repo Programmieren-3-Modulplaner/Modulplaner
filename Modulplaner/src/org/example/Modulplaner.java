@@ -16,6 +16,7 @@ import org.example.DAO.Modul;
 import org.example.DAO.ModuleDAO;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
+import org.example.MenuBar.ToolBar;
 import org.example.actions.MenuItemAboutAction;
 import org.example.actions.MenuItemBeendenAction;
 import org.example.actions.MenuItemExportAction;
@@ -36,7 +37,7 @@ public class Modulplaner extends JFrame {
     };
     private final int anzahlBloecke = 8;
 
-    public Action menuItemNewAction, menuItemImportAction, menuItemExportAction, menuItemBeendenAction, menuItemAboutAction, menuItemHilfeAction;
+    public Action modulNeuAction, importAction, exportAction, beendenAction, aboutAction, hilfeAction;
 
     public org.example.DAO.Module module;
     private String dateiName;
@@ -62,12 +63,12 @@ public class Modulplaner extends JFrame {
         //module.printTest();
         //---------------------------------------------
         //Actions erstellen:
-        menuItemNewAction = new MenuItemNewAction(this, "Neu ", createIcon("/icons/60.gif"), "Erstellt ein neues Modul.", KeyEvent.VK_N);
-        menuItemImportAction = new MenuItemImportAction(this, "Import ", createIcon("/icons/53.gif"), "Importieren von Modulen.", KeyEvent.VK_I);
-        menuItemExportAction = new MenuItemExportAction(this, "Export ", createIcon("/icons/86.gif"), "Exportieren von Modulen.", KeyEvent.VK_E);
-        menuItemBeendenAction = new MenuItemBeendenAction(this, "Beenden ", createIcon("/icons/33.gif"), "Programm beenden.", KeyEvent.VK_B);
-        menuItemAboutAction = new MenuItemAboutAction(this, "About ", createIcon("/icons/72.gif"), "About Modulplaner", KeyEvent.VK_A);
-        menuItemHilfeAction = new MenuItemHilfeAction(this, "Hilfe ", createIcon("/icons/73.gif"), "Hilfe, ich weiß nicht mehr weiter!", KeyEvent.VK_H);
+        modulNeuAction = new MenuItemNewAction(this, "Neu ", createIcon("/icons/60.gif"), "Erstellt ein neues Modul.", KeyEvent.VK_N);
+        importAction = new MenuItemImportAction(this, "Import ", createIcon("/icons/53.gif"), "Importieren von Modulen.", KeyEvent.VK_I);
+        exportAction = new MenuItemExportAction(this, "Export ", createIcon("/icons/86.gif"), "Exportieren von Modulen.", KeyEvent.VK_E);
+        beendenAction = new MenuItemBeendenAction(this, "Beenden ", createIcon("/icons/33.gif"), "Programm beenden.", KeyEvent.VK_B);
+        aboutAction = new MenuItemAboutAction(this, "About ", createIcon("/icons/72.gif"), "About Modulplaner", KeyEvent.VK_A);
+        hilfeAction = new MenuItemHilfeAction(this, "Hilfe ", createIcon("/icons/73.gif"), "Hilfe, ich weiß nicht mehr weiter!", KeyEvent.VK_H);
 
         //---------------------------------------------
         //Initial Window Config's
@@ -77,8 +78,10 @@ public class Modulplaner extends JFrame {
         setLocationRelativeTo(null);
 
         setJMenuBar(new MenuBar("Modulplaner", this));
-
+        
         setLayout(new BorderLayout(10, 10));
+        
+        add(new ToolBar(this), BorderLayout.NORTH);
 
         kursplan = new Kursplan(this);
         add(kursplan, BorderLayout.SOUTH);

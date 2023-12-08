@@ -14,7 +14,7 @@ import org.example.Modulplaner;
 
 public class MenuItemBeenden extends JMenuItem{
     MenuItemBeenden (Modulplaner p){
-        super(p.menuItemBeendenAction);
+        super(p.beendenAction);
         //setIcon(null);
     }
 }

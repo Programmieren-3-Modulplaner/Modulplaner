@@ -14,7 +14,7 @@ import org.example.Modulplaner;
 
 public class MenuItemNeu extends JMenuItem{
     MenuItemNeu (Modulplaner p){
-        super(p.menuItemNewAction);
+        super(p.modulNeuAction);
         //setIcon(null);
     }
 }

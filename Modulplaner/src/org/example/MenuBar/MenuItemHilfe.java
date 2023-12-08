@@ -14,7 +14,7 @@ import org.example.Modulplaner;
 
 public class MenuItemHilfe extends JMenuItem{
     MenuItemHilfe (Modulplaner p){
-        super(p.menuItemHilfeAction);
+        super(p.hilfeAction);
         //setIcon(null);
     }
 }
