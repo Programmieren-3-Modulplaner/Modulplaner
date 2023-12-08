@@ -35,8 +35,7 @@ public class Modulplaner extends JFrame {
     public enum tage {
         Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag
     };
-    private final int anzahlBloecke = 8;
-    private String[] bloecke = {"6:15-7:45", "8:15-9:45", "10:15-11:45", "12:15-13:45", "14:15-15:45", "16:00-17:30", "17:45-19:15", "20:00-21:30"};
+    private String[] bloecke = {"8:15-9:45", "10:15-11:45", "12:15-13:45", "14:15-15:45", "16:00-17:30", "17:45-19:15", "19:30-20:45"};
 
     public Action modulNeuAction, importAction, exportAction, beendenAction, aboutAction, hilfeAction;
 
@@ -75,8 +74,6 @@ public class Modulplaner extends JFrame {
         //Initial Window Config's
         setTitle("Planer");
         addWindowListener(new WindowEventListener(this));
-        setSize(1200, 600);
-        setLocationRelativeTo(null);
 
         setJMenuBar(new MenuBar("Modulplaner", this));
         
@@ -96,6 +93,9 @@ public class Modulplaner extends JFrame {
         bestandenliste = new Bestandenliste(this);
         add(bestandenliste, BorderLayout.EAST);
 
+        pack();
+        setLocationRelativeTo(null);
+        
         setVisible(true);
 
     }
@@ -162,7 +162,7 @@ public class Modulplaner extends JFrame {
     }
 
     public int getAnzahlBloecke() {
-        return anzahlBloecke;
+        return bloecke.length;
     }
 
     public boolean isKursplanIsVisible() {
