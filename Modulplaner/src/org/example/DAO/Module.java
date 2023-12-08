@@ -73,7 +73,7 @@ public class Module extends ArrayList<Modul> {
         return ergebnis;
     }
     
-    public double duchschnit(){
+    public double durchschnitt(){
         Module ergebnis = new Module();
         for ( Modul s: this){
             if (s.getNote() != 0.0 && s.getNote() != 5.0){

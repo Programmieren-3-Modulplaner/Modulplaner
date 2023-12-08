@@ -29,6 +29,6 @@ public class Bestandenliste extends JPanel {
         setPreferredSize(new Dimension(200, 0));
 
         add(new JScrollPane(new JList(parent.module.bestadeneModule())), BorderLayout.CENTER);
-        add(new JLabel("Durchschnit: " + parent.module.duchschnit()), BorderLayout.SOUTH);
+        add(new JLabel("Durchschnitt: " + parent.module.durchschnitt()), BorderLayout.SOUTH);
     }
 }

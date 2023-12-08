@@ -24,31 +24,6 @@ public class Modul {
         this.raum = raum;
     }
     
-    /*
-    public Modul(String modulName, String profName, double note, boolean belegt, int tag0, int block0, String raum0, int tag1, int block1, String raum1,
-            int tag2, int block2, String raum2) {//, int tag3, int block3, String raum3, int tag4, int block4, String raum4) {
-        this.modulName = modulName;
-        this.profName = profName;
-        this.note = note;
-        this.belegt = belegt;
-        this.tag[0] = tag0;
-        this.tag[1] = tag1;
-        this.tag[2] = tag2;
-        //this.tag[3] = tag3;
-        //this.tag[4] = tag4;
-        this.block[0] = block0;
-        this.block[1] = block1;
-        this.block[2] = block2;
-        //this.block[3] = block3;
-       // this.block[4] = block4;
-        this.raum[0] = raum0;
-        this.raum[1] = raum1;
-        this.raum[2] = raum2;
-        //this.raum[3] = raum3;
-        //this.raum[4] = raum4;
-    }
-    */
-
     //------------------------------------------
     public String getModulName() {
         return modulName;
