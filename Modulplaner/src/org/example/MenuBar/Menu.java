@@ -28,6 +28,11 @@ public class Menu extends JMenu {
         } else if (name.equals("Hilfe")) {
             this.add(new MenuItemHilfe(parent));
             this.add(new MenuItemAbout(parent));
+            } else if (name.equals("Anzeige")) {
+            this.add(new MenuItemKursplanVisible(parent));
+            this.add(new MenuItemKurslisteVisible(parent));
+            this.add(new MenuItemInfoVisible(parent));
+            this.add(new MenuItemBestandenlisteVisible(parent));
         } else {
             System.out.println("Kein Menu Names \"" + name + "\" vorhanden");
         }

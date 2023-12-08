@@ -43,7 +43,7 @@ public class Modulplaner extends JFrame {
 
     private JPanel kursplan, kursliste, info, bestandenliste;
 
-    private boolean kursplanIsVisible = true;
+    private boolean kursplanIsVisible = true, kurslisteIsVisible = true, infoIsVisible = true, bestandenlisteIsVisible = true;
 
     public Modulplaner() {
 
@@ -117,22 +117,28 @@ public class Modulplaner extends JFrame {
 
     public void KurslisteAktualisieren() {
         this.remove(kursliste);
-        kursliste = new Kursliste(this);
-        add(kursliste, BorderLayout.WEST);
+        if (kurslisteIsVisible == true) {
+            kursliste = new Kursliste(this);
+            add(kursliste, BorderLayout.WEST);
+        }
         SwingUtilities.updateComponentTreeUI(this);
     }
 
     public void InfoAktualisieren(boolean isEnable, Modul modul) {
         this.remove(info);
-        info = new Info(this, isEnable, modul);
-        add(info, BorderLayout.CENTER);
+        if (infoIsVisible == true) {
+            info = new Info(this, isEnable, modul);
+            add(info, BorderLayout.CENTER);
+        }
         SwingUtilities.updateComponentTreeUI(this);
     }
-    
+
     public void BestandenlisteAktualisieren() {
         this.remove(bestandenliste);
-        bestandenliste = new Bestandenliste(this);
-        add(bestandenliste, BorderLayout.EAST);
+        if (bestandenlisteIsVisible == true) {
+            bestandenliste = new Bestandenliste(this);
+            add(bestandenliste, BorderLayout.EAST);
+        }
         SwingUtilities.updateComponentTreeUI(this);
     }
 
@@ -159,8 +165,31 @@ public class Modulplaner extends JFrame {
         return kursplanIsVisible;
     }
 
+    public boolean isKurslisteIsVisible() {
+        return kurslisteIsVisible;
+    }
+
+    public boolean isInfoIsVisible() {
+        return infoIsVisible;
+    }
+
+    public boolean isBestandenlisteIsVisible() {
+        return bestandenlisteIsVisible;
+    }
+    
     public void setKursplanIsVisible(boolean kursplanIsVisible) {
         this.kursplanIsVisible = kursplanIsVisible;
     }
-    
+
+    public void setKurslisteIsVisible(boolean kurslisteIsVisible) {
+        this.kurslisteIsVisible = kurslisteIsVisible;
+    }
+
+    public void setInfoIsVisible(boolean infoIsVisible) {
+        this.infoIsVisible = infoIsVisible;
+    }
+
+    public void setBestandenlisteIsVisible(boolean bestandenlisteIsVisible) {
+        this.bestandenlisteIsVisible = bestandenlisteIsVisible;
+    }
 }
