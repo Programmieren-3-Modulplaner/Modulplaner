@@ -145,12 +145,16 @@ public class Info extends JPanel{
             modulNameTextfeld.setText(this.modul.getModulName());
             profNameTextfeld.setText(this.modul.getProfName());
             noteTextfeld.setText(this.modul.getNoteString());
-            for(int i = 0; i<Modul.getAnzahlVeranstaltungen(); i++){
-                tag[i].setSelectedIndex(this.modul.getTag(i));
-                block[i].setSelectedIndex(this.modul.getBlock(i));
+            for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
+                if (this.modul.getTag(i) >= 0 && this.modul.getTag(i) <= Modulplaner.tage.values().length) {
+                    tag[i].setSelectedIndex(this.modul.getTag(i));
+                }
+                if (this.modul.getBlock(i) >= 0 && this.modul.getBlock(i) <= parent.getAnzahlBloecke()) {
+                    block[i].setSelectedIndex(this.modul.getBlock(i));
+                }
                 raum[i].setText(this.modul.getRaum(i));
             }
-            if(this.modul.isBelegt()){
+            if (this.modul.isBelegt()) {
                 belegen.setSelected(true);
             } else {
                 nichtBelegen.setSelected(true);

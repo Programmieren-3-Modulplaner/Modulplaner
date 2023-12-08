@@ -36,6 +36,7 @@ public class Modulplaner extends JFrame {
         Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag
     };
     private final int anzahlBloecke = 8;
+    private String[] bloecke = {"6:15-7:45", "8:15-9:45", "10:15-11:45", "12:15-13:45", "14:15-15:45", "16:00-17:30", "17:45-19:15", "20:00-21:30"};
 
     public Action modulNeuAction, importAction, exportAction, beendenAction, aboutAction, hilfeAction;
 
@@ -194,5 +195,9 @@ public class Modulplaner extends JFrame {
 
     public void setBestandenlisteIsVisible(boolean bestandenlisteIsVisible) {
         this.bestandenlisteIsVisible = bestandenlisteIsVisible;
+    }
+
+    public String[] getBloecke() {
+        return bloecke;
     }
 }

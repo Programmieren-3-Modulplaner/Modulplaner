@@ -40,7 +40,9 @@ public class Kursplan extends JPanel {
             panelHolder[0][i].add(new JLabel(Modulplaner.tage.values()[i - 1].toString()));
         }
         for (int i = 1; i <= anzahlBloecke; i++) {
-            panelHolder[i][0].add(new JLabel("Block " + i));
+            panelHolder[i][0].setLayout(new GridLayout(2,1));
+            panelHolder[i][0].add(new JLabel("Block " + i,0));
+            panelHolder[i][0].add(new JLabel(parent.getBloecke()[i-1],0));
         }
 
         for (int i = 1; i <= anzahlBloecke; i++) {
