@@ -22,8 +22,8 @@ public class MenuBar extends JMenuBar{
         
         if (name.equals("Modulplaner")){
             this.add(new Menu("Datei", parent));
-            this.add(new Menu("Hilfe", parent));
             this.add(new Menu("Anzeige", parent));
+            this.add(new Menu("Hilfe", parent));
         }
         else if (name.equals("About")){
             this.add(new Menu("Hilfe", parent));
