@@ -14,11 +14,12 @@ import org.example.Modulplaner;
 
 public class ToolBar extends JToolBar{
     
-    Modulplaner parent;
+    private Modulplaner parent;
     
     public ToolBar(Modulplaner p){
         this.parent = p;
-        
+        System.out.println("ToolBar");
+       
         add(parent.modulNeuAction);
         addSeparator();
         add(parent.importAction);
@@ -27,7 +28,5 @@ public class ToolBar extends JToolBar{
         add(parent.aboutAction);
         addSeparator();
         add(parent.beendenAction);
-        
-        System.out.println("ToolBar");
     }
 }
