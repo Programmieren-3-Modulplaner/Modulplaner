@@ -13,13 +13,24 @@ public class Module extends ArrayList<Modul> {
         return -1;
     }
 
-    public Module getByTagBlock(int tag, int block) {
-        Module result = new Module();
-
+    public String[][] getByTagBlock(int tag, int block) {
+        int size = 0;
         for (int i = 0; i < this.size(); i++) {
             for (int n = 0; n < this.get(i).getAnzahlVeranstaltungen(); n++) {
                 if (this.get(i).getTag(n) == tag && this.get(i).getBlock(n) == block && this.get(i).isBelegt() == true) {
-                    result.add(this.get(i));
+                    size = size + 1;
+                }
+            }
+        }
+        
+        String[][] result = new String[size][2];
+        int c = 0;
+        for (int i = 0; i < this.size(); i++) {
+            for (int n = 0; n < this.get(i).getAnzahlVeranstaltungen(); n++) {
+                if (this.get(i).getTag(n) == tag && this.get(i).getBlock(n) == block && this.get(i).isBelegt() == true) {
+                    result[c][0] = this.get(i).getModulName();
+                    result[c][1] = this.get(i).getRaum(n);
+                    c = c + 1;
                 }
             }
         }

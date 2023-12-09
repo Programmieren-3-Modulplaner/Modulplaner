@@ -47,17 +47,18 @@ public class Kursplan extends JPanel {
 
         for (int i = 1; i <= anzahlBloecke; i++) {
             for (int n = 1; n <= anzahlTage; n++) {
-                org.example.DAO.Module result = parent.module.getByTagBlock(n, i);
-
-                panelHolder[i][n].setLayout(new GridLayout(2, result.size()));
-                for (int m = 0; m < result.size(); m++) {
-                    JLabel eintrag = new JLabel(result.get(m).getModulName(),0);
-                    panelHolder[i][n].add(eintrag);
+                String[][] result = parent.module.getByTagBlock(n, i);
+                if (result.length > 0) {
+                    panelHolder[i][n].setLayout(new GridLayout(2, 0));
                     panelHolder[i][n].setBackground(Color.lightGray);
-                }
-                for (int m = 0; m < result.size(); m++) {
-                    JLabel eintrag = new JLabel(result.get(m).getRaum(n, i),0);
-                    panelHolder[i][n].add(eintrag);
+                    for (int m = 0; m < result.length; m++) {
+                        JLabel eintrag = new JLabel(result[m][0], 0);
+                        panelHolder[i][n].add(eintrag);
+                    }
+                    for (int m = 0; m < result.length; m++) {
+                        JLabel eintrag = new JLabel(result[m][1], 0);
+                        panelHolder[i][n].add(eintrag);
+                    }
                 }
             }
         }
