@@ -14,9 +14,9 @@ import org.example.Modulplaner;
  */
 
 public class MenuItemKurslisteVisible extends JCheckBoxMenuItem{
-    MenuItemKurslisteVisible (Modulplaner p){
+    MenuItemKurslisteVisible (Modulplaner p, String t){
         super();
-        this.setText("Toggle Kursliste");
+        this.setText(t);
         this.setSelected(p.isKurslisteIsVisible());
         this.addItemListener(new MenuItemKurslisteItemListner(p));
         setIcon(null);

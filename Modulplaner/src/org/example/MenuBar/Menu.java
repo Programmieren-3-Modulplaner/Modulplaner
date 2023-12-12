@@ -29,10 +29,10 @@ public class Menu extends JMenu {
             this.add(new MenuItemHilfe(parent));
             this.add(new MenuItemAbout(parent));
         } else if (name.equals(parent.sprache("Anzeige"))) {
-            this.add(new MenuItemKursplanVisible(parent));
-            this.add(new MenuItemKurslisteVisible(parent));
-            this.add(new MenuItemInfoVisible(parent));
-            this.add(new MenuItemBestandenlisteVisible(parent));
+            this.add(new MenuItemKursplanVisible(parent,parent.sprache("ToggleKP")));
+            this.add(new MenuItemKurslisteVisible(parent, parent.sprache("ToggleKL")));
+            this.add(new MenuItemInfoVisible(parent,parent.sprache("ToggleI")));
+            this.add(new MenuItemBestandenlisteVisible(parent, parent.sprache("ToggleB")));
         } else {
             System.out.println("Kein Menu Names \"" + name + "\" vorhanden");
         }

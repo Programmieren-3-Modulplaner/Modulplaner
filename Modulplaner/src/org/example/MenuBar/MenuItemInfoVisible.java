@@ -14,9 +14,9 @@ import org.example.Modulplaner;
  */
 
 public class MenuItemInfoVisible extends JCheckBoxMenuItem{
-    MenuItemInfoVisible (Modulplaner p){
+    MenuItemInfoVisible (Modulplaner p, String t){
         super();
-        this.setText("Toggle Info");
+        this.setText(t);
         this.setSelected(p.isInfoIsVisible());
         this.addItemListener(new MenuItemInfoItemListner(p));
         setIcon(null);

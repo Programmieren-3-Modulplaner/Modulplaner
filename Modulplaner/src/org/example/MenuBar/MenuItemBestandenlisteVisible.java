@@ -14,9 +14,9 @@ import org.example.Modulplaner;
  */
 
 public class MenuItemBestandenlisteVisible extends JCheckBoxMenuItem{
-    MenuItemBestandenlisteVisible (Modulplaner p){
+    MenuItemBestandenlisteVisible (Modulplaner p, String t){
         super();
-        this.setText("Toggle Bestandene Module");
+        this.setText(t);
         this.setSelected(p.isBestandenlisteIsVisible());
         this.addItemListener(new MenuItemBestandenlisteItemListner(p));
         setIcon(null);
