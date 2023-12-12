@@ -36,7 +36,7 @@ public class Kursliste extends JPanel {
     public Kursliste(Modulplaner p) {
         this.parent = p;
 
-        setBorder(BorderFactory.createTitledBorder("Kursliste: "));
+        setBorder(BorderFactory.createTitledBorder(parent.sprache("Kursliste")+": "));
         setLayout(new BorderLayout(10, 10));
         setPreferredSize(new Dimension(200, 0));
 
@@ -52,6 +52,7 @@ public class Kursliste extends JPanel {
         suchFeld.addActionListener(kurslisteModulSuchAction);
         
         JButton suchButton = new JButton(kurslisteModulSuchAction);
+        suchButton.setText(parent.sprache("Suchen"));
         suchButton.setFocusPainted(false);
         suchEingabePanel.add(suchButton, BorderLayout.EAST);
         

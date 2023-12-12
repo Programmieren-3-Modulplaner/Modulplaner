@@ -52,13 +52,13 @@ public class Info extends JPanel{
         this.isEnable = iE;
         this.modul = m;
         
-        setBorder(BorderFactory.createTitledBorder("Info: "));
+        setBorder(BorderFactory.createTitledBorder(parent.sprache("Info")+": "));
         setLayout(new BorderLayout(10, 10));
         
         //-------------------------------------------------------
         
         allgemeinPanel = new JPanel();
-        allgemeinPanel.setBorder(BorderFactory.createTitledBorder("Allgemein: ")); 
+        allgemeinPanel.setBorder(BorderFactory.createTitledBorder(parent.sprache("Allgemein")+": ")); 
         allgemeinPanel.setLayout(new GridLayout(5,2,5,5));
         modulNameTextfeld = new JTextField();
         profNameTextfeld = new JTextField();
@@ -74,28 +74,28 @@ public class Info extends JPanel{
         profNameTextfeld.setEnabled(false);
         noteTextfeld.setEnabled(false);
         
-        belegen = new JRadioButton("Belegen");
+        belegen = new JRadioButton(parent.sprache("TBelegen"));
         belegen.setSelected(false);
         belegen.setEnabled(false);
-        nichtBelegen = new JRadioButton("Nicht Belegen");
+        nichtBelegen = new JRadioButton(parent.sprache("FBelegen"));
         nichtBelegen.setSelected(false);
         nichtBelegen.setEnabled(false);
         radioGroupBelegen = new ButtonGroup();
         radioGroupBelegen.add(belegen);
         radioGroupBelegen.add(nichtBelegen);
         
-        speichernButton = new JButton("Speichern");
+        speichernButton = new JButton(parent.sprache("Speichern"));
         speichernButton.addActionListener(new InfoSpeichernButtonActionListener(parent, modul, modulNameTextfeld, profNameTextfeld, noteTextfeld, tag, block, raum, belegen));
         speichernButton.setEnabled(false);
-        loeschenButton = new JButton("Löschen");
+        loeschenButton = new JButton(parent.sprache("Löschen"));
         loeschenButton.addActionListener(new InfoLoeschenButtonActionListener(parent, modul));
         loeschenButton.setEnabled(false);
         
-        allgemeinPanel.add(new JLabel("Name:"));
+        allgemeinPanel.add(new JLabel(parent.sprache("Name")+":"));
         allgemeinPanel.add(modulNameTextfeld);
-        allgemeinPanel.add(new JLabel("Professor:"));
+        allgemeinPanel.add(new JLabel(parent.sprache("Professor")+":"));
         allgemeinPanel.add(profNameTextfeld);
-        allgemeinPanel.add(new JLabel("Note:"));
+        allgemeinPanel.add(new JLabel(parent.sprache("Note")+":"));
         allgemeinPanel.add(noteTextfeld);
         allgemeinPanel.add(belegen);
         allgemeinPanel.add(nichtBelegen);
@@ -112,16 +112,16 @@ public class Info extends JPanel{
         String[] blockCombockArray = new String[parent.getAnzahlBloecke()+1];
         blockCombockArray[0] = "";
         for (int i = 1; i<parent.getAnzahlBloecke()+1; i++){
-            blockCombockArray[i] = i + ". Block";
+            blockCombockArray[i] = i + ". "+ parent.sprache("Block");
         }
         
         belegungenPanel = new JPanel();
         belegungenPanel.setLayout((new GridLayout(Modul.getAnzahlVeranstaltungen()*2, 3, 5, 5)));        
-        belegungenPanel.setBorder(BorderFactory.createTitledBorder("Veranstaltungen: ")); 
+        belegungenPanel.setBorder(BorderFactory.createTitledBorder(parent.sprache("Veranstaltungen")+": ")); 
         for(int i = 0; i<Modul.getAnzahlVeranstaltungen(); i++){
-            belegungenPanel.add(new JLabel("Tag:"));
-            belegungenPanel.add(new JLabel("Block:"));
-            belegungenPanel.add(new JLabel("Raum:"));
+            belegungenPanel.add(new JLabel(parent.sprache("Tag")+":"));
+            belegungenPanel.add(new JLabel(parent.sprache("Block")+":"));
+            belegungenPanel.add(new JLabel(parent.sprache("Raum")+":"));
             tag[i] = new JComboBox(tagComboxArray);
             block[i] = new JComboBox(blockCombockArray);
             raum[i] = new JTextField();

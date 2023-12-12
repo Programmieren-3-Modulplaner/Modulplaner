@@ -7,6 +7,7 @@ package org.example;
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.*;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -45,7 +46,8 @@ public class Modulplaner extends JFrame {
     private JPanel kursplan, kursliste, info, bestandenliste;
 
     private boolean kursplanIsVisible = true, kurslisteIsVisible = true, infoIsVisible = true, bestandenlisteIsVisible = true;
-
+    //public config dateiname;
+    
     public Modulplaner() {
 
         dateiName = "src/org/example/DAO/module.dat";
@@ -63,16 +65,16 @@ public class Modulplaner extends JFrame {
         //module.printTest();
         //---------------------------------------------
         //Actions erstellen:
-        modulNeuAction = new MenuItemNewAction(this, "Neu ", createIcon("/icons/60.gif"), "Erstellt ein neues Modul.", KeyEvent.VK_N);
-        importAction = new MenuItemImportAction(this, "Import ", createIcon("/icons/53.gif"), "Importieren von Modulen.", KeyEvent.VK_I);
-        exportAction = new MenuItemExportAction(this, "Export ", createIcon("/icons/86.gif"), "Exportieren von Modulen.", KeyEvent.VK_E);
-        beendenAction = new MenuItemBeendenAction(this, "Beenden ", createIcon("/icons/33.gif"), "Programm beenden.", KeyEvent.VK_B);
-        aboutAction = new MenuItemAboutAction(this, "About ", createIcon("/icons/72.gif"), "About Modulplaner", KeyEvent.VK_A);
-        hilfeAction = new MenuItemHilfeAction(this, "Hilfe ", createIcon("/icons/73.gif"), "Hilfe, ich weiß nicht mehr weiter!", KeyEvent.VK_H);
+        modulNeuAction = new MenuItemNewAction(this, sprache("Neu"), createIcon("/icons/60.gif"), sprache("NeuText"), KeyEvent.VK_N);
+        importAction = new MenuItemImportAction(this, sprache("Import"), createIcon("/icons/53.gif"), sprache("ImportText"), KeyEvent.VK_I);
+        exportAction = new MenuItemExportAction(this, sprache("Export"), createIcon("/icons/86.gif"), sprache("ExportText"), KeyEvent.VK_E);
+        beendenAction = new MenuItemBeendenAction(this, sprache("Beenden"), createIcon("/icons/33.gif"), sprache("BeendenText"), KeyEvent.VK_B);
+        aboutAction = new MenuItemAboutAction(this, sprache("Über"), createIcon("/icons/72.gif"), sprache("ÜberText"), KeyEvent.VK_A);
+        hilfeAction = new MenuItemHilfeAction(this, sprache("Hilfe"), createIcon("/icons/73.gif"), sprache("HilfeText"), KeyEvent.VK_H);
 
         //---------------------------------------------
         //Initial Window Config's
-        setTitle("Planer");
+        setTitle(sprache("Titel"));
         addWindowListener(new WindowEventListener(this));
 
         setJMenuBar(new MenuBar("Modulplaner", this));
@@ -109,7 +111,27 @@ public class Modulplaner extends JFrame {
         }*/
         new Modulplaner();
     }
+    
+    /**
+     * Setzen der Sprache und abrufen des jeweiligen Sprachenattributs anhand des Keys
+     * Mögliche Sprachen sind (de/en/fr/klingonisch)
+     * @param key
+     * @return 
+     */
+    public String sprache(String key){
+        
+        String language = "de";
+        
+        Locale currentLocale;
+        ResourceBundle messages;
 
+        currentLocale = new Locale(language);
+
+        messages = ResourceBundle.getBundle("i18n/Bundle", currentLocale);
+        return messages.getString(key);
+        
+    }
+    
     public void KursplanAktualisieren() {
         this.remove(kursplan);
         if (kursplanIsVisible == true) {

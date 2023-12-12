@@ -21,7 +21,7 @@ public class Kursplan extends JPanel {
     public Kursplan(Modulplaner p) {
         this.parent = p;
 
-        setBorder(BorderFactory.createTitledBorder("Kursplan: "));
+        setBorder(BorderFactory.createTitledBorder(parent.sprache("Kursplan")+": "));
         
         int anzahlBloecke = parent.getAnzahlBloecke();
         int anzahlTage = Modulplaner.tage.values().length;
@@ -37,11 +37,11 @@ public class Kursplan extends JPanel {
         }
         
         for (int i = 1; i <= anzahlTage; i++) {
-            panelHolder[0][i].add(new JLabel(Modulplaner.tage.values()[i - 1].toString()));
+            panelHolder[0][i].add(new JLabel(parent.sprache(Modulplaner.tage.values()[i - 1].toString())));
         }
         for (int i = 1; i <= anzahlBloecke; i++) {
             panelHolder[i][0].setLayout(new GridLayout(2,1));
-            panelHolder[i][0].add(new JLabel("Block " + i,0));
+            panelHolder[i][0].add(new JLabel(parent.sprache("Block")+ " " + i,0));
             panelHolder[i][0].add(new JLabel(parent.getBloecke()[i-1],0));
         }
 

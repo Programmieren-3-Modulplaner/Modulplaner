@@ -24,11 +24,11 @@ public class Bestandenliste extends JPanel {
     public Bestandenliste(Modulplaner p) {
         this.parent = p;
         
-        setBorder(BorderFactory.createTitledBorder("Bestandene Module: "));
+        setBorder(BorderFactory.createTitledBorder(parent.sprache("TitelBestanden")+":"));
         setLayout(new BorderLayout(10, 10));
         setPreferredSize(new Dimension(200, 0));
 
         add(new JScrollPane(new JList(parent.module.bestadeneModule())), BorderLayout.CENTER);
-        add(new JLabel("Durchschnitt: " + parent.module.durchschnitt()), BorderLayout.SOUTH);
+        add(new JLabel(parent.sprache("Durchschnitt")+": " + parent.module.durchschnitt()), BorderLayout.SOUTH);
     }
 }

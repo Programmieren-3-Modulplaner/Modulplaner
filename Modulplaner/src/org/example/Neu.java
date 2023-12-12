@@ -52,16 +52,16 @@ public class Neu extends JDialog{
         
         setJMenuBar(new MenuBar("Neu", p));
         
-        setTitle("Neues Modul anlegen");
+        setTitle(parent.sprache("ModulTitel"));
         
         //-------------------------------------------------------
         
         allgemeinPanel = new JPanel();
-        allgemeinPanel.setBorder(BorderFactory.createTitledBorder("Allgemein: ")); 
+        allgemeinPanel.setBorder(BorderFactory.createTitledBorder(parent.sprache("Allgemein")+": ")); 
         allgemeinPanel.setLayout(new GridLayout(2,3,5,5));
-        allgemeinPanel.add(new JLabel("Name:"));
-        allgemeinPanel.add(new JLabel("Professor:"));
-        allgemeinPanel.add(new JLabel("Note:"));
+        allgemeinPanel.add(new JLabel(parent.sprache("Name")+":"));
+        allgemeinPanel.add(new JLabel(parent.sprache("Professor")+":"));
+        allgemeinPanel.add(new JLabel(parent.sprache("Note")+":"));
         modulNameTextfeld = new JTextField();
         profNameTextfeld = new JTextField();
         MaskFormatter formatter = null;
@@ -86,16 +86,16 @@ public class Neu extends JDialog{
         String[] blockCombockArray = new String[parent.getAnzahlBloecke()+1];
         blockCombockArray[0] = "";
         for (int i = 1; i<parent.getAnzahlBloecke()+1; i++){
-            blockCombockArray[i] = i + ". Block";
+            blockCombockArray[i] = i + "."+ parent.sprache("Block");
         }
         
         belegungenPanel = new JPanel();
         belegungenPanel.setLayout((new GridLayout(Modul.getAnzahlVeranstaltungen()*2, 3, 5, 5)));        
-        belegungenPanel.setBorder(BorderFactory.createTitledBorder("Veranstaltungen: ")); 
+        belegungenPanel.setBorder(BorderFactory.createTitledBorder(parent.sprache("Veranstaltungen")+": ")); 
         for(int i = 0; i<Modul.getAnzahlVeranstaltungen(); i++){
-            belegungenPanel.add(new JLabel("Tag:"));
-            belegungenPanel.add(new JLabel("Block:"));
-            belegungenPanel.add(new JLabel("Raum:"));
+            belegungenPanel.add(new JLabel(parent.sprache("Tag")+":"));
+            belegungenPanel.add(new JLabel(parent.sprache("Block")+":"));
+            belegungenPanel.add(new JLabel(parent.sprache("Raum")+":"));
             tag[i] = new JComboBox(tagComboxArray);
             block[i] = new JComboBox(blockCombockArray);
             raum[i] = new JTextField();
@@ -108,16 +108,16 @@ public class Neu extends JDialog{
         
         buttonsPanel = new JPanel();
         buttonsPanel.setLayout((new GridLayout(2, 2, 5, 5)));
-        belegen = new JRadioButton("Belegen");
+        belegen = new JRadioButton(parent.sprache("TBelegen"));
         belegen.setSelected(true);
-        nichtBelegen = new JRadioButton("Nicht Belegen");
+        nichtBelegen = new JRadioButton(parent.sprache("FBelegen"));
         nichtBelegen.setSelected(false);
         radioGroupBelegen = new ButtonGroup();
         radioGroupBelegen.add(belegen);
         radioGroupBelegen.add(nichtBelegen);
-        speichernButton = new JButton("Speichern");
+        speichernButton = new JButton(parent.sprache("Speichern"));
         speichernButton.addActionListener(new NeuSpeichernButtonActionListener(parent, this, modulNameTextfeld, profNameTextfeld, noteTextfeld, tag, block, raum, belegen));
-        abbrechenButton = new JButton("Abbrechen");
+        abbrechenButton = new JButton(parent.sprache("Abbrechen"));
         abbrechenButton.addActionListener(new NeuAbrechenButtonActionListener(parent, this));
         buttonsPanel.add(belegen);
         buttonsPanel.add(speichernButton);

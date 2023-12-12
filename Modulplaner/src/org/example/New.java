@@ -22,9 +22,9 @@ public class New extends JFrame {
     Modulplaner parent;
     
     //Initzialisierung der Button bzw. Eingabefelder
-    JButton speichernButton = new JButton("Speichern");
-    JButton abbrechenButton = new JButton("Abbrechen");
-    JButton deleteButton = new JButton("Löschen");
+    JButton speichernButton = new JButton(parent.sprache("Speichern"));
+    JButton abbrechenButton = new JButton(parent.sprache("Abbrechen"));
+    JButton deleteButton = new JButton(parent.sprache("Löschen"));
     JTextField modulnameField = new JTextField();
     JTextField timeField = new JTextField();
     
@@ -45,9 +45,9 @@ public class New extends JFrame {
         newPanel.setBorder(new LineBorder(Color.BLACK));
         
         //Elemente werden demFenster hinzugefügt
-        newPanel.add(new JLabel("Modulname", FlowLayout.LEFT));
+        newPanel.add(new JLabel(parent.sprache("Modulname"), FlowLayout.LEFT));
         newPanel.add(modulnameField);
-        newPanel.add(new JLabel("Uhrzeit", FlowLayout.LEFT));
+        newPanel.add(new JLabel(parent.sprache("Uhrzeit"), FlowLayout.LEFT));
         newPanel.add(timeField);
         
         newPanel.add(speichernButton);
