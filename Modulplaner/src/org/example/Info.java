@@ -107,7 +107,7 @@ public class Info extends JPanel{
         String[] tagComboxArray = new String[Modulplaner.tage.values().length+1];
         tagComboxArray[0] = "";
         for (int i = 1; i<tagComboxArray.length; i++){
-            tagComboxArray[i] = Modulplaner.tage.values()[i-1].toString();
+            tagComboxArray[i] = parent.sprache(Modulplaner.tage.values()[i-1].toString());
         }
         String[] blockCombockArray = new String[parent.getAnzahlBloecke()+1];
         blockCombockArray[0] = "";
@@ -147,8 +147,8 @@ public class Info extends JPanel{
             noteTextfeld.setText(this.modul.getNoteString());
             for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 if (this.modul.getTag(i) >= 0 && this.modul.getTag(i) <= Modulplaner.tage.values().length) {
-                    tag[i].setSelectedIndex(this.modul.getTag(i));
-                }
+                    tag[i].setSelectedIndex( this.modul.getTag(i));
+                    }
                 if (this.modul.getBlock(i) >= 0 && this.modul.getBlock(i) <= parent.getAnzahlBloecke()) {
                     block[i].setSelectedIndex(this.modul.getBlock(i));
                 }
