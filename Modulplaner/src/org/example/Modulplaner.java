@@ -6,6 +6,7 @@ package org.example;
 
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import javax.swing.Action;
@@ -47,11 +48,13 @@ public class Modulplaner extends JFrame {
     private JPanel kursplan, kursliste, info, bestandenliste;
 
     private boolean kursplanIsVisible = true, kurslisteIsVisible = true, infoIsVisible = true, bestandenlisteIsVisible = true;
-    //public config dateiname;
+    
+    private String language = "de";
+    private String[] availableLanguages;
     
     public Modulplaner() {
 
-        dateiName = "src/org/example/DAO/module.dat";
+        dateiName = new File(System.getProperty("user.home"))+"/Modulplaner.dat";
         module = new org.example.DAO.Module();
 
         // Module Initial einlesen aus Datei
@@ -120,9 +123,6 @@ public class Modulplaner extends JFrame {
      * @return 
      */
     public String sprache(String key){
-        
-        String language = "de";
-        
         Locale currentLocale;
         ResourceBundle messages;
 

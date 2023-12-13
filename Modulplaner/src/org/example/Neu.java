@@ -86,7 +86,7 @@ public class Neu extends JDialog{
         String[] blockCombockArray = new String[parent.getAnzahlBloecke()+1];
         blockCombockArray[0] = "";
         for (int i = 1; i<parent.getAnzahlBloecke()+1; i++){
-            blockCombockArray[i] = i + "."+ parent.sprache("Block");
+            blockCombockArray[i] = i + ". "+ parent.sprache("Block");
         }
         
         belegungenPanel = new JPanel();
