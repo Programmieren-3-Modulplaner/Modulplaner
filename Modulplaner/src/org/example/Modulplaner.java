@@ -34,10 +34,19 @@ public class Modulplaner extends JFrame {
      * @param args the command line arguments
      */
     public enum tage {
-        Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag
+        Tag1("Montag"), Tag2("Dienstag"), Tag3("Mittwoch"), Tag4("Donnerstag"), Tag5("Freitag"), Tag6("Samstag");
+        private String label;
+        private tage(String t){
+            this.label = t;
+        }
+        @Override
+        public String toString(){
+            return this.label;
+        }
+        
     };
     private String[] bloecke = {"8:15-9:45", "10:15-11:45", "12:15-13:45", "14:15-15:45", "16:00-17:30", "17:45-19:15", "19:30-20:45"};
-
+    
     public Action modulNeuAction, importAction, exportAction, beendenAction, aboutAction, hilfeAction;
 
     public org.example.DAO.Module module;
@@ -49,6 +58,8 @@ public class Modulplaner extends JFrame {
     //public config dateiname;
     
     public Modulplaner() {
+                
+        Modulplaner.tage.Tag1.label = "test";
 
         dateiName = "src/org/example/DAO/module.dat";
         module = new org.example.DAO.Module();
