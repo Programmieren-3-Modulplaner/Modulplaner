@@ -81,7 +81,7 @@ public class Neu extends JDialog{
         String[] tagComboxArray = new String[Modulplaner.tage.values().length+1];
         tagComboxArray[0] = "";
         for (int i = 1; i<tagComboxArray.length; i++){
-            tagComboxArray[i] = Modulplaner.tage.values()[i-1].toString();
+            tagComboxArray[i] = parent.sprache(Modulplaner.tage.values()[i-1].toString());
         }
         String[] blockCombockArray = new String[parent.getAnzahlBloecke()+1];
         blockCombockArray[0] = "";
