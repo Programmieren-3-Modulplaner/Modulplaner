@@ -21,9 +21,6 @@ public class Hilfe extends JFrame {
         String pdfFileName="";
 
         switch (languageCode) {
-            case "en":
-                pdfFileName = "Hilfe_Modulplaner_EN.pdf";
-                break;
             case "de":
                 pdfFileName = "Hilfe_Modulplaner_DE.pdf";
                 break;
