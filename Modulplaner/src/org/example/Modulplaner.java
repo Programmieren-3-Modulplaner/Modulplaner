@@ -55,7 +55,7 @@ public class Modulplaner extends JFrame {
 
     private boolean kursplanIsVisible = true, kurslisteIsVisible = true, infoIsVisible = true, bestandenlisteIsVisible = true;
     
-    private int language = 0;
+    private int language = 1;
     private String[] availableLanguages = {"de","en","fr","klingonisch"};
     
     public Modulplaner() {
@@ -75,13 +75,7 @@ public class Modulplaner extends JFrame {
         //module.printTest();
         //---------------------------------------------
         //Actions erstellen:
-        modulNeuAction = new ModulNeuAction(this, sprache("Neu"), createIcon("/icons/60.gif"), sprache("NeuText"), KeyEvent.VK_N);
-        importAction = new ImportAction(this, sprache("Import"), createIcon("/icons/53.gif"), sprache("ImportText"), KeyEvent.VK_I);
-        exportAction = new ExportAction(this, sprache("Export"), createIcon("/icons/86.gif"), sprache("ExportText"), KeyEvent.VK_E);
-        beendenAction = new BeendenAction(this, sprache("Beenden"), createIcon("/icons/33.gif"), sprache("BeendenText"), KeyEvent.VK_B);
-        aboutAction = new AboutAction(this, sprache("Über"), createIcon("/icons/72.gif"), sprache("ÜberText"), KeyEvent.VK_A);
-        hilfeAction = new HilfeAction(this, sprache("Hilfe"), createIcon("/icons/73.gif"), sprache("HilfeText"), KeyEvent.VK_H);
-        spracheAendernAction = new SpracheAendernAction(this, "Sprache Ändern", createIcon("/icons/48.gif"), "Ändern der Sprache", KeyEvent.VK_H);
+        actionsErstellen();
 
         
         //---------------------------------------------
@@ -180,6 +174,8 @@ public class Modulplaner extends JFrame {
     }
     
     public void SpracheAktualisieren() {
+        actionsErstellen();
+        
         KurslisteAktualisieren();
         KursplanAktualisieren();
         InfoAktualisieren(true, info.getModul());
@@ -196,6 +192,16 @@ public class Modulplaner extends JFrame {
         setTitle(sprache("Titel"));
         
         SwingUtilities.updateComponentTreeUI(this);
+    }
+    
+    public void actionsErstellen (){
+        modulNeuAction = new ModulNeuAction(this, sprache("Neu"), createIcon("/icons/60.gif"), sprache("NeuText"), KeyEvent.VK_N);
+        importAction = new ImportAction(this, sprache("Import"), createIcon("/icons/53.gif"), sprache("ImportText"), KeyEvent.VK_I);
+        exportAction = new ExportAction(this, sprache("Export"), createIcon("/icons/86.gif"), sprache("ExportText"), KeyEvent.VK_E);
+        beendenAction = new BeendenAction(this, sprache("Beenden"), createIcon("/icons/33.gif"), sprache("BeendenText"), KeyEvent.VK_B);
+        aboutAction = new AboutAction(this, sprache("Über"), createIcon("/icons/72.gif"), sprache("ÜberText"), KeyEvent.VK_A);
+        hilfeAction = new HilfeAction(this, sprache("Hilfe"), createIcon("/icons/73.gif"), sprache("HilfeText"), KeyEvent.VK_H);
+        spracheAendernAction = new SpracheAendernAction(this, "Sprache Ändern", createIcon("/icons/48.gif"), "Ändern der Sprache", KeyEvent.VK_H);
     }
 
     public ImageIcon createIcon(String filePath) {
@@ -270,4 +276,5 @@ public class Modulplaner extends JFrame {
             this.language = l;
         }
     }
+    
 }
