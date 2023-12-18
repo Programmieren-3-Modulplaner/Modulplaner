@@ -27,12 +27,12 @@ public class SpracheAendern extends JDialog{
         super(p,true);
         this.parent = p;
         
-        setTitle("Sprache Ändern");
+        setTitle(parent.sprache("TitelSprache"));
         setLayout((new GridLayout(1, 3, 5, 5))); 
         
         String[] sprachenUebersetzt = new String[parent.getAvailableLanguages().length];
         for (int i = 0; i < parent.getAvailableLanguages().length; i ++){
-            sprachenUebersetzt[i] = parent.getAvailableLanguages()[i]; //Daniel hier Übersetzen mit sprach Funktion von Parent!!!!
+            sprachenUebersetzt[i] = parent.sprache(parent.getAvailableLanguages()[i]); //Daniel hier Übersetzen mit sprach Funktion von Parent!!!!
         }
         sprache = new JComboBox(sprachenUebersetzt);
         sprache.setSelectedIndex(parent.getLanguageInt());

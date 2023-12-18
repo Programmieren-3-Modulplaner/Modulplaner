@@ -201,7 +201,7 @@ public class Modulplaner extends JFrame {
         beendenAction = new BeendenAction(this, sprache("Beenden"), createIcon("/icons/33.gif"), sprache("BeendenText"), KeyEvent.VK_B);
         aboutAction = new AboutAction(this, sprache("Über"), createIcon("/icons/72.gif"), sprache("ÜberText"), KeyEvent.VK_A);
         hilfeAction = new HilfeAction(this, sprache("Hilfe"), createIcon("/icons/73.gif"), sprache("HilfeText"), KeyEvent.VK_H);
-        spracheAendernAction = new SpracheAendernAction(this, "Sprache Ändern", createIcon("/icons/48.gif"), "Ändern der Sprache", KeyEvent.VK_H);
+        spracheAendernAction = new SpracheAendernAction(this, sprache("TitelSprache"), createIcon("/icons/48.gif"), sprache("TitelSprache"), KeyEvent.VK_L);
     }
 
     public ImageIcon createIcon(String filePath) {
