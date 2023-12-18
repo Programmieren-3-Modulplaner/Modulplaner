@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.*;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -59,7 +60,9 @@ public class Modulplaner extends JFrame {
     private String[] availableLanguages = {"de","en","fr","klingonisch"};
     
     public Modulplaner() {
-
+        //defaultsprache setzen
+        setLanguage(language);
+        
         dateiName = new File(System.getProperty("user.home"))+"/Modulplaner.dat";
         module = new org.example.DAO.Module();
 
@@ -174,8 +177,8 @@ public class Modulplaner extends JFrame {
     }
     
     public void SpracheAktualisieren() {
-        actionsErstellen();
         
+        actionsErstellen();
         KurslisteAktualisieren();
         KursplanAktualisieren();
         InfoAktualisieren(true, info.getModul());
@@ -274,6 +277,17 @@ public class Modulplaner extends JFrame {
     public void setLanguage(int l) {
         if (l >= 0 && l < availableLanguages.length) {
             this.language = l;
+            
+            Locale newLocale;
+            newLocale = switch (l) {
+                case 0 -> Locale.GERMANY;
+                case 1 -> Locale.ENGLISH;
+                case 2 -> Locale.FRENCH;
+                default -> Locale.getDefault();
+            }; // Add more cases as needed
+        System.out.println(l);
+        Locale.setDefault(newLocale);
+        JComponent.setDefaultLocale(newLocale);
         }
     }
     
