@@ -7,17 +7,16 @@ package org.example.actions;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
-import org.example.About;
 import org.example.Modulplaner;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
-public class MenuItemAboutAction extends AbstractAction {
+public class HilfeAction extends AbstractAction {
 
     private Modulplaner parent;
 
-    public MenuItemAboutAction(Modulplaner p, String text, ImageIcon icon, String beschreibung, Integer key) {
+    public HilfeAction(Modulplaner p, String text, ImageIcon icon, String beschreibung, Integer key) {
         super(text, icon);
         this.parent = p;
         putValue(SHORT_DESCRIPTION, beschreibung);
@@ -26,8 +25,7 @@ public class MenuItemAboutAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("About öffnen");
-        new About(parent);
+        System.out.println("Hilfe öffnen");
     }
 
 }

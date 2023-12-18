@@ -8,18 +8,18 @@ package org.example.actions;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
-import org.example.Import;
 import org.example.Modulplaner;
+import org.example.SpracheAendern;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
  */
 
-public class MenuItemImportAction extends AbstractAction{
+public class SpracheAendernAction extends AbstractAction{
 
     private Modulplaner parent;
     
-    public MenuItemImportAction(Modulplaner p, String text, ImageIcon icon, String beschreibung, Integer key){
+    public SpracheAendernAction(Modulplaner p, String text, ImageIcon icon, String beschreibung, Integer key){
         super(text, icon);
         this.parent = p;
         putValue(SHORT_DESCRIPTION, beschreibung);
@@ -28,8 +28,8 @@ public class MenuItemImportAction extends AbstractAction{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-       System.out.println("Open öffnen");
-       new Import(parent);
+       new SpracheAendern(parent);
+       System.out.println("Sprache Ändern");
     }
     
 }

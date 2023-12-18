@@ -173,4 +173,9 @@ public class Info extends JPanel{
             }
         }
     }
+
+    public Modul getModul() {
+        return modul;
+    }
+    
 }

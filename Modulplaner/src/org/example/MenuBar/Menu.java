@@ -5,7 +5,6 @@
 package org.example.MenuBar;
 
 import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import org.example.Modulplaner;
 
 /**
@@ -27,6 +26,7 @@ public class Menu extends JMenu {
         } else if (name.equals(parent.sprache("Hilfe"))) {
             this.add(new MenuItemHilfe(parent));
             this.add(new MenuItemAbout(parent));
+            this.add(new MenuItemSpracheAendern(parent));
         } else if (name.equals(parent.sprache("Anzeige"))) {
             this.add(new MenuItemKursplanVisible(parent,parent.sprache("ToggleKP")));
             this.add(new MenuItemKurslisteVisible(parent, parent.sprache("ToggleKL")));
