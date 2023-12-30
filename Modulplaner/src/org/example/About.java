@@ -22,7 +22,7 @@ public class About extends JDialog {
     public About(Modulplaner p) {
         super(p,true);
         this.parent = p;
-        
+        setTitle(parent.sprache("Über"));
         setSize(200, 200);
         setLocationRelativeTo(null);
 

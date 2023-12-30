@@ -13,10 +13,10 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import org.example.DAO.Modul;
 import org.example.DAO.ModuleDAO;
+//import org.example.DAO.spracheDAO;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
 import org.example.MenuBar.ToolBar;
@@ -55,7 +55,7 @@ public class Modulplaner extends JFrame {
     private ToolBar toolbar;
 
     private boolean kursplanIsVisible = true, kurslisteIsVisible = true, infoIsVisible = true, bestandenlisteIsVisible = true;
-    
+    //private spracheDAO sprache;
     private int language = 1;
     private String[] availableLanguages = {"de","en","fr","klingonisch"};
     
@@ -63,6 +63,7 @@ public class Modulplaner extends JFrame {
         //defaultsprache setzen
         setLanguage(language);
         
+        //sprache = new spracheDAO();
         dateiName = new File(System.getProperty("user.home"))+"/Modulplaner.dat";
         module = new org.example.DAO.Module();
 
@@ -282,7 +283,7 @@ public class Modulplaner extends JFrame {
             newLocale = switch (l) {
                 case 0 -> Locale.GERMANY;
                 case 1 -> Locale.ENGLISH;
-                case 2 -> Locale.FRENCH;
+                case 2 -> Locale.FRANCE;
                 default -> Locale.getDefault();
             }; // Add more cases as needed
         System.out.println(l);
