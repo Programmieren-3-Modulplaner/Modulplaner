@@ -3,6 +3,9 @@ package org.example;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -36,7 +39,8 @@ public class Hilfe extends JFrame {
         }
     
         //Zusammensetzung des Dateipfades
-        File pdfPfad = new File("docs/" + pdfFileName);
+        java.net.URL helpURL = getClass().getResource("/help/" + pdfFileName);
+        
         try {
             //Initzialisierung des Desktop -> so können Actionen des Desktops des Benutzers verwendet werden
             Desktop desktop = Desktop.getDesktop();
@@ -45,12 +49,14 @@ public class Hilfe extends JFrame {
             if (desktop != null && desktop.isSupported(Desktop.Action.OPEN)) {
                 
                 //Öffnet den Dateipfad mit dem Standartprogramm des Systems
-                desktop.open(pdfPfad); 
+                desktop.open(new File(helpURL.toURI()));
             } else {
                 JOptionPane.showMessageDialog(parent, "Datei kann nicht geöffnet werden");
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Hilfe.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

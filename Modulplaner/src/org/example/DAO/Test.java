@@ -34,7 +34,7 @@ public class Test {
         //moduleTest.remove(moduleTest.getIndexByName("Mathe1"));
         //moduleTest.remove();
         // Module speichern
-        ModuleDAO dao = new ModuleDAO(dateiName, true); // Schreiben
+        ModuleDAO dao = new ModuleDAO(dateiName, true, null); // Schreiben
         try {
             dao.write(moduleTest);
         } catch (IOException e) {
@@ -44,7 +44,7 @@ public class Test {
 
         // Nun Liste von Datei wieder herstellen und Studentendaten auf Konsole ausgeben:
         Module moduleTest2 = new Module();
-        ModuleDAO dao2 = new ModuleDAO(dateiName, false); // Lesen
+        ModuleDAO dao2 = new ModuleDAO(dateiName, false, null); // Lesen
         try {
             dao2.read(moduleTest2);
         } catch (IOException e) {

@@ -28,7 +28,7 @@ public class Export extends JFrame {
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
 
             // Module schreiben in Datei
-            ModuleDAO dao = new ModuleDAO(selectedFile.getAbsolutePath(), true); 
+            ModuleDAO dao = new ModuleDAO(selectedFile.getAbsolutePath(), true, parent); 
             try {
                 dao.write(parent.module);
             } catch (IOException r) {

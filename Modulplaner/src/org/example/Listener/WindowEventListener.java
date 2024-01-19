@@ -31,7 +31,7 @@ public class WindowEventListener implements WindowListener {
     public void windowClosing(WindowEvent e) {
         // Module speichern
         
-        ModuleDAO dao = new ModuleDAO(parent.getDateiName(), true); // Schreiben
+        ModuleDAO dao = new ModuleDAO(parent.getDateiName(), true, parent);
         try {
             dao.write(parent.module);
         } catch (IOException r) {

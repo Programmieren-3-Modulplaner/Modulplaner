@@ -29,7 +29,7 @@ public class Import extends JFrame {
 
             // Module einlesen aus Datei
             org.example.DAO.Module lesen = new org.example.DAO.Module();
-            ModuleDAO daoInitialRead = new ModuleDAO(selectedFile.getAbsolutePath(), false); // Lesen
+            ModuleDAO daoInitialRead = new ModuleDAO(selectedFile.getAbsolutePath(), false, parent);
             try {
                 daoInitialRead.read(lesen);
             } catch (IOException e) {

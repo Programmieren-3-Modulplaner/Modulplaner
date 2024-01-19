@@ -28,7 +28,7 @@ public class BeendenAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        ModuleDAO dao = new ModuleDAO(parent.getDateiName(), true); // Schreiben
+        ModuleDAO dao = new ModuleDAO(parent.getDateiName(), true, parent);
         try {
             dao.write(parent.module);
         } catch (IOException r) {

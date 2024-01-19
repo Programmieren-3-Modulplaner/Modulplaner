@@ -65,7 +65,7 @@ public class Modulplaner extends JFrame {
         module = new org.example.DAO.Module();
 
         // Module Initial einlesen aus Datei
-        ModuleDAO daoInitialRead = new ModuleDAO(dateiName, false); // Lesen
+        ModuleDAO daoInitialRead = new ModuleDAO(dateiName, false, this);
         try {
             daoInitialRead.read(module);
         } catch (IOException e) {

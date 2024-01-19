@@ -1,11 +1,14 @@
 package org.example.DAO;
 
 import java.io.IOException;
+import org.example.Modulplaner;
 
 /**
  * Data Access Object für die Klasse Module.
  */
 public class ModuleDAO extends DAO {
+    
+    Modulplaner parent;
 
     /**
      * Konstruktor um das Data Access Object mit einem Dateinamen zu
@@ -14,12 +17,15 @@ public class ModuleDAO extends DAO {
      * @param dateiName Dateiname
      * @param openForWrite true wenn geschrieben werden soll
      */
-    public ModuleDAO(String dateiName, boolean openForWrite) {
+    public ModuleDAO(String dateiName, boolean openForWrite, Modulplaner p) {
         super(dateiName, openForWrite);
+        this.parent = p;
     }
 
     public void write(Object obj) throws IOException {
         if (out != null) {
+            out.writeInt(parent.getLanguageInt());
+            
             Module mods = (Module) obj;
 
             // Anzahl Module speichern:
@@ -36,6 +42,8 @@ public class ModuleDAO extends DAO {
 
     public void read(Object obj) throws IOException {
         if (in != null) {
+            parent.setLanguage(in.readInt());
+            
             Module mods = (Module) obj;
 
             // Anzahl Module lesen:
