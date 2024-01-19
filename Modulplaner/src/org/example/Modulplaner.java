@@ -60,10 +60,7 @@ public class Modulplaner extends JFrame {
     private String[] availableLanguages = {"de","en","fr","klingonisch"};
     
     public Modulplaner() {
-        //defaultsprache setzen
-        setLanguage(language);
-        
-        //sprache = new spracheDAO();
+
         dateiName = new File(System.getProperty("user.home"))+"/Modulplaner.dat";
         module = new org.example.DAO.Module();
 
