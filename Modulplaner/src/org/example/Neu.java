@@ -71,7 +71,7 @@ public class Neu extends JDialog{
             System.exit(-1);
         }
         noteTextfeld = new JFormattedTextField(formatter);
-        noteTextfeld.setValue(new Double(0.0));
+        noteTextfeld.setValue(0.0);
         allgemeinPanel.add(modulNameTextfeld);
         allgemeinPanel.add(profNameTextfeld);
         allgemeinPanel.add(noteTextfeld);
