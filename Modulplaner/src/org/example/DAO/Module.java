@@ -23,13 +23,14 @@ public class Module extends ArrayList<Modul> {
             }
         }
         
-        String[][] result = new String[size][2];
+        String[][] result = new String[size][3];
         int c = 0;
         for (int i = 0; i < this.size(); i++) {
             for (int n = 0; n < this.get(i).getAnzahlVeranstaltungen(); n++) {
                 if (this.get(i).getTag(n) == tag && this.get(i).getBlock(n) == block && this.get(i).isBelegt() == true) {
                     result[c][0] = this.get(i).getModulName();
                     result[c][1] = this.get(i).getRaum(n);
+                    result[c][2] = this.get(i).getVersuchString();
                     c = c + 1;
                 }
             }

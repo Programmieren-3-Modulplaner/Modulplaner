@@ -6,6 +6,7 @@ package org.example;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.text.NumberFormat;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -17,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
+import javax.swing.text.NumberFormatter;
 import org.example.DAO.Modul;
 import org.example.Listener.NeuAbrechenButtonActionListener;
 import org.example.Listener.NeuSpeichernButtonActionListener;
@@ -33,6 +35,8 @@ public class Neu extends JDialog{
     private JTextField modulNameTextfeld;
     private JTextField profNameTextfeld;
     private JFormattedTextField noteTextfeld;
+    private JFormattedTextField versuchTextfeld;
+    private JTextField kursURLTextfeld;
     
     private JPanel belegungenPanel;
     private JComboBox[] tag = new JComboBox[Modul.getAnzahlVeranstaltungen()];
@@ -58,23 +62,36 @@ public class Neu extends JDialog{
         
         allgemeinPanel = new JPanel();
         allgemeinPanel.setBorder(BorderFactory.createTitledBorder(parent.sprache("Allgemein")+": ")); 
-        allgemeinPanel.setLayout(new GridLayout(2,3,5,5));
-        allgemeinPanel.add(new JLabel(parent.sprache("Name")+":"));
-        allgemeinPanel.add(new JLabel(parent.sprache("Professor")+":"));
-        allgemeinPanel.add(new JLabel(parent.sprache("Note")+":"));
+        allgemeinPanel.setLayout(new GridLayout(0,2,5,5));
         modulNameTextfeld = new JTextField();
         profNameTextfeld = new JTextField();
-        MaskFormatter formatter = null;
+        MaskFormatter noteFormatter = null;
         try {
-            formatter = new MaskFormatter("#.#");
+            noteFormatter = new MaskFormatter("#.#");
         } catch (java.text.ParseException exc) {
             System.exit(-1);
         }
-        noteTextfeld = new JFormattedTextField(formatter);
-        noteTextfeld.setValue(new Double(0.0));
+        noteTextfeld = new JFormattedTextField(noteFormatter);
+        noteTextfeld.setValue(0.0);
+        NumberFormatter versuchFormatter = new NumberFormatter(NumberFormat.getInstance());
+        versuchFormatter.setValueClass(Integer.class);
+        versuchFormatter.setMinimum(1);
+        versuchFormatter.setMaximum(parent.getMaxAnzahlVersuche());
+        versuchFormatter.setAllowsInvalid(false);
+        versuchTextfeld = new JFormattedTextField(versuchFormatter);
+        versuchTextfeld.setValue(1);
+        kursURLTextfeld = new JTextField();
+        
+        allgemeinPanel.add(new JLabel(parent.sprache("Name")+":"));
         allgemeinPanel.add(modulNameTextfeld);
+        allgemeinPanel.add(new JLabel(parent.sprache("Professor")+":"));
         allgemeinPanel.add(profNameTextfeld);
+        allgemeinPanel.add(new JLabel(parent.sprache("Note")+":"));
         allgemeinPanel.add(noteTextfeld);
+        allgemeinPanel.add(new JLabel("Versuch:"));
+        allgemeinPanel.add(versuchTextfeld);
+        allgemeinPanel.add(new JLabel("Kurs URL:"));
+        allgemeinPanel.add(kursURLTextfeld);
 
         //-------------------------------------------------------
 
@@ -116,7 +133,7 @@ public class Neu extends JDialog{
         radioGroupBelegen.add(belegen);
         radioGroupBelegen.add(nichtBelegen);
         speichernButton = new JButton(parent.sprache("Speichern"));
-        speichernButton.addActionListener(new NeuSpeichernButtonActionListener(parent, this, modulNameTextfeld, profNameTextfeld, noteTextfeld, tag, block, raum, belegen));
+        speichernButton.addActionListener(new NeuSpeichernButtonActionListener(parent, this, modulNameTextfeld, profNameTextfeld, noteTextfeld, versuchTextfeld, kursURLTextfeld, tag, block, raum, belegen));
         abbrechenButton = new JButton(parent.sprache("Abbrechen"));
         abbrechenButton.addActionListener(new NeuAbrechenButtonActionListener(parent, this));
         buttonsPanel.add(belegen);

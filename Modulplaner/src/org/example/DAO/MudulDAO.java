@@ -44,6 +44,8 @@ public class MudulDAO extends DAO {
             out.writeUTF(s.getModulName());
             out.writeUTF(s.getProfName());
             out.writeDouble(s.getNote());
+            out.writeInt(s.getVersuch());
+            out.writeUTF(s.getKursURL());
             out.writeBoolean(s.isBelegt());
             for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 out.writeInt(s.getTag(i));
@@ -73,6 +75,8 @@ public class MudulDAO extends DAO {
             s.setModulName(in.readUTF());
             s.setProfName(in.readUTF());
             s.setNote(in.readDouble());
+            s.setVersuch(in.readInt());
+            s.setKursURL(in.readUTF());
             s.setBelegt(in.readBoolean());
             for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 s.setTag(in.readInt(), i);

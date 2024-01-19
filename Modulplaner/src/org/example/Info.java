@@ -8,6 +8,7 @@ package org.example;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.text.NumberFormat;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -17,8 +18,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
+import javax.swing.text.NumberFormatter;
 import org.example.DAO.Modul;
+import org.example.Listener.InfoKursURLButtonActionListener;
 import org.example.Listener.InfoLoeschenButtonActionListener;
 import org.example.Listener.InfoSpeichernButtonActionListener;
 
@@ -35,18 +39,21 @@ public class Info extends JPanel{
     private JTextField modulNameTextfeld;
     private JTextField profNameTextfeld;
     private JFormattedTextField noteTextfeld;
+    private JFormattedTextField versuchTextfeld;
+    private JTextField kursURLTextfeld;
+    private JButton kursURLButton;
     
-    private JPanel belegungenPanel;
-    private JComboBox[] tag = new JComboBox[Modul.getAnzahlVeranstaltungen()];
-    private JComboBox[] block = new JComboBox[Modul.getAnzahlVeranstaltungen()];
-    private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
-
     private JButton speichernButton;
     private JButton loeschenButton;
     private JRadioButton belegen;
     private JRadioButton nichtBelegen;
     private ButtonGroup radioGroupBelegen;
     
+    private JPanel belegungenPanel;
+    private JComboBox[] tag = new JComboBox[Modul.getAnzahlVeranstaltungen()];
+    private JComboBox[] block = new JComboBox[Modul.getAnzahlVeranstaltungen()];
+    private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
+
     public Info(Modulplaner p, boolean iE, Modul m) {
         this.parent = p;
         this.isEnable = iE;
@@ -59,20 +66,34 @@ public class Info extends JPanel{
         
         allgemeinPanel = new JPanel();
         allgemeinPanel.setBorder(BorderFactory.createTitledBorder(parent.sprache("Allgemein")+": ")); 
-        allgemeinPanel.setLayout(new GridLayout(5,2,5,5));
+        allgemeinPanel.setLayout(new GridLayout(0,2,5,5));
         modulNameTextfeld = new JTextField();
         profNameTextfeld = new JTextField();
-        MaskFormatter formatter = null;
+        MaskFormatter noteFormatter = null;
         try {
-            formatter = new MaskFormatter("#.#");
+            noteFormatter = new MaskFormatter("#.#");
         } catch (java.text.ParseException exc) {
             System.exit(-1);
         }
-        noteTextfeld = new JFormattedTextField(formatter);
+        noteTextfeld = new JFormattedTextField(noteFormatter);
         noteTextfeld.setValue(0.0);
+        NumberFormatter versuchFormatter = new NumberFormatter(NumberFormat.getInstance());
+        versuchFormatter.setValueClass(Integer.class);
+        versuchFormatter.setMinimum(1);
+        versuchFormatter.setMaximum(parent.getMaxAnzahlVersuche());
+        versuchFormatter.setAllowsInvalid(false);
+        versuchTextfeld = new JFormattedTextField(versuchFormatter);
+        versuchTextfeld.setValue(1);
+        kursURLTextfeld = new JTextField();
+        kursURLButton = new JButton("Kurs URL:");
+        //kursURLButton.setHorizontalAlignment(SwingConstants.LEFT);
+        
         modulNameTextfeld.setEnabled(false);
         profNameTextfeld.setEnabled(false);
         noteTextfeld.setEnabled(false);
+        versuchTextfeld.setEnabled(false);
+        kursURLButton.setEnabled(false);
+        kursURLTextfeld.setEnabled(false);
         
         belegen = new JRadioButton(parent.sprache("TBelegen"));
         belegen.setSelected(false);
@@ -85,7 +106,7 @@ public class Info extends JPanel{
         radioGroupBelegen.add(nichtBelegen);
         
         speichernButton = new JButton(parent.sprache("Speichern"));
-        speichernButton.addActionListener(new InfoSpeichernButtonActionListener(parent, modul, modulNameTextfeld, profNameTextfeld, noteTextfeld, tag, block, raum, belegen));
+        speichernButton.addActionListener(new InfoSpeichernButtonActionListener(parent, modul, modulNameTextfeld, profNameTextfeld, noteTextfeld, versuchTextfeld, kursURLTextfeld, tag, block, raum, belegen));
         speichernButton.setEnabled(false);
         loeschenButton = new JButton(parent.sprache("Löschen"));
         loeschenButton.addActionListener(new InfoLoeschenButtonActionListener(parent, modul));
@@ -97,6 +118,10 @@ public class Info extends JPanel{
         allgemeinPanel.add(profNameTextfeld);
         allgemeinPanel.add(new JLabel(parent.sprache("Note")+":"));
         allgemeinPanel.add(noteTextfeld);
+        allgemeinPanel.add(new JLabel("Versuch:"));
+        allgemeinPanel.add(versuchTextfeld);
+        allgemeinPanel.add(kursURLButton);
+        allgemeinPanel.add(kursURLTextfeld);
         allgemeinPanel.add(belegen);
         allgemeinPanel.add(nichtBelegen);
         allgemeinPanel.add(speichernButton);
@@ -145,6 +170,8 @@ public class Info extends JPanel{
             modulNameTextfeld.setText(this.modul.getModulName());
             profNameTextfeld.setText(this.modul.getProfName());
             noteTextfeld.setText(this.modul.getNoteString());
+            versuchTextfeld.setText(this.modul.getVersuchString());
+            kursURLTextfeld.setText(this.modul.getKursURL());
             for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++) {
                 if (this.modul.getTag(i) >= 0 && this.modul.getTag(i) <= Modulplaner.tage.values().length) {
                     tag[i].setSelectedIndex( this.modul.getTag(i));
@@ -162,6 +189,10 @@ public class Info extends JPanel{
             modulNameTextfeld.setEnabled(true);
             profNameTextfeld.setEnabled(true);
             noteTextfeld.setEnabled(true);
+            versuchTextfeld.setEnabled(true);
+            kursURLButton.setEnabled(true);
+            kursURLButton.addActionListener(new InfoKursURLButtonActionListener(parent, modul.getKursURL()));
+            kursURLTextfeld.setEnabled(true);
             speichernButton.setEnabled(true);
             loeschenButton.setEnabled(true);
             belegen.setEnabled(true);

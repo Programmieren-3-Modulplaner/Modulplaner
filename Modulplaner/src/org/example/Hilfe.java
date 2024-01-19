@@ -6,11 +6,10 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-public class Hilfe extends JFrame {
+public class Hilfe {
     
     private Modulplaner parent;
 
@@ -56,7 +55,7 @@ public class Hilfe extends JFrame {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } catch (URISyntaxException ex) {
-            Logger.getLogger(Hilfe.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
         
     }

@@ -41,6 +41,7 @@ public class Modulplaner extends JFrame {
         
     };
     private String[] bloecke = {"8:15-9:45", "10:15-11:45", "12:15-13:45", "14:15-15:45", "16:00-17:30", "17:45-19:15", "19:30-20:45"};
+    private int maxAnzahlVersuche = 3;
     
     public Action modulNeuAction, importAction, exportAction, beendenAction, aboutAction, hilfeAction, spracheAendernAction;
 
@@ -221,6 +222,8 @@ public class Modulplaner extends JFrame {
         }
     }
 
+    //-------------------------------
+    
     public String getDateiName() {
         return dateiName;
     }
@@ -229,6 +232,30 @@ public class Modulplaner extends JFrame {
         return bloecke.length;
     }
 
+    public String[] getBloecke() {
+        return bloecke;
+    }
+
+    public int getMaxAnzahlVersuche() {
+        return maxAnzahlVersuche;
+    }
+    
+    public String getMaxAnzahlVersucheString() {
+        return String.valueOf(maxAnzahlVersuche);
+    }
+
+    public int getLanguageInt() {
+        return language;
+    }
+    
+    public String getLanguageString() {
+        return availableLanguages[language];
+    }
+
+    public String[] getAvailableLanguages() {
+        return availableLanguages;
+    }
+    
     public boolean isKursplanIsVisible() {
         return kursplanIsVisible;
     }
@@ -259,22 +286,6 @@ public class Modulplaner extends JFrame {
 
     public void setBestandenlisteIsVisible(boolean bestandenlisteIsVisible) {
         this.bestandenlisteIsVisible = bestandenlisteIsVisible;
-    }
-
-    public String[] getBloecke() {
-        return bloecke;
-    }
-
-    public int getLanguageInt() {
-        return language;
-    }
-    
-    public String getLanguageString() {
-        return availableLanguages[language];
-    }
-
-    public String[] getAvailableLanguages() {
-        return availableLanguages;
     }
 
     public void setLanguage(int l) {

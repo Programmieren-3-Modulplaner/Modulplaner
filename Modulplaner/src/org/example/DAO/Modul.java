@@ -6,6 +6,8 @@ public class Modul {
     private String modulName;
     private String profName;
     private double note;
+    private int versuch;
+    private String kursURL;
     private boolean belegt;
     private int[] tag = new int[anzahlVeranstaltungen];
     private int[] block = new int[anzahlVeranstaltungen];
@@ -14,10 +16,12 @@ public class Modul {
     public Modul() {
     }
 
-    public Modul(String modulName, String profName, double note, boolean belegt, int[] tag, int[] block, String[] raum) {
+    public Modul(String modulName, String profName, double note, int versuch, String kursURL, boolean belegt, int[] tag, int[] block, String[] raum) {
         this.modulName = modulName;
         this.profName = profName;
         this.note = note;
+        this.versuch = versuch;
+        this.kursURL = kursURL;
         this.belegt = belegt;
         this.tag = tag;
         this.block = block;
@@ -39,6 +43,18 @@ public class Modul {
     
     public String getNoteString() {
         return String.valueOf(note);
+    }
+
+    public int getVersuch() {
+        return versuch;
+    }
+    
+    public String getVersuchString() {
+        return String.valueOf(versuch);
+    }
+
+    public String getKursURL() {
+        return kursURL;
     }
 
     public boolean isBelegt() {
@@ -68,6 +84,14 @@ public class Modul {
 
     public void setNote(double note) {
         this.note = note;
+    }
+
+    public void setVersuch(int versuch) {
+        this.versuch = versuch;
+    }
+
+    public void setKursURL(String kursURL) {
+        this.kursURL = kursURL;
     }
 
     public void setBelegt(boolean belegt) {
@@ -110,6 +134,8 @@ public class Modul {
         System.out.println(this.getModulName());
         System.out.println(this.getProfName());
         System.out.println(this.getNote());
+        System.out.println(this.getVersuch());
+        System.out.println(this.getKursURL());
         System.out.println(this.isBelegt());
         for (int i = 0; i < anzahlVeranstaltungen; i++) {
             System.out.println("Tag" + i + ":   " + this.getTag(i));

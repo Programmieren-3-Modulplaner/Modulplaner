@@ -53,6 +53,9 @@ public class Kursplan extends JPanel {
                     panelHolder[i][n].setBackground(Color.lightGray);
                     for (int m = 0; m < result.length; m++) {
                         JLabel eintrag = new JLabel(result[m][0], 0);
+                        if (result[m][2].equals(parent.getMaxAnzahlVersucheString())){
+                            eintrag.setForeground(Color.RED.darker());
+                        }
                         panelHolder[i][n].add(eintrag);
                     }
                     for (int m = 0; m < result.length; m++) {

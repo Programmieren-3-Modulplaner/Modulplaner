@@ -27,17 +27,21 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
     private JTextField modulNameTextfeld;
     private JTextField profNameTextfeld;
     private JFormattedTextField noteTextfeld;
+    private JFormattedTextField versuchTextfeld;
+    private JTextField kursURLTextfeld;
     private JComboBox[] tag = new JComboBox[Modul.getAnzahlVeranstaltungen()];
     private JComboBox[] block = new JComboBox[Modul.getAnzahlVeranstaltungen()];
     private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
     private JRadioButton belegen;
 
-    public NeuSpeichernButtonActionListener(Modulplaner p, Neu n, JTextField mNT, JTextField pNT, JFormattedTextField nT, JComboBox[] t, JComboBox[] bl, JTextField[] r, JRadioButton be) {
+    public NeuSpeichernButtonActionListener(Modulplaner p, Neu n, JTextField mNT, JTextField pNT, JFormattedTextField nT, JFormattedTextField v, JTextField k, JComboBox[] t, JComboBox[] bl, JTextField[] r, JRadioButton be) {
         this.parent = p;
         this.neu = n;
         this.modulNameTextfeld = mNT;
         this.profNameTextfeld = pNT;
         this.noteTextfeld = nT;
+        this.versuchTextfeld = v;
+        this.kursURLTextfeld = k;
         this.tag = t;
         this.block = bl;
         this.raum = r;
@@ -48,8 +52,8 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         System.out.println("Speichern");
         
-        //double note = (double)noteTextfeld.getText().toString();
         double note = Double.parseDouble(noteTextfeld.getText().toString());
+        int versuch = Integer.parseInt(versuchTextfeld.getText().toString());
 
         ImageIcon icon = new ImageIcon(getClass().getResource("/icons/33.gif"));
         if (modulNameTextfeld.getText().length() == 0) {
@@ -74,7 +78,7 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
                 nBlock[i] = block[i].getSelectedIndex();
                 nRaum[i] = raum[i].getText();
             }
-            Modul n = new Modul(modulNameTextfeld.getText(), profNameTextfeld.getText(), note, isbelegen, nTag, nBlock, nRaum);
+            Modul n = new Modul(modulNameTextfeld.getText(), profNameTextfeld.getText(), note, versuch, kursURLTextfeld.getText(), isbelegen, nTag, nBlock, nRaum);
             
             parent.module.add(n);
             neu.setVisible(false);
