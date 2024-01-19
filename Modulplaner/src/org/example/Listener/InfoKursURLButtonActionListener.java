@@ -40,7 +40,7 @@ public class InfoKursURLButtonActionListener implements ActionListener {
             } catch (MalformedURLException ex) {
                 System.out.println(ex.getMessage());
             }
-            if (Desktop.getDesktop() != null && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
+            if (Desktop.isDesktopSupported()) {
                 try {
                     Desktop.getDesktop().browse(url.toURI());
                 } catch (URISyntaxException ex) {

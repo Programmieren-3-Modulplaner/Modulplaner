@@ -2,9 +2,10 @@ package org.example;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 
 public class Hilfe extends JFrame {
@@ -14,10 +15,7 @@ public class Hilfe extends JFrame {
     public Hilfe(Modulplaner p) {
         this.parent = p;
         
-        //Sprachecode für die Unterscheidung der Hilfesprache
         String languageCode = parent.getLanguageString();
-        
-        //Platzhalter für den Dateipfad
         String pdfFileName="";
 
         switch (languageCode) {
@@ -32,6 +30,24 @@ public class Hilfe extends JFrame {
                 break;
         }
     
+        if (Desktop.isDesktopSupported())   
+        {   
+            InputStream jarPdf = getClass().getResourceAsStream("/help/" + pdfFileName);
+            try {
+                File pdfTemp = new File("Modulplaner_temp.pdf");
+                FileOutputStream fos = new FileOutputStream(pdfTemp);
+                while (jarPdf.available() > 0) {
+                      fos.write(jarPdf.read());
+                }
+                fos.close();
+                Desktop.getDesktop().open(pdfTemp);
+            }
+            catch (IOException e) {
+                System.out.println(e);
+            }
+        }
+        
+        /*
         //Zusammensetzung des Dateipfades
         File pdfPfad = new File("../src/help/" + pdfFileName);
         
@@ -49,7 +65,7 @@ public class Hilfe extends JFrame {
             }
         }catch (IOException e) {
             System.out.println(e.getMessage());
-        }
+        }*/
         
     }
 }
