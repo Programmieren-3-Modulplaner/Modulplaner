@@ -74,7 +74,7 @@ public class Modulplaner extends JFrame {
         daoInitialRead.close();
 
         //modulManager.printTest();
-        
+         
         actionsErstellen();
 
         //Initial Window Config's

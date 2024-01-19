@@ -33,7 +33,7 @@ public class Hilfe extends JFrame {
         }
     
         //Zusammensetzung des Dateipfades
-        File pdfPfad = new File("../docs/" + pdfFileName);
+        File pdfPfad = new File("../src/help/" + pdfFileName);
         
         try {
             //Initzialisierung des Desktop -> so können Actionen des Desktops des Benutzers verwendet werden
