@@ -52,8 +52,11 @@ public class Module extends ArrayList<Modul> {
         }
         
         for ( Modul s: this){
-            if (s.getModulName().contains(suchString))
+            if (s.getModulName().contains(suchString)){
                 ergebnis.add(s);
+            }else if (s.getProfName().contains(suchString)){
+                ergebnis.add(s);
+            }
         }
         return ergebnis;
     }
