@@ -85,6 +85,11 @@ public class Modulplaner extends JFrame {
         //---------------------------------------------
         //Initial Window Config's
         setTitle(sprache("Titel"));
+        
+        //Benutzerdifiniertes Icon, statt Default Icon von Java
+        String iconPfad = "src/icons/planer_49.png";
+        setIconImage(new ImageIcon(iconPfad).getImage());
+        
         addWindowListener(new WindowEventListener(this));
 
         menubar = new MenuBar("Modulplaner", this);
