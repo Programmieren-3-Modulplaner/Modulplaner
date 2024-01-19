@@ -34,7 +34,7 @@ public class Hilfe extends JFrame {
     
         //Zusammensetzung des Dateipfades
         File pdfPfad = new File("../docs/" + pdfFileName);
-        //File absoluterPfad = new File (pdfPfad.getAbsolutePath());
+        
         try {
             //Initzialisierung des Desktop -> so können Actionen des Desktops des Benutzers verwendet werden
             Desktop desktop = Desktop.getDesktop();
