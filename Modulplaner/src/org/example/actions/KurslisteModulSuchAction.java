@@ -11,7 +11,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import org.example.DAO.Modul;
-import org.example.Modulplaner;
+import org.example.DAO.ModulManager;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
@@ -21,20 +21,20 @@ public class KurslisteModulSuchAction extends AbstractAction{
 
     private Document suchEingabe;
     private DefaultListModel suchErgebnis;
-    private org.example.DAO.Module module;
+    private ModulManager modulManager;
     
-    public KurslisteModulSuchAction(Document sEi, DefaultListModel sEr, org.example.DAO.Module m){
+    public KurslisteModulSuchAction(Document sEi, DefaultListModel sEr, ModulManager m){
         
         //super("Suche");
         this.suchEingabe = sEi;
         this.suchErgebnis = sEr;
-        this.module = m;
+        this.modulManager = m;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
        try {
-            org.example.DAO.Module gefundeneModule = module.suchModule(suchEingabe.getText(0, suchEingabe.getLength()));
+            ModulManager gefundeneModule = modulManager.suchModule(suchEingabe.getText(0, suchEingabe.getLength()));
             
             suchErgebnis.clear();
             for (Modul m : gefundeneModule) {

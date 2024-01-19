@@ -6,6 +6,7 @@ package org.example.Listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -60,7 +61,7 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
             JOptionPane.showMessageDialog(neu, parent.sprache("NName"), "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else if (profNameTextfeld.getText().length() == 0){
             JOptionPane.showMessageDialog(neu, parent.sprache("NProf"), "", JOptionPane.INFORMATION_MESSAGE, icon);
-        } else if (parent.module.nameIstVorhanden(modulNameTextfeld.getText())) {
+        } else if (parent.modulManager.nameIstVorhanden(modulNameTextfeld.getText())) {
             JOptionPane.showMessageDialog(neu, parent.sprache("TModul"), "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else if (note < 0 || (note > 0 && note < 1)|| (note > 4 && note < 5)|| note > 5) {
             JOptionPane.showMessageDialog(neu, parent.sprache("ZNote") +":" + "0.0" + " (" + parent.sprache("NBE")+ ") " + "/ 1.0 - 4.0 / 5.0", "", JOptionPane.INFORMATION_MESSAGE, icon);
@@ -78,9 +79,8 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
                 nBlock[i] = block[i].getSelectedIndex();
                 nRaum[i] = raum[i].getText();
             }
-            Modul n = new Modul(modulNameTextfeld.getText(), profNameTextfeld.getText(), note, versuch, kursURLTextfeld.getText(), isbelegen, nTag, nBlock, nRaum);
-            
-            parent.module.add(n);
+            Modul n = new Modul(modulNameTextfeld.getText(), profNameTextfeld.getText(), note, versuch, kursURLTextfeld.getText(), isbelegen, nTag, nBlock, nRaum);          
+            parent.modulManager.add(n);
             neu.setVisible(false);
             parent.KurslisteAktualisieren();
             parent.KursplanAktualisieren();

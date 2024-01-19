@@ -8,7 +8,7 @@ public class Test {
 
         String dateiName = "src/org/example/DAO/module.dat";
 
-        // Drei Module erzeugen, zu Liste hinzufügen und Liste speichern:
+        // Drei ModulManager erzeugen, zu Liste hinzufügen und Liste speichern:
 
         //Modul m1 = new Modul("P1", "Gudenkauf", 2.0, false, 1, 1, "123", 2, 2, "1234", 0, 0, "");//, 0, 0, "", 0, 0, "");
         //Modul m2 = new Modul("P2", "Gudenkauf", 0, true, 1, 2, "12345", 2, 3, "12t3", 3, 2, "123");//, 4, 2, "123", 5, 2, "123");
@@ -23,7 +23,7 @@ public class Test {
         Modul m6 = new Modul("Datenbanken", "Wulf", 1.7, true , 2, 3, "2 3", 2, 6, "2 6", 4, 5, "4 5");//, 0, 0, "", 0, 0, "");
         */
         
-        Module moduleTest = new Module();
+        ModulManager moduleTest = new ModulManager();
         //moduleTest.add(m1);
         //moduleTest.add(m2);
         //moduleTest.add(m3);
@@ -33,8 +33,8 @@ public class Test {
 
         //moduleTest.remove(moduleTest.getIndexByName("Mathe1"));
         //moduleTest.remove();
-        // Module speichern
-        ModuleDAO dao = new ModuleDAO(dateiName, true, null); // Schreiben
+        // ModulManager speichern
+        ModulManagerDAO dao = new ModulManagerDAO(dateiName, true, null); // Schreiben
         try {
             dao.write(moduleTest);
         } catch (IOException e) {
@@ -43,8 +43,8 @@ public class Test {
         dao.close();
 
         // Nun Liste von Datei wieder herstellen und Studentendaten auf Konsole ausgeben:
-        Module moduleTest2 = new Module();
-        ModuleDAO dao2 = new ModuleDAO(dateiName, false, null); // Lesen
+        ModulManager moduleTest2 = new ModulManager();
+        ModulManagerDAO dao2 = new ModulManagerDAO(dateiName, false, null); // Lesen
         try {
             dao2.read(moduleTest2);
         } catch (IOException e) {
@@ -52,7 +52,7 @@ public class Test {
         }
         dao2.close();
 
-        // Daten für alle Module ausgeben:
+        // Daten für alle ModulManager ausgeben:
         for (Modul s : moduleTest2) {
             System.out.println(s.getModulName());
             System.out.println(s.getProfName());

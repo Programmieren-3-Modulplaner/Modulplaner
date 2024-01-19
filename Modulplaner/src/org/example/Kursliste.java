@@ -6,6 +6,7 @@ package org.example;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.Collections;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
@@ -18,6 +19,7 @@ import javax.swing.JTextField;
 import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
+import org.example.DAO.ModulComparator;
 import org.example.Listener.KurslisteListSelectionListener;
 import org.example.actions.KurslisteModulSuchAction;
 
@@ -39,11 +41,13 @@ public class Kursliste extends JPanel {
         setBorder(BorderFactory.createTitledBorder(parent.sprache("Kursliste")+": "));
         setLayout(new BorderLayout(10, 10));
         setPreferredSize(new Dimension(200, 0));
-
-        kurslisteModulSuchAction = new KurslisteModulSuchAction(suchEingabe, suchErgebnisListModel, parent.module);
+        
+        Collections.sort(parent.modulManager, new ModulComparator());
+        
+        kurslisteModulSuchAction = new KurslisteModulSuchAction(suchEingabe, suchErgebnisListModel, parent.modulManager);
         kurslisteModulSuchAction.actionPerformed(null);
         
-        // Such Eingabe Panel erstellen
+
         JPanel suchEingabePanel = new JPanel();
         suchEingabePanel.setLayout(new BorderLayout());
         
@@ -56,14 +60,14 @@ public class Kursliste extends JPanel {
         suchButton.setFocusPainted(false);
         suchEingabePanel.add(suchButton, BorderLayout.EAST);
         
-        // Such ergebnis Liste erstellen
+
         JList suchAusgabeListe = new JList();
         suchAusgabeListe.setModel(suchErgebnisListModel);
         suchErgebnisAuswahlModel.setSelectionMode(SINGLE_SELECTION);
         suchErgebnisAuswahlModel.addListSelectionListener(new KurslisteListSelectionListener(parent, suchErgebnisListModel, suchErgebnisAuswahlModel));
         suchAusgabeListe.setSelectionModel(suchErgebnisAuswahlModel);
         
-        // Such ergebnis Anzeige erstellen
+
         JPanel suchAusgabePanel = new JPanel();
         suchAusgabePanel.setLayout(new BorderLayout());
         JScrollPane suchAusgabeSrollListe = new JScrollPane(suchAusgabeListe);

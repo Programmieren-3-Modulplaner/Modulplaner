@@ -15,8 +15,8 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import org.example.DAO.Modul;
-import org.example.DAO.ModuleDAO;
-//import org.example.DAO.spracheDAO;
+import org.example.DAO.ModulManager;
+import org.example.DAO.ModulManagerDAO;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
 import org.example.MenuBar.ToolBar;
@@ -45,7 +45,7 @@ public class Modulplaner extends JFrame {
     
     public Action modulNeuAction, importAction, exportAction, beendenAction, aboutAction, hilfeAction, spracheAendernAction;
 
-    public org.example.DAO.Module module;
+    public ModulManager modulManager;
     private String dateiName;
 
     private Kursliste kursliste;
@@ -63,28 +63,23 @@ public class Modulplaner extends JFrame {
     public Modulplaner() {
 
         dateiName = new File(System.getProperty("user.home"))+"/Modulplaner.dat";
-        module = new org.example.DAO.Module();
+        modulManager = new ModulManager();
 
-        // Module Initial einlesen aus Datei
-        ModuleDAO daoInitialRead = new ModuleDAO(dateiName, false, this);
+        ModulManagerDAO daoInitialRead = new ModulManagerDAO(dateiName, false, this);
         try {
-            daoInitialRead.read(module);
+            daoInitialRead.read(modulManager);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
         daoInitialRead.close();
 
-        //module.printTest();
-        //---------------------------------------------
-        //Actions erstellen:
+        //modulManager.printTest();
+        
         actionsErstellen();
 
-        
-        //---------------------------------------------
         //Initial Window Config's
         setTitle(sprache("Titel"));
         
-        //Benutzerdifiniertes Icon, statt Default Icon von Java
         String iconPfad = "src/icons/planer_49.png";
         setIconImage(new ImageIcon(iconPfad).getImage());
         
@@ -97,12 +92,12 @@ public class Modulplaner extends JFrame {
         
         toolbar = new ToolBar(this);
         add(toolbar, BorderLayout.NORTH);
+        
+        kursliste = new Kursliste(this);
+        add(kursliste, BorderLayout.WEST);
 
         kursplan = new Kursplan(this);
         add(kursplan, BorderLayout.SOUTH);
-
-        kursliste = new Kursliste(this);
-        add(kursliste, BorderLayout.WEST);
 
         info = new Info(this, false, null);
         add(info, BorderLayout.CENTER);
@@ -120,10 +115,10 @@ public class Modulplaner extends JFrame {
     public static void main(String[] args) {
 
         // Macht es etwas hübscher wenn es auf einem MAC gestartet wird.
-        /*if (System.getProperty("os.name") != null && System.getProperty("os.name").toLowerCase().indexOf("mac") != -1) {
+        if (System.getProperty("os.name") != null && System.getProperty("os.name").toLowerCase().indexOf("mac") != -1) {
             //System.getProperties().put("apple.laf.useScreenMenuBar", "true");
             System.setProperty("apple.laf.useScreenMenuBar", "true");
-        }*/
+        }
         new Modulplaner();
     }
     

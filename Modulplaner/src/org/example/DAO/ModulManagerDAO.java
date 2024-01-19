@@ -4,9 +4,9 @@ import java.io.IOException;
 import org.example.Modulplaner;
 
 /**
- * Data Access Object für die Klasse Module.
+ * Data Access Object für die Klasse ModulManager.
  */
-public class ModuleDAO extends DAO {
+public class ModulManagerDAO extends DAO {
     
     Modulplaner parent;
 
@@ -17,7 +17,7 @@ public class ModuleDAO extends DAO {
      * @param dateiName Dateiname
      * @param openForWrite true wenn geschrieben werden soll
      */
-    public ModuleDAO(String dateiName, boolean openForWrite, Modulplaner p) {
+    public ModulManagerDAO(String dateiName, boolean openForWrite, Modulplaner p) {
         super(dateiName, openForWrite);
         this.parent = p;
     }
@@ -26,12 +26,12 @@ public class ModuleDAO extends DAO {
         if (out != null) {
             out.writeInt(parent.getLanguageInt());
             
-            Module mods = (Module) obj;
+            ModulManager mods = (ModulManager) obj;
 
-            // Anzahl Module speichern:
+            // Anzahl ModulManager speichern:
             out.writeInt(mods.size());
 
-            // Nun die einzelnen Module speichern:
+            // Nun die einzelnen ModulManager speichern:
             MudulDAO modDAO = new MudulDAO(null, out);
 
             for (Modul s : mods) {
@@ -48,12 +48,12 @@ public class ModuleDAO extends DAO {
                 parent.setLanguage(language);
             }
 
-            Module mods = (Module) obj;
+            ModulManager mods = (ModulManager) obj;
 
-            // Anzahl Module lesen:
+            // Anzahl ModulManager lesen:
             int nMods = in.readInt();
 
-            // Nun die einzelnen Module lesen:
+            // Nun die einzelnen ModulManager lesen:
             MudulDAO modDAO = new MudulDAO(in, null);
             for (int i = 0; i < nMods; ++i) {
                 Modul s = new Modul();

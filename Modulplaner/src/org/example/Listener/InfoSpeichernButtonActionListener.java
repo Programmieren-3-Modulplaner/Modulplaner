@@ -61,7 +61,7 @@ public class InfoSpeichernButtonActionListener implements ActionListener {
             JOptionPane.showMessageDialog(parent, parent.sprache("NName"), "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else if (profNameTextfeld.getText().length() == 0) {
             JOptionPane.showMessageDialog(parent, parent.sprache("NProf"), "", JOptionPane.INFORMATION_MESSAGE, icon);
-        } else if (parent.module.nameIstVorhanden(modulNameTextfeld.getText()) && !modulNameTextfeld.getText().equals(oldModul.getModulName().toString())) {
+        } else if (parent.modulManager.nameIstVorhanden(modulNameTextfeld.getText()) && !modulNameTextfeld.getText().equals(oldModul.getModulName().toString())) {
             JOptionPane.showMessageDialog(parent, parent.sprache("TModul"), "", JOptionPane.INFORMATION_MESSAGE, icon);
         } else if (note < 0 || (note > 0 && note < 1) || (note > 4 && note < 5) || note > 5) {
             JOptionPane.showMessageDialog(parent,  parent.sprache("ZNote") +":" + "0.0" + " (" + parent.sprache("NBE")+ ") " + "/ 1.0 - 4.0 / 5.0", "", JOptionPane.INFORMATION_MESSAGE, icon);
@@ -81,8 +81,8 @@ public class InfoSpeichernButtonActionListener implements ActionListener {
             }
             Modul n = new Modul(modulNameTextfeld.getText(), profNameTextfeld.getText(), note, versuch, kursURLTextfeld.getText(), isbelegen, nTag, nBlock, nRaum);
             
-            int index = parent.module.getIndexByName(oldModul.getModulName());
-            parent.module.set(index, n);
+            int index = parent.modulManager.getIndexByName(oldModul.getModulName());
+            parent.modulManager.set(index, n);
 
             parent.KurslisteAktualisieren();
             parent.KursplanAktualisieren();

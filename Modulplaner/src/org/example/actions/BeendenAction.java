@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
-import org.example.DAO.ModuleDAO;
+import org.example.DAO.ModulManagerDAO;
 import org.example.Modulplaner;
 
 /**
@@ -28,9 +28,9 @@ public class BeendenAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        ModuleDAO dao = new ModuleDAO(parent.getDateiName(), true, parent);
+        ModulManagerDAO dao = new ModulManagerDAO(parent.getDateiName(), true, parent);
         try {
-            dao.write(parent.module);
+            dao.write(parent.modulManager);
         } catch (IOException r) {
             System.out.println(r.getMessage());
         }

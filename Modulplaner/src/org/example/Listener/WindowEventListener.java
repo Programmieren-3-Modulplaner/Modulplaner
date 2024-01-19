@@ -7,7 +7,7 @@ package org.example.Listener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
-import org.example.DAO.ModuleDAO;
+import org.example.DAO.ModulManagerDAO;
 import org.example.Modulplaner;
 
 /**
@@ -29,11 +29,11 @@ public class WindowEventListener implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
-        // Module speichern
+        // ModulManager speichern
         
-        ModuleDAO dao = new ModuleDAO(parent.getDateiName(), true, parent);
+        ModulManagerDAO dao = new ModulManagerDAO(parent.getDateiName(), true, parent);
         try {
-            dao.write(parent.module);
+            dao.write(parent.modulManager);
         } catch (IOException r) {
             System.out.println(r.getMessage());
         }

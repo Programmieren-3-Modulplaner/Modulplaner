@@ -2,7 +2,7 @@ package org.example.DAO;
 
 import java.util.ArrayList;
 
-public class Module extends ArrayList<Modul> {
+public class ModulManager extends ArrayList<Modul> {
 
     public int getIndexByName(String name) {
         for (int i = 0; i < this.size(); i++) {
@@ -39,15 +39,15 @@ public class Module extends ArrayList<Modul> {
     }
 
     public void printTest() {
-        // Daten für alle Module ausgeben:
+        // Daten für alle ModulManager ausgeben:
         for (org.example.DAO.Modul s : this) {
             s.printTest();
         }
     }
     
     
-    public Module suchModule(String suchString){
-        Module ergebnis = new Module();
+    public ModulManager suchModule(String suchString){
+        ModulManager ergebnis = new ModulManager();
         if (suchString == null) {
             return ergebnis;
         }
@@ -89,7 +89,7 @@ public class Module extends ArrayList<Modul> {
     }
     
     public double durchschnitt(){
-        Module ergebnis = new Module();
+        ModulManager ergebnis = new ModulManager();
         for ( Modul s: this){
             if (s.getNote() != 0.0 && s.getNote() != 5.0){
                 ergebnis.add(s);

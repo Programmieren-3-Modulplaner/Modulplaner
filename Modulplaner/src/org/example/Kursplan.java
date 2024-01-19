@@ -6,10 +6,12 @@ package org.example;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.Collections;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import org.example.DAO.ModulComparator;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>
@@ -47,7 +49,8 @@ public class Kursplan extends JPanel {
 
         for (int i = 1; i <= anzahlBloecke; i++) {
             for (int n = 1; n <= anzahlTage; n++) {
-                String[][] result = parent.module.getByTagBlock(n, i);
+                Collections.sort(parent.modulManager, new ModulComparator());
+                String[][] result = parent.modulManager.getByTagBlock(n, i);
                 if (result.length > 0) {
                     panelHolder[i][n].setLayout(new GridLayout(2, 0));
                     panelHolder[i][n].setBackground(Color.lightGray);
