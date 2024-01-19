@@ -11,10 +11,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.example.Modulplaner;
-import org.example.SpracheAendern;
 
 /**
  * @author Niels Fricke <Niels.Fricke@t-online.de>

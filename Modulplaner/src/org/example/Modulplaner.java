@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import org.example.DAO.Modul;
 import org.example.DAO.ModulManager;
+import org.example.DAO.ModulManagerCSV;
 import org.example.DAO.ModulManagerDAO;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
@@ -23,6 +24,7 @@ import org.example.MenuBar.ToolBar;
 import org.example.actions.AboutAction;
 import org.example.actions.BeendenAction;
 import org.example.actions.ExportAction;
+import org.example.actions.ExportCSVAction;
 import org.example.actions.HilfeAction;
 import org.example.actions.ImportAction;
 import org.example.actions.ModulNeuAction;
@@ -43,7 +45,7 @@ public class Modulplaner extends JFrame {
     private String[] bloecke = {"8:15-9:45", "10:15-11:45", "12:15-13:45", "14:15-15:45", "16:00-17:30", "17:45-19:15", "19:30-20:45"};
     private int maxAnzahlVersuche = 3;
     
-    public Action modulNeuAction, importAction, exportAction, beendenAction, aboutAction, hilfeAction, spracheAendernAction;
+    public Action modulNeuAction, importAction, exportAction, beendenAction, aboutAction, hilfeAction, spracheAendernAction, exportCSVAction;
 
     public ModulManager modulManager;
     private String dateiName;
@@ -198,12 +200,14 @@ public class Modulplaner extends JFrame {
     
     public void actionsErstellen (){
         modulNeuAction = new ModulNeuAction(this, sprache("Neu"), createIcon("/icons/60.gif"), sprache("NeuText"), KeyEvent.VK_N);
-        importAction = new ImportAction(this, sprache("Import"), createIcon("/icons/53.gif"), sprache("ImportText"), KeyEvent.VK_I);
-        exportAction = new ExportAction(this, sprache("Export"), createIcon("/icons/86.gif"), sprache("ExportText"), KeyEvent.VK_E);
+        importAction = new ImportAction(this, sprache("Import"), createIcon("/icons/52.gif"), sprache("ImportText"), KeyEvent.VK_I);
+        exportAction = new ExportAction(this, sprache("Export"), createIcon("/icons/22.gif"), sprache("ExportText"), KeyEvent.VK_E);
         beendenAction = new BeendenAction(this, sprache("Beenden"), createIcon("/icons/33.gif"), sprache("BeendenText"), KeyEvent.VK_B);
         aboutAction = new AboutAction(this, sprache("Über"), createIcon("/icons/72.gif"), sprache("ÜberText"), KeyEvent.VK_A);
         hilfeAction = new HilfeAction(this, sprache("Hilfe"), createIcon("/icons/73.gif"), sprache("HilfeText"), KeyEvent.VK_H);
         spracheAendernAction = new SpracheAendernAction(this, sprache("TitelSprache"), createIcon("/icons/48.gif"), sprache("TitelSprache"), KeyEvent.VK_L);
+        exportCSVAction = new ExportCSVAction(this, "ExportCSV", createIcon("/icons/86.gif"), "ExportText", KeyEvent.VK_E);
+        
     }
 
     public ImageIcon createIcon(String filePath) {

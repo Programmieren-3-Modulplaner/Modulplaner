@@ -22,6 +22,7 @@ public class Menu extends JMenu {
             this.add(new MenuItemNeu(parent));
             this.add(new MenuItemImport(parent));
             this.add(new MenuItemExport(parent));
+            this.add(new MenuItemExportCSV(parent));
             this.add(new MenuItemBeenden(parent));
         } else if (name.equals(parent.sprache("Hilfe"))) {
             this.add(new MenuItemHilfe(parent));
