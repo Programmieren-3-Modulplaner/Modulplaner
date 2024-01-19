@@ -57,7 +57,7 @@ public class Modulplaner extends JFrame {
 
     private boolean kursplanIsVisible = true, kurslisteIsVisible = true, infoIsVisible = true, bestandenlisteIsVisible = true;
     //private spracheDAO sprache;
-    private int language = 1;
+    private int language = -1;
     private String[] availableLanguages = {"de","en","fr","klingonisch"};
     
     public Modulplaner() {

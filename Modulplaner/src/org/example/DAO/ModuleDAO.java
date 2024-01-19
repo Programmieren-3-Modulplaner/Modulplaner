@@ -42,8 +42,12 @@ public class ModuleDAO extends DAO {
 
     public void read(Object obj) throws IOException {
         if (in != null) {
-            parent.setLanguage(in.readInt());
             
+            int language = in.readInt();
+            if (parent.getLanguageInt() == -1) {
+                parent.setLanguage(language);
+            }
+
             Module mods = (Module) obj;
 
             // Anzahl Module lesen:
