@@ -20,6 +20,5 @@ public class MenuItemHilfe extends JMenuItem{
      */
     MenuItemHilfe (Modulplaner p){
         super(p.hilfeAction);
-        //setIcon(null);
     }
 }

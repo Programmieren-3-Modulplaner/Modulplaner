@@ -70,7 +70,6 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Speichern");
         
         double note = Double.parseDouble(noteTextfeld.getText().toString());
         int versuch = Integer.parseInt(versuchTextfeld.getText().toString());

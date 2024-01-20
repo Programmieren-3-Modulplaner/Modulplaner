@@ -34,7 +34,6 @@ public class InfoLoeschenButtonActionListener implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Löschen Info");
             
             int index = parent.modulManager.getIndexByName(oldModul.getModulName());
             parent.modulManager.remove(index);

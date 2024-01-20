@@ -20,6 +20,5 @@ public class MenuItemBeenden extends JMenuItem{
      */
     MenuItemBeenden (Modulplaner p){
         super(p.beendenAction);
-        //setIcon(null);
     }
 }

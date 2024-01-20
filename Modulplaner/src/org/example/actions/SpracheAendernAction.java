@@ -42,7 +42,6 @@ public class SpracheAendernAction extends AbstractAction{
     @Override
     public void actionPerformed(ActionEvent e) {
        new SpracheAendern(parent);
-       System.out.println("Sprache Ändern");
     }
     
 }

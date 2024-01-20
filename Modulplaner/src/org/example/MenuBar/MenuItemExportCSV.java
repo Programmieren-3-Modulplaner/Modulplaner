@@ -20,6 +20,5 @@ public class MenuItemExportCSV extends JMenuItem{
      */
     MenuItemExportCSV (Modulplaner p){
         super(p.exportCSVAction);
-        //setIcon(null);
     }
 }

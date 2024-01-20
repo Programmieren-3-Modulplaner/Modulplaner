@@ -41,7 +41,6 @@ public class ExportCSVAction extends AbstractAction{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-       System.out.println("Export CSV öffnen");
        new ExportCSV(parent);
     }
     

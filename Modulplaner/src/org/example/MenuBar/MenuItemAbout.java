@@ -20,6 +20,5 @@ public class MenuItemAbout extends JMenuItem{
      */
     MenuItemAbout (Modulplaner p){
         super(p.aboutAction);
-        //setIcon(null);
     }
 }

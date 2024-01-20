@@ -32,10 +32,8 @@ public class ModulManagerDAO extends DAO {
             
             ModulManager mods = (ModulManager) obj;
 
-            // Anzahl ModulManager speichern:
             out.writeInt(mods.size());
 
-            // Nun die einzelnen ModulManager speichern:
             MudulDAO modDAO = new MudulDAO(null, out);
 
             for (Modul s : mods) {
@@ -59,10 +57,8 @@ public class ModulManagerDAO extends DAO {
 
             ModulManager mods = (ModulManager) obj;
 
-            // Anzahl ModulManager lesen:
             int nMods = in.readInt();
 
-            // Nun die einzelnen ModulManager lesen:
             MudulDAO modDAO = new MudulDAO(in, null);
             for (int i = 0; i < nMods; ++i) {
                 Modul s = new Modul();

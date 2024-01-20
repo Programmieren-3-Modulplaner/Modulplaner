@@ -40,7 +40,6 @@ public class AboutAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("About öffnen");
         new About(parent);
     }
 

@@ -30,7 +30,6 @@ public class MenuItemBestandenlisteItemListner implements ItemListener {
      */
     @Override
     public void itemStateChanged(ItemEvent e) {
-        System.out.println("Bestandenliste anzeigen");
         
         boolean selected = (e.getStateChange() == ItemEvent.SELECTED);
         

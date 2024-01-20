@@ -31,7 +31,6 @@ public class Import {
         int result = chooser.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = chooser.getSelectedFile();
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
 
             ModulManager lesen = new ModulManager();
             ModulManagerDAO daoInitialRead = new ModulManagerDAO(selectedFile.getAbsolutePath(), false, parent);

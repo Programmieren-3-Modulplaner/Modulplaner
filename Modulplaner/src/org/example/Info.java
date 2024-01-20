@@ -55,7 +55,7 @@ public class Info extends JPanel{
     private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
 
     /**
-     * Baut das JPanel für die Modul Info und zum bearbeiten der Module
+     * Baut das JPanel für die Modul Info und zum Bearbeiten der Module
      * <p>Sollte kein Modul übergeben werden werden die funktionen disabled
      * @param p Modulplaner als Parent
      * @param iE true wenn ein Modul angezeigt werden soll
@@ -92,7 +92,7 @@ public class Info extends JPanel{
         versuchTextfeld = new JFormattedTextField(versuchFormatter);
         versuchTextfeld.setValue(1);
         kursURLTextfeld = new JTextField();
-        kursURLButton = new JButton(parent.sprache("URL"));
+        kursURLButton = new JButton(parent.sprache("URL")+":");
         //kursURLButton.setHorizontalAlignment(SwingConstants.LEFT);
         
         modulNameTextfeld.setEnabled(false);

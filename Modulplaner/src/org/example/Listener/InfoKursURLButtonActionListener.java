@@ -38,7 +38,6 @@ public class InfoKursURLButtonActionListener implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Kurs URL Öffnen: " + kursURL);
         if (kursURL.length() > 0) {
             URL url = null;
             try {

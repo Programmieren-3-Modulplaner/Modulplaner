@@ -20,6 +20,5 @@ public class MenuItemNeu extends JMenuItem{
      */
     MenuItemNeu (Modulplaner p){
         super(p.modulNeuAction);
-        //setIcon(null);
     }
 }

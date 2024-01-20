@@ -20,6 +20,5 @@ public class MenuItemExport extends JMenuItem{
      */
     MenuItemExport (Modulplaner p){
         super(p.exportAction);
-        //setIcon(null);
     }
 }

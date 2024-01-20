@@ -94,9 +94,9 @@ public class Neu extends JDialog{
         allgemeinPanel.add(profNameTextfeld);
         allgemeinPanel.add(new JLabel(parent.sprache("Note")+":"));
         allgemeinPanel.add(noteTextfeld);
-        allgemeinPanel.add(new JLabel("Versuch:"));
+        allgemeinPanel.add(new JLabel(parent.sprache("Versuch")+":"));
         allgemeinPanel.add(versuchTextfeld);
-        allgemeinPanel.add(new JLabel("Kurs URL:"));
+        allgemeinPanel.add(new JLabel(parent.sprache("URL")+":"));
         allgemeinPanel.add(kursURLTextfeld);
 
         //-------------------------------------------------------

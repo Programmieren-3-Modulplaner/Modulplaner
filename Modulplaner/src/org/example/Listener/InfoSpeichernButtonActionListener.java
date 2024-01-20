@@ -69,7 +69,6 @@ public class InfoSpeichernButtonActionListener implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Speichern Info");
         
         double note = Double.parseDouble(noteTextfeld.getText().toString());
         int versuch = Integer.parseInt(versuchTextfeld.getText().toString());

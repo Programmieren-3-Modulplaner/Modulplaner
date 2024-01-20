@@ -49,7 +49,7 @@ public class Hilfe extends JFrame {
                 Desktop.getDesktop().open(pdfTemp);
             }
             catch (IOException e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }

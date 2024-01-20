@@ -29,7 +29,6 @@ public class Export{
         int result = chooser.showSaveDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = chooser.getSelectedFile();
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
 
             ModulManagerDAO dao = new ModulManagerDAO(selectedFile.getAbsolutePath(), true, parent); 
             try {

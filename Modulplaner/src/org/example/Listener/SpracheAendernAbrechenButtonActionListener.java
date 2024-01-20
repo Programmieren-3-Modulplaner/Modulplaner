@@ -34,7 +34,6 @@ public class SpracheAendernAbrechenButtonActionListener implements ActionListene
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Abbrechen");
         spracheAendern.setVisible(false);
     }
 }

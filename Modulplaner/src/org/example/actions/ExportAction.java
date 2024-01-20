@@ -40,7 +40,6 @@ public class ExportAction extends AbstractAction{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-       System.out.println("Save öffnen");
        new Export(parent);
     }
     

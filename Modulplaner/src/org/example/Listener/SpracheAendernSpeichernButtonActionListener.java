@@ -38,7 +38,6 @@ public class SpracheAendernSpeichernButtonActionListener implements ActionListen
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Speichern");
         
         parent.setLanguage(this.auswahl.getSelectedIndex());
         

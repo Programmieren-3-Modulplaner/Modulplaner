@@ -40,7 +40,6 @@ public class HilfeAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Hilfe öffnen");
         new Hilfe(parent);
     }
 

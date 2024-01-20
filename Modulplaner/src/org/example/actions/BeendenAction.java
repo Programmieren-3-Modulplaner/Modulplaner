@@ -50,7 +50,6 @@ public class BeendenAction extends AbstractAction {
         }
         dao.close();
         
-        System.out.println("Beenden...");
         System.exit(0);
     }
 

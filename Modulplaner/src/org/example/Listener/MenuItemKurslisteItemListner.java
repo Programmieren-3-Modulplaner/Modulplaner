@@ -30,7 +30,6 @@ public class MenuItemKurslisteItemListner implements ItemListener {
      */
     @Override
     public void itemStateChanged(ItemEvent e) {
-        System.out.println("Kursliste anzeigen");
         
         boolean selected = (e.getStateChange() == ItemEvent.SELECTED);
         

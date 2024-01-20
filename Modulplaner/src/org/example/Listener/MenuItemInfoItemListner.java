@@ -30,7 +30,6 @@ public class MenuItemInfoItemListner implements ItemListener {
      */
     @Override
     public void itemStateChanged(ItemEvent e) {
-        System.out.println("Info anzeigen");
         
         boolean selected = (e.getStateChange() == ItemEvent.SELECTED);
         

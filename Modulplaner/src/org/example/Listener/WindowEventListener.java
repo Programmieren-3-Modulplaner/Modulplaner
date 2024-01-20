@@ -44,7 +44,6 @@ public class WindowEventListener implements WindowListener {
         }
         dao.close();
         
-        System.out.println("Fenster schliessen");
         System.exit(0);
     }
 

@@ -20,6 +20,5 @@ public class MenuItemSpracheAendern extends JMenuItem{
      */
     MenuItemSpracheAendern (Modulplaner p){
         super(p.spracheAendernAction);
-        //setIcon(null);
     }
 }

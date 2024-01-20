@@ -40,8 +40,8 @@ public class ModulManagerCSV {
             BufferedWriter bufout = new BufferedWriter(fileOut);
             PrintWriter out = new PrintWriter(bufout);
             
-            String line = parent.sprache("Name") + Trennzeichen + parent.sprache("Professor") + Trennzeichen + 
-                    parent.sprache("Note") + Trennzeichen + "Versuch" + Trennzeichen + "Kurs URL" + Trennzeichen + "Belegt";
+            String line = parent.sprache("Name") + Trennzeichen + parent.sprache("Professor") + Trennzeichen + parent.sprache("Note") + 
+                    Trennzeichen + parent.sprache("Versuch") + Trennzeichen + parent.sprache("URL") + Trennzeichen + parent.sprache("TBelegen");
             for (int i = 0; i < Modul.getAnzahlVeranstaltungen(); i++){
                 line = line + Trennzeichen + parent.sprache("Tag") + Trennzeichen + parent.sprache("Block") + Trennzeichen + parent.sprache("Raum");
             }

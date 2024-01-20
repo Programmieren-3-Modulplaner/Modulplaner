@@ -34,7 +34,6 @@ public class NeuAbrechenButtonActionListener implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Abbrechen");
         neu.setVisible(false);
     }
 }

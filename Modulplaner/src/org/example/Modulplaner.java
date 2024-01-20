@@ -63,7 +63,6 @@ public class Modulplaner extends JFrame {
     private ToolBar toolbar;
 
     private boolean kursplanIsVisible = true, kurslisteIsVisible = true, infoIsVisible = true, bestandenlisteIsVisible = true;
-    //private spracheDAO sprache;
     private int language = -1;
     private String[] availableLanguages = {"de","en","fr","klingonisch"};
     
@@ -130,7 +129,6 @@ public class Modulplaner extends JFrame {
     public static void main(String[] args) {
 
         if (System.getProperty("os.name") != null && System.getProperty("os.name").toLowerCase().indexOf("mac") != -1) {
-            //System.getProperties().put("apple.laf.useScreenMenuBar", "true");
             System.setProperty("apple.laf.useScreenMenuBar", "true");
         }
         new Modulplaner();
@@ -342,7 +340,7 @@ public class Modulplaner extends JFrame {
                 case 1 -> Locale.ENGLISH;
                 case 2 -> Locale.FRANCE;
                 default -> Locale.getDefault();
-            }; // Add more cases as needed
+            };
         Locale.setDefault(newLocale);
         JComponent.setDefaultLocale(newLocale);
         }

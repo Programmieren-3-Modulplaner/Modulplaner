@@ -41,7 +41,6 @@ public class ImportAction extends AbstractAction{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-       System.out.println("Open öffnen");
        new Import(parent);
     }
     

@@ -42,7 +42,6 @@ public class ModulNeuAction extends AbstractAction{
     @Override
     public void actionPerformed(ActionEvent e) {
        new Neu(parent);
-       System.out.println("Neues Modul");
     }
     
 }
