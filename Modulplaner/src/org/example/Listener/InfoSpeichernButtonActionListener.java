@@ -14,9 +14,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import org.example.DAO.Modul;
 import org.example.Modulplaner;
-import org.example.Neu;
 
 /**
+ * Klasse zum Speichern des Moduls der {@link org.example.Info}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class InfoSpeichernButtonActionListener implements ActionListener {
@@ -35,6 +35,20 @@ public class InfoSpeichernButtonActionListener implements ActionListener {
     private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
     private JRadioButton belegen;
 
+    /**
+     * Konstruktor zum initialisieren des ActionListener
+     * @param p Modulplaner als Parent
+     * @param oM Alte {@link org.example.DAO.Modul} zum überschreiben
+     * @param mNT Modul Name Textfeld
+     * @param pNT Prof Name Textfeld
+     * @param nT Note Textfeld
+     * @param v Versuch Textfeld
+     * @param k Kurs URL Textfeld
+     * @param t Tag ComboBox Array
+     * @param bl Block ComboBox Array
+     * @param r Raum Textfeld Array
+     * @param be Belegen RadioButton
+     */
     public InfoSpeichernButtonActionListener(Modulplaner p, Modul oM, JTextField mNT, JTextField pNT, JFormattedTextField nT, JFormattedTextField v, JTextField k, JComboBox[] t, JComboBox[] bl, JTextField[] r, JRadioButton be) {
         this.parent = p;
         this.oldModul = oM;
@@ -49,6 +63,10 @@ public class InfoSpeichernButtonActionListener implements ActionListener {
         this.belegen = be;
     }
 
+    /**
+     * Sucht das entsprechende Modul anhand des Namens des Moduls und überschreibt dieses
+     * @param e ActionEvent
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Speichern Info");

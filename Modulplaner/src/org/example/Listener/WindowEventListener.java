@@ -11,26 +11,31 @@ import org.example.DAO.ModulManagerDAO;
 import org.example.Modulplaner;
 
 /**
+ * Klasse für den WindowListener von {@link org.example.Modulplaner}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class WindowEventListener implements WindowListener {
 
     private Modulplaner parent;
 
+    /**
+     * Konsruktor zum initialisieren des WindowListener
+     * @param p Modulplaner als Parent
+     */
     public WindowEventListener(Modulplaner p) {
         this.parent = p;
-
     }
 
     @Override
     public void windowOpened(WindowEvent e) {
-        System.out.println("Fenster öfnen");
     }
 
+    /**
+     * Speichert die aktuellen {@link org.example.DAO.Modul}e des {@link org.example.DAO.ModulManager} von Parent und schließt das Programm
+     * @param e WindowEvent
+     */
     @Override
     public void windowClosing(WindowEvent e) {
-        // ModulManager speichern
-        
         ModulManagerDAO dao = new ModulManagerDAO(parent.getDateiName(), true, parent);
         try {
             dao.write(parent.modulManager);
@@ -45,26 +50,21 @@ public class WindowEventListener implements WindowListener {
 
     @Override
     public void windowClosed(WindowEvent e) {
-        System.out.println("Fenster geschlossen");
     }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        System.out.println("Fenster klein");
     }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        System.out.println("Fenster groß");
     }
 
     @Override
     public void windowActivated(WindowEvent e) {
-        System.out.println("Fenster aktiv");
     }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        System.out.println("Fenster nicht aktiv");
     }
 }

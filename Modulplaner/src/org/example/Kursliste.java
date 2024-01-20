@@ -25,6 +25,8 @@ import org.example.actions.KurslisteModulSuchAction;
 
 /**
  * Klasse für die Liste aller Kurse mit Suchfunktion
+ * <p> Listener: {@link org.example.Listener.KurslisteListSelectionListener}
+ * <p> Action: {@link org.example.actions.KurslisteModulSuchAction}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Kursliste extends JPanel {
@@ -39,7 +41,6 @@ public class Kursliste extends JPanel {
     /**
      * Baut das JPanel fur die Kursliste mit der Suchfuktion {@link org.example.actions.KurslisteModulSuchAction}
      * <p> Es wird der ModulManager von Parent übernommen
-     * <p> Listener: {@link org.example.Listener.KurslisteListSelectionListener}
      * @param p Modulplaner als Parent 
      */
     public Kursliste(Modulplaner p) {

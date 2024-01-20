@@ -14,6 +14,7 @@ import java.net.URL;
 import org.example.Modulplaner;
 
 /**
+ * Klasse zum aufrufen der Kurs URL von Modulen der {@link org.example.Info}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class InfoKursURLButtonActionListener implements ActionListener {
@@ -21,12 +22,20 @@ public class InfoKursURLButtonActionListener implements ActionListener {
     private Modulplaner parent;
     private String kursURL;
 
-
+    /**
+     * Konstruktor zum initialisieren des ActionListener
+     * @param p Modulplaner als Parent
+     * @param kursURL Kurs URL als String
+     */
     public InfoKursURLButtonActionListener(Modulplaner p, String kursURL) {
         this.parent = p;
         this.kursURL = kursURL;
     }
 
+    /**
+     * Öffnet den standard Browser des Nutzers mit des Kurs URL
+     * @param e ActionEvent
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Kurs URL Öffnen: " + kursURL);

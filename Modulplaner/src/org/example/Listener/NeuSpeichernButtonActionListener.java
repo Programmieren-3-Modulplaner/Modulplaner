@@ -17,6 +17,7 @@ import org.example.Modulplaner;
 import org.example.Neu;
 
 /**
+ * Klasse zum Speichern des {@link org.example.DAO.Modul}s des {@link org.example.Neu} Dialog
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class NeuSpeichernButtonActionListener implements ActionListener {
@@ -34,6 +35,20 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
     private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
     private JRadioButton belegen;
 
+    /**
+     * Konstruktor zum initialisieren des ActionListener
+     * @param p Modulplaner als Parent
+     * @param n Neu Dialog als Parent
+     * @param mNT Modul Name Textfeld
+     * @param pNT Prof Name Textfeld
+     * @param nT Note Textfeld
+     * @param v Versuch Textfeld
+     * @param k Kurs URL Textfeld
+     * @param t Tag ComboBox Array
+     * @param bl Block ComboBox Array
+     * @param r Raum Textfeld Array
+     * @param be Belegen RadioButton
+     */
     public NeuSpeichernButtonActionListener(Modulplaner p, Neu n, JTextField mNT, JTextField pNT, JFormattedTextField nT, JFormattedTextField v, JTextField k, JComboBox[] t, JComboBox[] bl, JTextField[] r, JRadioButton be) {
         this.parent = p;
         this.neu = n;
@@ -48,6 +63,11 @@ public class NeuSpeichernButtonActionListener implements ActionListener {
         this.belegen = be;
     }
 
+    /**
+     * Speichert das neue {@link org.example.DAO.Modul} in dem {@link org.example.DAO.ModulManager} von Parent,
+     * aktualisiert diesen und schließt den {@link org.example.Neu} Dialog
+     * @param e ActionEvent
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Speichern");

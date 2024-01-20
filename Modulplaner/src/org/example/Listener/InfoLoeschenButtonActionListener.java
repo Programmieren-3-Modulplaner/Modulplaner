@@ -10,6 +10,7 @@ import org.example.DAO.Modul;
 import org.example.Modulplaner;
 
 /**
+ * Klasse zum Löschen von Modulen der {@link org.example.Info}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class InfoLoeschenButtonActionListener implements ActionListener {
@@ -17,11 +18,20 @@ public class InfoLoeschenButtonActionListener implements ActionListener {
     private Modulplaner parent;
     private Modul oldModul;
     
+    /**
+     * Konstruktor zum initialisieren des ActionListener
+     * @param p Modulplaner als Parent
+     * @param oM Das zu löschende Modul
+     */
     public InfoLoeschenButtonActionListener(Modulplaner p, Modul oM) {
         this.parent = p;
         this.oldModul = oM;
     }
 
+    /**
+     * Löscht das entsprechende Modul aus dem {@link org.example.DAO.ModulManager} von Parent
+     * @param e ActionEvent
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Löschen Info");

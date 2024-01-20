@@ -9,7 +9,7 @@ import javax.swing.JFileChooser;
 import org.example.DAO.ModulManagerCSV;
 
 /**
- * Klasse für das Exportieren der Modulliste als .csv vom ModulManager von Parent
+ * Klasse für das Exportieren der Modulliste als .csv vom {@link org.example.DAO.ModulManager} von Parent
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class ExportCSV{
@@ -17,7 +17,7 @@ public class ExportCSV{
     private Modulplaner parent;
 
     /**
-     * Öffnet einen JFileChooser und speichert die Module mit dem {@link org.example.DAO.ModulManagerCSV}
+     * Öffnet einen JFileChooser und speichert die Module mit dem {@link org.example.DAO.ModulManagerCSV} als .csv
      * @param p Modulplaner als Parent
      */
     public ExportCSV(Modulplaner p) {

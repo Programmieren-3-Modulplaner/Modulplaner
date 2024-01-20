@@ -10,7 +10,7 @@ import javax.swing.JFileChooser;
 import org.example.DAO.ModulManagerDAO;
 
 /**
- * Klasse für das Exportieren der Modulliste als .dat vom ModulManager von Parent
+ * Klasse für das Exportieren der Modulliste als .dat vom {@link org.example.DAO.ModulManager} von Parent
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Export{
@@ -18,7 +18,7 @@ public class Export{
     private Modulplaner parent;
 
     /**
-     * Öffnet einen JFileChooser und speichert die Module mit dem {@link org.example.DAO.ModulManagerDAO}
+     * Öffnet einen JFileChooser und speichert die Module vom {@link org.example.DAO.ModulManager} mit dem {@link org.example.DAO.ModulManagerDAO}
      * @param p Modulplaner als Parent
      */
     public Export(Modulplaner p) {

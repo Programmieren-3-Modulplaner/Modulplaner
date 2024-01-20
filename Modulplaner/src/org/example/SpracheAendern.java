@@ -13,9 +13,10 @@ import org.example.Listener.SpracheAendernAbrechenButtonActionListener;
 import org.example.Listener.SpracheAendernSpeichernButtonActionListener;
 
 /**
+ * Klasse zum ändern der Sprache des Modulplaners
+ * <p>Listener: {@link org.example.Listener.SpracheAendernAbrechenButtonActionListener} {@link org.example.Listener.SpracheAendernSpeichernButtonActionListener}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
-
 public class SpracheAendern extends JDialog{
     
     private Modulplaner parent;
@@ -23,6 +24,10 @@ public class SpracheAendern extends JDialog{
     private JComboBox sprache;
     private JButton speichern, abbrechen;
     
+    /**
+     * Baut einen JDialog zum ändern der Sprache von Parent
+     * @param p Modulplaner als Parent
+     */
     public SpracheAendern(Modulplaner p){
         super(p,true);
         this.parent = p;

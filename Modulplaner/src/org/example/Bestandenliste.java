@@ -24,7 +24,7 @@ public class Bestandenliste extends JPanel {
     private Modulplaner parent;
     
     /**
-     * Baut ein JPanel mit einer liste von bestandenen Modulen und dem Durchschnitt aus den ModulManager von Parent
+     * Baut ein JPanel mit einer liste von bestandenen Modulen und dem Durchschnitt aus den {@link org.example.DAO.ModulManager} von Parent
      * @param p Modulplaner als Parent
      */
     public Bestandenliste(Modulplaner p) {

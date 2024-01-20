@@ -26,6 +26,7 @@ import org.example.MenuBar.MenuBar;
 
 /**
  * Klasse zum Hinzufügen eines neuen Moduls
+ * <p>Listener: {@link org.example.Listener.NeuAbrechenButtonActionListener} {@link org.example.Listener.NeuSpeichernButtonActionListener}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Neu extends JDialog{
@@ -53,7 +54,6 @@ public class Neu extends JDialog{
     
     /**
      * Baut einen JDialog zum Hinzufügen eines neuen Moduls in den ModulManager von Parent
-     * <p>Listener: {@link org.example.Listener.NeuAbrechenButtonActionListener} {@link org.example.Listener.NeuSpeichernButtonActionListener}
      * @param p Modulplaner als Parent
      */
     public Neu(Modulplaner p) {

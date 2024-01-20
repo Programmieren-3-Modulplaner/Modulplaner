@@ -11,7 +11,7 @@ import org.example.DAO.ModulManager;
 import org.example.DAO.ModulManagerDAO;
 
 /**
- * Klasse für das Importieren (überschreiben) der Modulliste in den ModulManager von Parent als .dat
+ * Klasse für das Importieren (überschreiben) der Modulliste in den {@link org.example.DAO.ModulManager} von Parent als .dat
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Import {
@@ -19,7 +19,8 @@ public class Import {
     private Modulplaner parent;
 
     /**
-     * Öffnet einen JFileChooser und liest die Module mit dem {@link org.example.DAO.ModulManagerCSV} ein
+     * Öffnet einen JFileChooser und liest die Module mit dem {@link org.example.DAO.ModulManagerDAO} in den 
+     * {@link org.example.DAO.ModulManager} von Parent ein
      * @param p Modulplaner als Parent
      */
     public Import(Modulplaner p) {

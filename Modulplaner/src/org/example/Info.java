@@ -26,7 +26,8 @@ import org.example.Listener.InfoLoeschenButtonActionListener;
 import org.example.Listener.InfoSpeichernButtonActionListener;
 
 /**
- * Klasse für die Informationen zu den Modulen und zum bearbeiten der Module
+ * Klasse für die Anzeige der Informationen zu den Modulen und zum bearbeiten der Module
+ * <p>Listener: {@link org.example.Listener.InfoKursURLButtonActionListener} {@link org.example.Listener.InfoLoeschenButtonActionListener} {@link org.example.Listener.InfoSpeichernButtonActionListener}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Info extends JPanel{
@@ -56,7 +57,6 @@ public class Info extends JPanel{
     /**
      * Baut das JPanel für die Modul Info und zum bearbeiten der Module
      * <p>Sollte kein Modul übergeben werden werden die funktionen disabled
-     * <p>Listener: {@link org.example.Listener.InfoKursURLButtonActionListener} {@link org.example.Listener.InfoLoeschenButtonActionListener} {@link org.example.Listener.InfoSpeichernButtonActionListener}
      * @param p Modulplaner als Parent
      * @param iE true wenn ein Modul angezeigt werden soll
      * @param m Das anzuzeigende Modul zum bearbeiten
