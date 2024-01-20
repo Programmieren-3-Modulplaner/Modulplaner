@@ -9,13 +9,18 @@ import javax.swing.JMenuBar;
 import org.example.Modulplaner;
 
 /**
+ * Klasse für die generierung der JMenuBar's
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
-
 public class MenuBar extends JMenuBar{
 
     private Modulplaner parent;
     
+    /**
+     * Baut die ensprechende JMenuBar anhand des Namens
+     * @param name zum alswählen der JMenuBar
+     * @param p Modulplaner als Parent
+     */
     public MenuBar(String name, Modulplaner p) {
         super();
         this.parent = p;

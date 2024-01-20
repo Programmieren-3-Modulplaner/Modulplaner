@@ -8,7 +8,6 @@ import java.io.IOException;
 
 /**
  * Oberklasse für alle Data Access Object Klassen.
- *
  */
 public abstract class DAO {
 

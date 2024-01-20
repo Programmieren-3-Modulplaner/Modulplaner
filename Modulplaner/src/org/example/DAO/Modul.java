@@ -6,6 +6,7 @@
 package org.example.DAO;
 
 /**
+ * Klasse für erstellung / verwaltung eines Moduls
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Modul {
@@ -21,9 +22,15 @@ public class Modul {
     private int[] block = new int[anzahlVeranstaltungen];
     private String[] raum = new String[anzahlVeranstaltungen];
 
+    /**
+     * Konstruktor für die erstellung eines leeren Moduls
+     */
     public Modul() {
     }
 
+    /**
+     * Konstruktor für die erstellung eines und befüllung eines Moduls
+     */
     public Modul(String modulName, String profName, double note, int versuch, String kursURL, boolean belegt, int[] tag, int[] block, String[] raum) {
         this.modulName = modulName;
         this.profName = profName;
@@ -120,24 +127,26 @@ public class Modul {
 
     //------------------------------------------
     
-    public String getRaum(int stag, int sblock) {
-        for (int i = 0; i < this.tag.length; i++) {
-            if (this.tag[i] == stag && this.block[i] == sblock) {
-                return this.raum[i];
-            }
-        }
-        return "";
-    }
-
+    /**
+     * Gibt die anzahl der Veranstaltungen (tag,block,raum) wieder, die pro Modul gespeichert werden
+     * @return Anzahl der Veranstaltungen pro Modul
+     */
     public static int getAnzahlVeranstaltungen() {
         return new Modul().anzahlVeranstaltungen;
     }
 
+    /**
+     * Ersetzt die toString Methode
+     * @return {@literal <}Modulname | Professor{@literal >}
+     */
     @Override
     public String toString() {
         return this.modulName + " | " + this.profName;
     }
 
+    /**
+     * Ausgabe des Moduls auf der Komandozeile
+     */
     public void printTest() {
         System.out.println(this.getModulName());
         System.out.println(this.getProfName());

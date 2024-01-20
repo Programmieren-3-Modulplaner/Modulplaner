@@ -8,10 +8,18 @@ package org.example.DAO;
 import java.util.ArrayList;
 
 /**
+ * Klasse für die verwaltung von {@link org.example.DAO.Modul}en als ArrayList
+ * <p> Die Namen der Module müssen eindeutig sein!
+ * <p> Siehe: {@link org.example.DAO.Modul}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class ModulManager extends ArrayList<Modul> {
 
+    /**
+     * Sucht das entsprechende Modul anhand des Modulnamen
+     * @param name Name des gesuchten Modul
+     * @return Index der ArrayList des Moduls (Nicht gefunden: -1)
+     */
     public int getIndexByName(String name) {
         for (int i = 0; i < this.size(); i++) {
             if (this.get(i).getModulName() == name) {
@@ -21,6 +29,12 @@ public class ModulManager extends ArrayList<Modul> {
         return -1;
     }
 
+    /**
+     * Erstellt ein Array mit den Namen und Räumen der Module die an dem Tag und Block stattfinden
+     * @param tag Tag der suche
+     * @param block Block der suche
+     * @return String Array [modul][0: Name, 1: Raum, 2: Versuch]
+     */
     public String[][] getByTagBlock(int tag, int block) {
         int size = 0;
         for (int i = 0; i < this.size(); i++) {
@@ -46,14 +60,20 @@ public class ModulManager extends ArrayList<Modul> {
         return result;
     }
 
+    /**
+     * Ausgabe aller Module auf der Komandozeile
+     */
     public void printTest() {
-        // Daten für alle ModulManager ausgeben:
         for (org.example.DAO.Modul s : this) {
             s.printTest();
         }
     }
     
-    
+    /**
+     * Sucht alle Module Anahnd des Namens und Professors
+     * @param suchString Zeichenkette die gesucht werden soll
+     * @return Neuer ModulManager mit gefundenen Modulen
+     */
     public ModulManager suchModule(String suchString){
         ModulManager ergebnis = new ModulManager();
         if (suchString == null) {
@@ -70,6 +90,11 @@ public class ModulManager extends ArrayList<Modul> {
         return ergebnis;
     }
     
+    /**
+     * Prüft ob Modul im ModulManager vorhanden ist
+     * @param name Name des Moduls
+     * @return Boolean true / false
+     */
     public boolean nameIstVorhanden(String name){
         for ( Modul s: this){
             if (s.getModulName().equals(name))
@@ -78,6 +103,10 @@ public class ModulManager extends ArrayList<Modul> {
         return false;
     }
     
+    /**
+     * Erstellt eine Liste mit Modulen die eine gültige Note haben
+     * @return String Array mit Modulnamen
+     */
     public String[] bestadeneModule(){
         int size = 0;
         for ( Modul s: this){
@@ -96,6 +125,10 @@ public class ModulManager extends ArrayList<Modul> {
         return ergebnis;
     }
     
+    /**
+     * Errechnet die Durchschnitsnote aller Module mit einer gültigen Note
+     * @return Durchschnit als Double mit zwei nachkommastellen
+     */
     public double durchschnitt(){
         ModulManager ergebnis = new ModulManager();
         for ( Modul s: this){
@@ -108,8 +141,6 @@ public class ModulManager extends ArrayList<Modul> {
             durchschnit = durchschnit + s.getNote();
         }
         durchschnit = durchschnit / ergebnis.size();
-        
-        //return durchschnit;
         
         return Math.round(durchschnit * 100.0) / 100.0;
     }

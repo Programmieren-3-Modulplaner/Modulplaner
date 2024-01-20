@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * Data Access Object für die Klasse Modul.
+ * Data Access Object für die Klasse {@link org.example.DAO.Modul}
  */
 public class MudulDAO extends DAO {
 
@@ -32,7 +32,7 @@ public class MudulDAO extends DAO {
     }
 
     /**
-     * Daten des übergebenen Student-Objekts schreiben. Das Data Access Object
+     * Daten des übergebenen Modul-Objekts schreiben. Das Data Access Object
      * muss dazu zum Schreiben bereit sein.
      *
      * @param obj Referenz auf Modul-Objekt
@@ -63,7 +63,7 @@ public class MudulDAO extends DAO {
     }
 
     /**
-     * Daten des übergebenen Student-Objekts lesen. Das Data Access Objekt muss
+     * Daten des übergebenen Modul-Objekts lesen. Das Data Access Objekt muss
      * dazu zum Lesen bereit sein.
      *
      * @param obj Referenz auf Modul-Objekt

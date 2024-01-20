@@ -8,12 +8,18 @@ import javax.swing.JMenu;
 import org.example.Modulplaner;
 
 /**
+ * Klasse für die generierung der JMenu's
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Menu extends JMenu {
 
     private Modulplaner parent;
 
+     /**
+     * Baut das ensprechende JMenu anhand des Namens
+     * @param name zum alswählen der ensprechenden JMenu
+     * @param p Modulplaner als Parent
+     */
     Menu(String name, Modulplaner p) {
         super(name);
         this.parent = p;

@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.example.Modulplaner;
 
 /**
- * Data Access Object für die Klasse ModulManager.
+ * Data Access Object für die Klasse {@link org.example.DAO.ModulManager}
  */
 public class ModulManagerDAO extends DAO {
     
@@ -13,7 +13,6 @@ public class ModulManagerDAO extends DAO {
     /**
      * Konstruktor um das Data Access Object mit einem Dateinamen zu
      * initialisieren.
-     *
      * @param dateiName Dateiname
      * @param openForWrite true wenn geschrieben werden soll
      */
@@ -22,6 +21,11 @@ public class ModulManagerDAO extends DAO {
         this.parent = p;
     }
 
+    /**
+     * Methode zum schreiben der Module und des Sprachcods in eine Datei
+     * @param obj {@link org.example.DAO.ModulManager} der geschrieben werden soll
+     * @throws IOException 
+     */
     public void write(Object obj) throws IOException {
         if (out != null) {
             out.writeInt(parent.getLanguageInt());
@@ -40,6 +44,11 @@ public class ModulManagerDAO extends DAO {
         }
     }
 
+    /**
+     * Methode zum lesen der Module und des Sprachcods aus einer Datei
+     * @param obj {@link org.example.DAO.ModulManager} in den geschrieben werden soll
+     * @throws IOException 
+     */
     public void read(Object obj) throws IOException {
         if (in != null) {
             

@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import org.example.Modulplaner;
 
 /**
+ * Klasse zum erstellen einer CSV Datei der Klasse {@link org.example.DAO.ModulManager}
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class ModulManagerCSV {
@@ -20,6 +21,12 @@ public class ModulManagerCSV {
     private ModulManager modulManager;
     private String file;
     
+    /**
+     * der Konstruktor Speichert eine CSV Datei mit allen Modulen im ModulManager
+     * @param p Modulplaner als Parent
+     * @param m Modulmanager zum erstellen der CSV
+     * @param f Dateipfad zum speichern der CSV
+     */
     public ModulManagerCSV(Modulplaner p, ModulManager m, String f)
     {
         this.parent = p;
