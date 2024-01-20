@@ -16,13 +16,17 @@ import javax.swing.JScrollPane;
 import org.example.DAO.ModulComparator;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * Klasse für die Liste der Bestandenen Module
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
-
 public class Bestandenliste extends JPanel {
     
     private Modulplaner parent;
     
+    /**
+     * Baut ein JPanel mit einer liste von bestandenen Modulen und dem Durchschnitt aus den ModulManager von Parent
+     * @param p Modulplaner als Parent
+     */
     public Bestandenliste(Modulplaner p) {
         this.parent = p;
         

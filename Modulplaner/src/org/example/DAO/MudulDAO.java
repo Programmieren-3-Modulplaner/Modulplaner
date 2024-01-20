@@ -35,7 +35,7 @@ public class MudulDAO extends DAO {
      * Daten des übergebenen Student-Objekts schreiben. Das Data Access Object
      * muss dazu zum Schreiben bereit sein.
      *
-     * @param s Referenz auf Modul-Objekt
+     * @param obj Referenz auf Modul-Objekt
      * @throws IOException
      */
     public void write(Object obj) throws IOException {
@@ -66,7 +66,7 @@ public class MudulDAO extends DAO {
      * Daten des übergebenen Student-Objekts lesen. Das Data Access Objekt muss
      * dazu zum Lesen bereit sein.
      *
-     * @param s Referenz auf Modul-Objekt
+     * @param obj Referenz auf Modul-Objekt
      * @throws IOException
      */
     public void read(Object obj) throws IOException {

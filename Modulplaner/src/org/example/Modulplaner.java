@@ -16,7 +16,6 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import org.example.DAO.Modul;
 import org.example.DAO.ModulManager;
-import org.example.DAO.ModulManagerCSV;
 import org.example.DAO.ModulManagerDAO;
 import org.example.Listener.WindowEventListener;
 import org.example.MenuBar.MenuBar;
@@ -31,22 +30,28 @@ import org.example.actions.ModulNeuAction;
 import org.example.actions.SpracheAendernAction;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * Haupt Klasse für den Modulplaner
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Modulplaner extends JFrame {
 
     /**
-     * @param args the command line arguments
+     * Enum für die Tage (Config der Tage)
      */
     public enum tage {
         Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag
-        
     };
     private String[] bloecke = {"8:15-9:45", "10:15-11:45", "12:15-13:45", "14:15-15:45", "16:00-17:30", "17:45-19:15", "19:30-20:45"};
     private int maxAnzahlVersuche = 3;
     
+    /**
+     * Programm Actions für die Menubar und Toolbar
+     */
     public Action modulNeuAction, importAction, exportAction, beendenAction, aboutAction, hilfeAction, spracheAendernAction, exportCSVAction;
 
+    /**
+     * Arraylist für die gespeicherten Module
+     */
     public ModulManager modulManager;
     private String dateiName;
 
@@ -62,6 +67,9 @@ public class Modulplaner extends JFrame {
     private int language = -1;
     private String[] availableLanguages = {"de","en","fr","klingonisch"};
     
+    /**
+     * Konstruktor liest die gespeicherten Module und generiert das Hauptfenster
+     */
     public Modulplaner() {
 
         dateiName = new File(System.getProperty("user.home"))+"/Modulplaner.dat";
@@ -114,9 +122,12 @@ public class Modulplaner extends JFrame {
 
     }
 
+    /**
+     * Ruft den Modulplaner() Konstruktor auf und konfiguriert die Menubar für Mac PC's
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
 
-        // Macht es etwas hübscher wenn es auf einem MAC gestartet wird.
         if (System.getProperty("os.name") != null && System.getProperty("os.name").toLowerCase().indexOf("mac") != -1) {
             //System.getProperties().put("apple.laf.useScreenMenuBar", "true");
             System.setProperty("apple.laf.useScreenMenuBar", "true");
@@ -127,8 +138,8 @@ public class Modulplaner extends JFrame {
     /**
      * Setzen der Sprache und abrufen des jeweiligen Sprachenattributs anhand des Keys
      * Mögliche Sprachen sind (de/en/fr/klingonisch)
-     * @param key
-     * @return 
+     * @param key Int wert für die Sprache (Index von private String[] availableLanguages)
+     * @return Übersetzung
      */
     public String sprache(String key){
         Locale currentLocale;
@@ -141,6 +152,10 @@ public class Modulplaner extends JFrame {
         
     }
     
+    /**
+     * Baut den Kursplan neu und ersetzt diesen: {@link org.example.Kursplan}
+     * 
+     */
     public void KursplanAktualisieren() {
         this.remove(kursplan);
         if (kursplanIsVisible == true) {
@@ -150,6 +165,9 @@ public class Modulplaner extends JFrame {
         SwingUtilities.updateComponentTreeUI(this);
     }
 
+    /**
+     * Baut die Kursliste neu und ersetzt diesen: {@link org.example.Kursliste}
+     */
     public void KurslisteAktualisieren() {
         this.remove(kursliste);
         if (kurslisteIsVisible == true) {
@@ -159,6 +177,11 @@ public class Modulplaner extends JFrame {
         SwingUtilities.updateComponentTreeUI(this);
     }
 
+    /**
+     * Baut die Info neu und ersetzt diesen: {@link org.example.Info}
+     * @param isEnable Siehe {@link org.example.Info}
+     * @param modul Siehe {@link org.example.Info}
+     */
     public void InfoAktualisieren(boolean isEnable, Modul modul) {
         this.remove(info);
         if (infoIsVisible == true) {
@@ -168,6 +191,9 @@ public class Modulplaner extends JFrame {
         SwingUtilities.updateComponentTreeUI(this);
     }
 
+    /**
+     * Baut die Bestandenliste neu und ersetzt diesen: {@link org.example.Bestandenliste}
+     */
     public void BestandenlisteAktualisieren() {
         this.remove(bestandenliste);
         if (bestandenlisteIsVisible == true) {
@@ -176,7 +202,13 @@ public class Modulplaner extends JFrame {
         }
         SwingUtilities.updateComponentTreeUI(this);
     }
-    
+ 
+    /**
+     * Baut alle Panels des Modulplaners, sowie die Actions, die Menubar und die Toolbar neu 
+     * <p>{@link org.example.MenuBar}
+     * <p>{@link org.example.actions}
+     * <p>{@link org.example.MenuBar.ToolBar}
+     */
     public void SpracheAktualisieren() {
         
         actionsErstellen();
@@ -198,6 +230,9 @@ public class Modulplaner extends JFrame {
         SwingUtilities.updateComponentTreeUI(this);
     }
     
+    /**
+     * Erstellt (überschreibt) die ModulNeuAction, ImportAction, ExportAction, BeendenAction, AboutAction, HilfeAction, SpracheAendernAction und ExportCSVAction
+     */
     public void actionsErstellen (){
         modulNeuAction = new ModulNeuAction(this, sprache("Neu"), createIcon("/icons/60.gif"), sprache("NeuText"), KeyEvent.VK_N);
         importAction = new ImportAction(this, sprache("Import"), createIcon("/icons/52.gif"), sprache("ImportText"), KeyEvent.VK_I);
@@ -210,6 +245,11 @@ public class Modulplaner extends JFrame {
         
     }
 
+    /**
+     * Erstellt Icons 
+     * @param filePath Speicherort des Icons
+     * @return Icon
+     */
     public ImageIcon createIcon(String filePath) {
         java.net.URL imgURL = getClass().getResource(filePath);
 
@@ -222,7 +262,7 @@ public class Modulplaner extends JFrame {
     }
 
     //-------------------------------
-    
+
     public String getDateiName() {
         return dateiName;
     }
@@ -235,7 +275,7 @@ public class Modulplaner extends JFrame {
         return bloecke;
     }
 
-    public int getMaxAnzahlVersuche() {
+    public int getMaxAnzahlVersucheInt() {
         return maxAnzahlVersuche;
     }
     
@@ -271,6 +311,7 @@ public class Modulplaner extends JFrame {
         return bestandenlisteIsVisible;
     }
     
+    //----------------------------------
     public void setKursplanIsVisible(boolean kursplanIsVisible) {
         this.kursplanIsVisible = kursplanIsVisible;
     }
@@ -287,6 +328,10 @@ public class Modulplaner extends JFrame {
         this.bestandenlisteIsVisible = bestandenlisteIsVisible;
     }
 
+    /**
+     * Setzt die Sprache (language) im Modulplaner sowie das Locale
+     * @param l Int wert für die Sprache (Index von private String[] availableLanguages)
+     */
     public void setLanguage(int l) {
         if (l >= 0 && l < availableLanguages.length) {
             this.language = l;
@@ -298,7 +343,6 @@ public class Modulplaner extends JFrame {
                 case 2 -> Locale.FRANCE;
                 default -> Locale.getDefault();
             }; // Add more cases as needed
-        System.out.println(l);
         Locale.setDefault(newLocale);
         JComponent.setDefaultLocale(newLocale);
         }

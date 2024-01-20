@@ -24,7 +24,7 @@ import org.example.Listener.KurslisteListSelectionListener;
 import org.example.actions.KurslisteModulSuchAction;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Kursliste extends JPanel {
     

@@ -1,5 +1,13 @@
+/*
+ * Copyright 2022 Niels Fricke
+ * <Niels.Fricke@t-online.de>
+ */
+
 package org.example.DAO;
 
+/**
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
+ */
 public class Modul {
 
     private int anzahlVeranstaltungen = 3;

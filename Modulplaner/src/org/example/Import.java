@@ -7,23 +7,27 @@ package org.example;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import org.example.DAO.ModulManager;
 import org.example.DAO.ModulManagerDAO;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * Klasse für das Importieren (überschreiben) der Modulliste in den ModulManager von Parent als .dat
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
-public class Import extends JFrame {
+public class Import {
     
     private Modulplaner parent;
 
+    /**
+     * Öffnet einen JFileChooser und liest die Module mit dem {@link org.example.DAO.ModulManagerCSV} ein
+     * @param p Modulplaner als Parent
+     */
     public Import(Modulplaner p) {
         this.parent = p;
 
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        int result = chooser.showOpenDialog(this);
+        int result = chooser.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = chooser.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());

@@ -11,7 +11,7 @@ import org.example.About;
 import org.example.Modulplaner;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class AboutAction extends AbstractAction {
 

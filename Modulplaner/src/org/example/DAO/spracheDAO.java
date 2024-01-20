@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package org.example.DAO;
 
 import java.io.*;
 
 /**
- * Noch nicht funktionell
- * @author Daniel
+ * @author Daniel Grimm
  */
 public class spracheDAO {
      private static final String FILE_NAME = "config.txt";

@@ -17,7 +17,7 @@ import org.example.Modulplaner;
 import org.example.Neu;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class InfoSpeichernButtonActionListener implements ActionListener {
 

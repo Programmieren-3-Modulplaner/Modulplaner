@@ -10,7 +10,7 @@ import org.example.DAO.Modul;
 import org.example.Modulplaner;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class InfoLoeschenButtonActionListener implements ActionListener {
 
@@ -20,7 +20,6 @@ public class InfoLoeschenButtonActionListener implements ActionListener {
     public InfoLoeschenButtonActionListener(Modulplaner p, Modul oM) {
         this.parent = p;
         this.oldModul = oM;
-       
     }
 
     @Override

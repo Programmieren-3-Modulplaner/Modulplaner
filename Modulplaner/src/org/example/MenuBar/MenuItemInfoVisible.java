@@ -10,7 +10,7 @@ import org.example.Listener.MenuItemInfoItemListner;
 import org.example.Modulplaner;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 
 public class MenuItemInfoVisible extends JCheckBoxMenuItem{

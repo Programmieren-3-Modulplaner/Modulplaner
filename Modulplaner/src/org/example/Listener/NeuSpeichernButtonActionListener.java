@@ -6,7 +6,6 @@ package org.example.Listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collections;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -18,7 +17,7 @@ import org.example.Modulplaner;
 import org.example.Neu;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class NeuSpeichernButtonActionListener implements ActionListener {
 

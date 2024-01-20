@@ -14,7 +14,7 @@ import javax.swing.border.LineBorder;
 import org.example.DAO.ModulComparator;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Kursplan extends JPanel {
     

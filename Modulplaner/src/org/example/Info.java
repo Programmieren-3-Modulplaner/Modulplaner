@@ -26,7 +26,7 @@ import org.example.Listener.InfoLoeschenButtonActionListener;
 import org.example.Listener.InfoSpeichernButtonActionListener;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 
 public class Info extends JPanel{
@@ -79,7 +79,7 @@ public class Info extends JPanel{
         NumberFormatter versuchFormatter = new NumberFormatter(NumberFormat.getInstance());
         versuchFormatter.setValueClass(Integer.class);
         versuchFormatter.setMinimum(1);
-        versuchFormatter.setMaximum(parent.getMaxAnzahlVersuche());
+        versuchFormatter.setMaximum(parent.getMaxAnzahlVersucheInt());
         versuchFormatter.setAllowsInvalid(false);
         versuchTextfeld = new JFormattedTextField(versuchFormatter);
         versuchTextfeld.setValue(1);

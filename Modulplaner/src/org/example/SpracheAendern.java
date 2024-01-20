@@ -13,7 +13,7 @@ import org.example.Listener.SpracheAendernAbrechenButtonActionListener;
 import org.example.Listener.SpracheAendernSpeichernButtonActionListener;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 
 public class SpracheAendern extends JDialog{
@@ -32,7 +32,7 @@ public class SpracheAendern extends JDialog{
         
         String[] sprachenUebersetzt = new String[parent.getAvailableLanguages().length];
         for (int i = 0; i < parent.getAvailableLanguages().length; i ++){
-            sprachenUebersetzt[i] = parent.sprache(parent.getAvailableLanguages()[i]); //Daniel hier Übersetzen mit sprach Funktion von Parent!!!!
+            sprachenUebersetzt[i] = parent.sprache(parent.getAvailableLanguages()[i]);
         }
         sprache = new JComboBox(sprachenUebersetzt);
         sprache.setSelectedIndex(parent.getLanguageInt());

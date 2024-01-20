@@ -25,7 +25,7 @@ import org.example.Listener.NeuSpeichernButtonActionListener;
 import org.example.MenuBar.MenuBar;
 
 /**
- * @author Niels Fricke <Niels.Fricke@t-online.de>
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Neu extends JDialog{
 
@@ -76,7 +76,7 @@ public class Neu extends JDialog{
         NumberFormatter versuchFormatter = new NumberFormatter(NumberFormat.getInstance());
         versuchFormatter.setValueClass(Integer.class);
         versuchFormatter.setMinimum(1);
-        versuchFormatter.setMaximum(parent.getMaxAnzahlVersuche());
+        versuchFormatter.setMaximum(parent.getMaxAnzahlVersucheInt());
         versuchFormatter.setAllowsInvalid(false);
         versuchTextfeld = new JFormattedTextField(versuchFormatter);
         versuchTextfeld.setValue(1);

@@ -1,7 +1,15 @@
+/*
+ * Copyright 2022 Niels Fricke
+ * <Niels.Fricke@t-online.de>
+ */
+
 package org.example.DAO;
 
 import java.util.ArrayList;
 
+/**
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
+ */
 public class ModulManager extends ArrayList<Modul> {
 
     public int getIndexByName(String name) {

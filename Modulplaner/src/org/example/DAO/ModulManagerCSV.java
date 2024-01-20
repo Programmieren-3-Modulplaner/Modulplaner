@@ -1,3 +1,8 @@
+/*
+ * Copyright 2022 Niels Fricke
+ * <Niels.Fricke@t-online.de>
+ */
+
 package org.example.DAO;
 
 import java.io.BufferedWriter;
@@ -6,6 +11,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import org.example.Modulplaner;
 
+/**
+ * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
+ */
 public class ModulManagerCSV {
     
     private Modulplaner parent;
