@@ -7,11 +7,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.swing.JFrame;
 
-
+/**
+ * Klasse für das aufrufen der Hilfeseite
+ */
 public class Hilfe extends JFrame {
     
     private Modulplaner parent;
 
+    /**
+     * Lädt die ensprechende (Sprache) Hilfeseite aus dem .jar, speichert sie als PDF auf der Festplatte und öffnet sie
+     * @param p Modulplaner als Parent
+     */
     public Hilfe(Modulplaner p) {
         this.parent = p;
         
@@ -46,27 +52,6 @@ public class Hilfe extends JFrame {
                 System.out.println(e);
             }
         }
-        
-        /*
-        //Zusammensetzung des Dateipfades
-        File pdfPfad = new File("../src/help/" + pdfFileName);
-        
-        try {
-            //Initzialisierung des Desktop -> so können Actionen des Desktops des Benutzers verwendet werden
-            Desktop desktop = Desktop.getDesktop();
-            
-            //Prüfung ob das System die Methode unterstützt
-            if (desktop != null && desktop.isSupported(Desktop.Action.OPEN)) {
-                
-                //Öffnet den Dateipfad mit dem Standartprogramm des Systems
-                desktop.open(pdfPfad); 
-            } else {
-                JOptionPane.showMessageDialog(parent, "Datei kann nicht geöffnet werden");
-            }
-        }catch (IOException e) {
-            System.out.println(e.getMessage());
-        }*/
-        
     }
 }
 

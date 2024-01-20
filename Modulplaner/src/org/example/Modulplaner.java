@@ -69,6 +69,7 @@ public class Modulplaner extends JFrame {
     
     /**
      * Konstruktor liest die gespeicherten Module und generiert das Hauptfenster
+     * <p>Listener: {@link org.example.Listener.WindowEventListener}
      */
     public Modulplaner() {
 
@@ -154,7 +155,6 @@ public class Modulplaner extends JFrame {
     
     /**
      * Baut den Kursplan neu und ersetzt diesen: {@link org.example.Kursplan}
-     * 
      */
     public void KursplanAktualisieren() {
         this.remove(kursplan);

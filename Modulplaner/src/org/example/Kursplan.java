@@ -14,12 +14,17 @@ import javax.swing.border.LineBorder;
 import org.example.DAO.ModulComparator;
 
 /**
+ * Klasse für die Stundenplananzeige der Module
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Kursplan extends JPanel {
     
     private Modulplaner parent;
 
+    /**
+     * Baut das JPanel für die visuelle anzeige der Module von Parent als Stundenplan
+     * @param p Modulplaner als Parent
+     */
     public Kursplan(Modulplaner p) {
         this.parent = p;
 

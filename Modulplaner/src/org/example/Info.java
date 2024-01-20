@@ -26,9 +26,9 @@ import org.example.Listener.InfoLoeschenButtonActionListener;
 import org.example.Listener.InfoSpeichernButtonActionListener;
 
 /**
+ * Klasse für die Informationen zu den Modulen und zum bearbeiten der Module
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
-
 public class Info extends JPanel{
     private Modulplaner parent;
     private boolean isEnable;
@@ -53,6 +53,14 @@ public class Info extends JPanel{
     private JComboBox[] block = new JComboBox[Modul.getAnzahlVeranstaltungen()];
     private JTextField[] raum = new JTextField[Modul.getAnzahlVeranstaltungen()];
 
+    /**
+     * Baut das JPanel für die Modul Info und zum bearbeiten der Module
+     * <p>Sollte kein Modul übergeben werden werden die funktionen disabled
+     * <p>Listener: {@link org.example.Listener.InfoKursURLButtonActionListener} {@link org.example.Listener.InfoLoeschenButtonActionListener} {@link org.example.Listener.InfoSpeichernButtonActionListener}
+     * @param p Modulplaner als Parent
+     * @param iE true wenn ein Modul angezeigt werden soll
+     * @param m Das anzuzeigende Modul zum bearbeiten
+     */
     public Info(Modulplaner p, boolean iE, Modul m) {
         this.parent = p;
         this.isEnable = iE;
@@ -204,6 +212,10 @@ public class Info extends JPanel{
         }
     }
 
+    /**
+     * Gibt das aktuell angezeigt Modul zurück
+     * @return Modul
+     */
     public Modul getModul() {
         return modul;
     }

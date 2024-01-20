@@ -25,6 +25,7 @@ import org.example.Listener.NeuSpeichernButtonActionListener;
 import org.example.MenuBar.MenuBar;
 
 /**
+ * Klasse zum Hinzufügen eines neuen Moduls
  * @author Niels Fricke {@literal <}Niels.Fricke{@literal @}t-online.de{@literal @}>
  */
 public class Neu extends JDialog{
@@ -50,6 +51,11 @@ public class Neu extends JDialog{
     private JRadioButton nichtBelegen;
     private ButtonGroup radioGroupBelegen;
     
+    /**
+     * Baut einen JDialog zum Hinzufügen eines neuen Moduls in den ModulManager von Parent
+     * <p>Listener: {@link org.example.Listener.NeuAbrechenButtonActionListener} {@link org.example.Listener.NeuSpeichernButtonActionListener}
+     * @param p Modulplaner als Parent
+     */
     public Neu(Modulplaner p) {
         super(p,true);
         this.parent = p;
