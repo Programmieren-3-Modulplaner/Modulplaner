@@ -84,7 +84,7 @@ public class Info extends JPanel{
         versuchTextfeld = new JFormattedTextField(versuchFormatter);
         versuchTextfeld.setValue(1);
         kursURLTextfeld = new JTextField();
-        kursURLButton = new JButton("Kurs URL:");
+        kursURLButton = new JButton(parent.sprache("URL"));
         //kursURLButton.setHorizontalAlignment(SwingConstants.LEFT);
         
         modulNameTextfeld.setEnabled(false);
@@ -117,7 +117,7 @@ public class Info extends JPanel{
         allgemeinPanel.add(profNameTextfeld);
         allgemeinPanel.add(new JLabel(parent.sprache("Note")+":"));
         allgemeinPanel.add(noteTextfeld);
-        allgemeinPanel.add(new JLabel("Versuch:"));
+        allgemeinPanel.add(new JLabel(parent.sprache("Versuch")+":"));
         allgemeinPanel.add(versuchTextfeld);
         allgemeinPanel.add(kursURLButton);
         allgemeinPanel.add(kursURLTextfeld);

@@ -206,7 +206,7 @@ public class Modulplaner extends JFrame {
         aboutAction = new AboutAction(this, sprache("Über"), createIcon("/icons/72.gif"), sprache("ÜberText"), KeyEvent.VK_A);
         hilfeAction = new HilfeAction(this, sprache("Hilfe"), createIcon("/icons/73.gif"), sprache("HilfeText"), KeyEvent.VK_H);
         spracheAendernAction = new SpracheAendernAction(this, sprache("TitelSprache"), createIcon("/icons/48.gif"), sprache("TitelSprache"), KeyEvent.VK_L);
-        exportCSVAction = new ExportCSVAction(this, "ExportCSV", createIcon("/icons/86.gif"), "ExportText", KeyEvent.VK_E);
+        exportCSVAction = new ExportCSVAction(this, sprache("CSV"), createIcon("/icons/86.gif"), sprache("ExportTextCSV"), KeyEvent.VK_E);
         
     }
 
