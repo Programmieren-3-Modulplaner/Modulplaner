@@ -1,7 +1,3 @@
-/*
- * Copyright 2022 Niels Fricke
- * <Niels.Fricke@t-online.de>
- */
 package org.example.Listener;
 
 import java.awt.event.ActionEvent;
