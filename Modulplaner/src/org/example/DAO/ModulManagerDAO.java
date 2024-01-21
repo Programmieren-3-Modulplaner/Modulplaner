@@ -50,10 +50,7 @@ public class ModulManagerDAO extends DAO {
     public void read(Object obj) throws IOException {
         if (in != null) {
             
-            int language = in.readInt();
-            if (parent.getLanguageInt() == -1) {
-                parent.setLanguage(language);
-            }
+            parent.setLanguage(in.readInt());
 
             ModulManager mods = (ModulManager) obj;
 

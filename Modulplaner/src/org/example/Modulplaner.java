@@ -59,7 +59,7 @@ public class Modulplaner extends JFrame {
     private ToolBar toolbar;
 
     private boolean kursplanIsVisible = true, kurslisteIsVisible = true, infoIsVisible = true, bestandenlisteIsVisible = true;
-    private int language = -1;
+    private int language = 0;
     private String[] availableLanguages = {"de","en","fr","klingonisch"};
     
     /**
