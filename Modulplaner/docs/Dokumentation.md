@@ -10,7 +10,7 @@ Vorgelegt von:
 
 |                  |                    |                                           |
 | ---------------  | ------------------ | ----------------------------------------- |
-| Fricke, Niels    | Matr.-Nr.: 6049839 | E-Mail: nils.fricke@student.jade-hs.de    |
+| Fricke, Niels    | Matr.-Nr.: 6049839 | E-Mail: niels.fricke@student.jade-hs.de    |
 | Grimm, Daniel    | Matr.-Nr.: 6050543 | E-Mail: daniel.grimm@student.jade-hs.de   |
 | Maasberg, Tjark  | Matr.-Nr.: 6030213 | E-Mail: tjark.maasberg@student.jade-hs.de |
 |                  |                    |                                           |
