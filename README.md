@@ -16,7 +16,8 @@ Starten Sie das Hauptprogramm, um den Modulplaner zu verwenden.
 # Beitrag
 Wir freuen uns über Beiträge zum Modulplaner_01! Wenn Sie Fehler gefunden haben oder Verbesserungsvorschläge haben, können Sie gerne einen Pull-Request erstellen oder ein Problem in unserem Issue-Tracker eröffnen.
 
-Bitte stellen Sie sicher, dass Sie sich an unseren Contributor Guidelines orientieren.
+Bitte stellen Sie sicher, dass Sie sich an unseren [Contribution 
+Guidelines](CONTRIBUTING.md) orientieren.
 
 # Lizenz
 Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Informationen finden Sie in der Datei LICENSE.
