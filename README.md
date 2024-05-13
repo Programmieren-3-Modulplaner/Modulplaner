@@ -35,4 +35,4 @@ Bitte stellen Sie sicher, dass Sie sich an unseren [Contribution
 Guidelines](CONTRIBUTING.md) orientieren.
 
 # Lizenz
-Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Informationen finden Sie in der Datei LICENSE.
+Dieses Projekt ist unter der [MIT-Lizenz](License) lizenziert. Weitere Informationen finden Sie in der Datei LICENSE.
